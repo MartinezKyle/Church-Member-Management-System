@@ -1,11 +1,7 @@
+const { Timestamp } = require('mongodb');
 var mongoose = require('mongoose');
 
 var AttendanceSchema = new mongoose.Schema({
-    date: {
-        type: String,
-        required: true,
-        unique: true
-    },
     session: {
         type: String,
         required: true
@@ -21,6 +17,11 @@ var AttendanceSchema = new mongoose.Schema({
     lastname: {
         type: String,
         required: true,
+    },
+	date: {
+        type: String,
+        required: true,
+        unique: true
     }
 });
 
