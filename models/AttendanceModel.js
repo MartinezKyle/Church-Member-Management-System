@@ -1,4 +1,3 @@
-const { Timestamp } = require('mongodb');
 var mongoose = require('mongoose');
 
 var AttendanceSchema = new mongoose.Schema({
@@ -19,16 +18,8 @@ var AttendanceSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    middleinitial: {
-        type: String,
-        required: true,
-    },
     lastname: {
         type: String,
-        required: true,
-    },
-    logtime: {
-        type: Date,
         required: true,
     }
 });
