@@ -10,11 +10,12 @@ app.get('/login', controller.loadLogin);
 app.get('/register', controller.loadRegister);
 app.get('/loadMembers', controller.loadMembers);
 app.get('/admin_homepage', controller.loadAdminHP);
+app.get('/attendance', controller.loadAttendance);
 app.get('/deleteMember', memberlist_controller.deleteMember);
 
 //-------- Members Info ---------//
 app.get('/addMembers', controller.addMembers);
-
+app.get('/addAttendance', controller.addAttendance);
 
 //-------- Register Actions ---------//
 app.get('/addUser', controller.getAdd);
