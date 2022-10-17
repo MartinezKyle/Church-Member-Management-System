@@ -1,0 +1,62 @@
+.container {
+    border-radius: 25px;
+    background-color: #989898ce;
+    padding: 25px;
+    width: 350px; /*25%*/
+    height: 550px;
+	margin: 0 auto;
+	margin-top: 25px;
+    text-align: center;
+    box-shadow: 25px;
+}
+
+h1 {
+	font-family: cursive;
+	font-size: 45px;
+	color: white;
+}
+
+h2 {
+	color: white;
+	font-size: 35px;
+}
+
+.text_container {
+	border-bottom: 2px solid white;
+	position: relative;
+	margin: 40px 0;
+}
+
+input {
+	background: none;
+	border: none;
+	width: 100%;
+	outline: none;
+	color: white;
+	height: 25px;
+	font-size: 20px;
+}
+
+#submitBtn {
+    background-color: #7868e6;
+    width: 75%;
+	height: 9.5%;
+	font-size: 20px;
+    color: #edeef7;
+    padding: 15px;
+    margin: 8px 0px;
+	margin-bottom: 30px;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(to top right, #b8b5ff 0%, #7868e6 74%);
+}
+
+span.signup_p {
+	font-size: 25px;
+	color: white;
+}
+
+a.signup_a {
+	font-size: 20px;
+	color: white;
+}

@@ -1,0 +1,28 @@
+.container {
+    border-radius: 25px;
+    background-color: #989898ce;
+    padding: 25px;
+    width: 350px; /*25%*/
+    height: 550px;
+	margin: 0 auto;
+	margin-top: 25px;
+    text-align: center;
+    box-shadow: 25px;
+}
+
+h1 {
+	font-family: cursive;
+	font-size: 45px;
+	color: white;
+}
+
+span {
+	font-family: cursive;
+	font-size: 25px;
+	color: white;
+	margin-top: 10px;
+}
+
+.contents {
+	text-align: left;
+}
