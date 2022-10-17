@@ -79,6 +79,13 @@ const database = {
             console.log('Document deleted: ' + result.deletedCount);
             return callback(true);
         });
+    },
+
+    countDocuments: function(model, filter, callback) {
+        model.countDocuments(filter, function (error, result) {
+            if(error) return callback(false);
+            return callback(result);
+        })
     }
 
 }
