@@ -1,5 +1,6 @@
 const db = require("../models/db.js");
 const User = require("../models/UserModel.js");
+const Attendance = require("../models/AttendanceModel.js");
 
 const controller = {
 	//-----------------------Handlebars Routing----------------------------//
@@ -50,13 +51,16 @@ const controller = {
         res.status(204);
     },
 	
+	loadAttendance: (req, res) =>{
+        res.render("attendance", {
+            title: "Attendance",
+            customCSS: '<link rel="stylesheet" href="CSS/register.css">'
+        });
+    },
+	
 	//-----------------------Post Members Routing------------------------//
     addMembers: function(req, res) {
 		console.log("Hello there2");
-		var query = {postUsername: Username,
-                     postTitle: req.query.postTitle,
-                     desc: req.query.desc,
-                     postPhoto: req.query.postPhoto};
 		db.insertOne(User, query, (data) => {
 			res.render('./partials/members', req.query, (err, html) => {
                 res.send(html);
@@ -85,6 +89,23 @@ const controller = {
     getAdd: function(req, res) {
 		db.insertOne(User, req.query, (data) => {
 			console.log("User Added");
+		});
+    },
+	
+	addAttendance: function(req, res) {
+		console.log("Hello there2");
+		db.findOne(User, { phonenum: req.query.phonenum }, null, (data) => {
+			today = new Date()
+			var query ={
+				phonenum: req.query.phonenum,
+				session: req.query.session,
+				firstname: data.firstname,
+				lastname: data.lastname,
+				date: today
+			};
+			db.insertOne(Attendance, query, (data) => {
+				console.log(data)
+			});
 		});
     },
 
