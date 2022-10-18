@@ -1,16 +1,41 @@
 .container {
-    
+    height: 100vh;
+    padding-bottom: 10vh;
+}
+
+.size {
+    height: 44vh;
+    width: 42vw;
 }
 
 .login-form {
-    /* background-color: black; */
-    /* opacity: 0.75; */
+    background-color: #000000bf;
+    border-radius: 10px;
+    padding: 5% 3% 5% 3%;
+}
+
+h1 {
+    text-align: center;
 }
 
 form {
-    padding: 1%;
+    margin-bottom: 1%;
 }
 
 label {
-    /* color: white; */
+    color: white;
+}
+
+.btn {
+    background-color: black;
+}
+
+.signup_a {
+    color: white;
+    text-decoration: none;
+}
+
+.signup_a:hover {
+    color: white;
+    text-decoration: underline;
 }
