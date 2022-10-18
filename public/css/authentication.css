@@ -14,6 +14,12 @@
     padding: 5% 3% 5% 3%;
 }
 
+.registration-form {
+    background-color: #000000bf;
+    border-radius: 10px;
+    padding: 5% 3% 5% 3%;
+}
+
 h1 {
     text-align: center;
 }
@@ -38,4 +44,15 @@ label {
 .signup_a:hover {
     color: white;
     text-decoration: underline;
+}
+
+/* removing arrows from input tags with type="number" */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
 }
