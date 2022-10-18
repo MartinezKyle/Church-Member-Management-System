@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
@@ -37,13 +36,8 @@
                 <!-- NAVIGATION BAR -->
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                     <div class="container-fluid">
-                        <a class="navbar-brand" href="admin.html">
-                            <!-- TODO: src and alt -->
-                            <img
-                                id="logo"
-                                src="/images/logo.png"
-                                alt="Church"
-                            />
+                        <a class="navbar-brand" href="/loadMembers">
+                            UCCA
                         </a>
 
                         <!-- This button will show up as a burger in smaller screens -->
@@ -65,25 +59,24 @@
                         >
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="members.html"
-                                        >Start a Session</a
-                                    >
+                                    <a
+                                        class="nav-link"
+                                        href="/attendance"
+                                    >Record Attendance</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="members.html"
-                                        >All Sessions</a
-                                    >
+                                    <a class="nav-link" href="/all-sessions">All
+                                        Sessions</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="members.html"
-                                        >Members</a
-                                    >
+                                    <a
+                                        class="nav-link"
+                                        href="/loadMembers"
+                                    >Members</a>
                                 </li>
 
                                 <li class="nav-item ms-auto">
-                                    <a class="nav-link" href="login.html"
-                                        >Logout</a
-                                    >
+                                    <a class="nav-link" href="/login">Logout</a>
                                 </li>
                             </ul>
                         </div>
@@ -113,25 +106,11 @@
                                 <th scope="col"></th>
                             </tr>
                         </thead>
-                        <!-- this is a sample row for reference, but should be deleted before live -->
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <a href="session.html">12/31/2022</a>
-                                </td>
-                                <td>Morning Session</td>
-                                <td class="right-align">
-                                    <button
-                                        type="button"
-                                        id="delete"
-                                        aria-label="delete-button"
-                                    >
-                                        <i class="fa-solid fa-trash"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                        <!-- this is a sample row for reference, but should be deleted before live -->
+                        <div id="sessions">
+                            {{#each data}}
+								{{ > sessionRepoTable date=date session=session sessionid=sessionid  }}
+							{{/each}}
+                        </div>
                     </table>
                 </div>
             </div>

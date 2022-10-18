@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
@@ -31,7 +30,7 @@
 
         <script type="text/javascript" src="/js/members.js"></script>
 
-        <title>Church Name</title>
+        <title>UCCA</title>
     </head>
     <body>
         <div class="container-fluid h-100">
@@ -39,13 +38,8 @@
                 <!-- NAVIGATION BAR -->
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                     <div class="container-fluid">
-                        <a class="navbar-brand" href="admin.html">
-                            <!-- TODO: src and alt -->
-                            <img
-                                id="logo"
-                                alt="Church"
-								src="<sample_image>.jpg"
-                            />
+                        <a class="navbar-brand" href="/loadMembers">
+                            UCCA
                         </a>
 
                         <!-- This button will show up as a burger in smaller screens -->
@@ -67,25 +61,24 @@
                         >
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/attendance"
-                                        >Record Attendance</a
-                                    >
+                                    <a
+                                        class="nav-link"
+                                        href="/attendance"
+                                    >Record Attendance</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/sessions"
-                                        >All Sessions</a
-                                    >
+                                    <a class="nav-link" href="/all-sessions">All
+                                        Sessions</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/members"
-                                        >Members</a
-                                    >
+                                    <a
+                                        class="nav-link"
+                                        href="/loadMembers"
+                                    >Members</a>
                                 </li>
 
                                 <li class="nav-item ms-auto">
-                                    <a class="nav-link" href="/login"
-                                        >Logout</a
-                                    >
+                                    <a class="nav-link" href="/login">Logout</a>
                                 </li>
                             </ul>
                         </div>
@@ -115,10 +108,10 @@
                             </tr>
                         </thead>
                         <div id="members">
-							{{#each data}}
+                            {{#each data}}
 								{{> members lastname=lastname firstname=firstname baptism=baptism phonenum=phonenum}}
 							{{/each}}
-						</div> 
+                        </div>
                     </table>
                 </div>
             </div>
