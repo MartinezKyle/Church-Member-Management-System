@@ -26,10 +26,8 @@
         ></script>
 
         <!-- CSS -->
-        <link rel="stylesheet" href="/css/style.css" />
-        <link rel="stylesheet" href="/css/admin_homepage.css" />
-
-        <script type="text/javascript" src="/js/members.js"></script>
+        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="table.css" />
 
         <title>Church Name</title>
     </head>
@@ -43,8 +41,8 @@
                             <!-- TODO: src and alt -->
                             <img
                                 id="logo"
+                                src="/images/logo.png"
                                 alt="Church"
-								src="<sample_image>.jpg"
                             />
                         </a>
 
@@ -67,23 +65,23 @@
                         >
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/attendance"
-                                        >Record Attendance</a
+                                    <a class="nav-link" href="members.html"
+                                        >Start a Session</a
                                     >
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/sessions"
+                                    <a class="nav-link" href="members.html"
                                         >All Sessions</a
                                     >
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/members"
+                                    <a class="nav-link" href="members.html"
                                         >Members</a
                                     >
                                 </li>
 
                                 <li class="nav-item ms-auto">
-                                    <a class="nav-link" href="/login"
+                                    <a class="nav-link" href="login.html"
                                         >Logout</a
                                     >
                                 </li>
@@ -96,7 +94,7 @@
             <div class="content">
                 <div class="d-flex flex-row justify-content-between">
                     <div>
-                        <p id="navigation">Members</p>
+                        <p id="navigation">Sessions</p>
                     </div>
                     <div>
                         <p id="date">October 12, 2022</p>
@@ -110,15 +108,30 @@
                         </caption>
                         <thead>
                             <tr>
-                                <th scope="col">Name</th>
-                                <th scope="col" colspan="2">Category</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Session Type</th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
-                        <div id="members">
-							{{#each data}}
-								{{> members lastname=lastname firstname=firstname baptism=baptism phonenum=phonenum}}
-							{{/each}}
-						</div> 
+                        <!-- this is a sample row for reference, but should be deleted before live -->
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <a href="session.html">12/31/2022</a>
+                                </td>
+                                <td>Morning Session</td>
+                                <td class="right-align">
+                                    <button
+                                        type="button"
+                                        id="delete"
+                                        aria-label="delete-button"
+                                    >
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <!-- this is a sample row for reference, but should be deleted before live -->
                     </table>
                 </div>
             </div>
