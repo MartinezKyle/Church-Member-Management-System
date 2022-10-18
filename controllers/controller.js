@@ -59,14 +59,7 @@ const controller = {
     },
 	
 	//-----------------------Post Members Routing------------------------//
-    addMembers: function(req, res) {
-		console.log("Hello there2");
-		db.insertOne(User, query, (data) => {
-			res.render('./partials/members', req.query, (err, html) => {
-                res.send(html);
-            });
-		});
-    },
+    
 
 	//-----------------------Register Routing----------------------------//
 	
@@ -86,28 +79,8 @@ const controller = {
     /*
 		Add account in the Database
     */
-    getAdd: function(req, res) {
-		db.insertOne(User, req.query, (data) => {
-			console.log("User Added");
-		});
-    },
 	
-	addAttendance: function(req, res) {
-		console.log("Hello there2");
-		db.findOne(User, { phonenum: req.query.phonenum }, null, (data) => {
-			today = new Date()
-			var query ={
-				phonenum: req.query.phonenum,
-				session: req.query.session,
-				firstname: data.firstname,
-				lastname: data.lastname,
-				date: today
-			};
-			db.insertOne(Attendance, query, (data) => {
-				console.log(data)
-			});
-		});
-    },
+	
 
 	//-----------------------Login Routing----------------------------//
 	/*
