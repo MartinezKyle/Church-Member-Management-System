@@ -57,6 +57,20 @@ const controller = {
             customCSS: '<link rel="stylesheet" href="CSS/register.css">'
         });
     },
+
+    loadSessions: (req, res) => {
+        /*db.findMany(User, {}, null, (data) => {
+			const tempArray = [];
+			if (data.length !== 0){
+				data.forEach(doc => tempArray.push(doc.toObject()));
+			}
+			console.log(tempArray);
+            res.render("admin_homepage", { data: tempArray });
+        });*/
+        res.render("sessions_repo", {
+            title: "Sessions"
+        });
+    },
 	
 	//-----------------------Post Members Routing------------------------//
     

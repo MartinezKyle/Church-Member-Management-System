@@ -87,7 +87,6 @@ const database = {
             return callback(result);
         })
     }
-
-}
+};
 
 module.exports = database;

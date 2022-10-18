@@ -1,0 +1,15 @@
+var mongoose = require('mongoose');
+
+var SessionSchema = new mongoose.Schema({
+    date: {
+        type: String,
+        required: true,
+    },
+    
+    session: {
+        type: String,
+        required: true
+    }
+});
+
+module.exports = mongoose.model('Session', SessionSchema);

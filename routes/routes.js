@@ -14,6 +14,7 @@ app.get('/register', controller.loadRegister);
 app.get('/loadMembers', controller.loadMembers);
 app.get('/admin_homepage', controller.loadAdminHP);
 app.get('/attendance', controller.loadAttendance);
+app.get('/sessions', controller.loadSessions);
 app.get('/deleteMember', memberlist_controller.deleteMember);
 
 //-------- Members Info ---------//
