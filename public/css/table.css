@@ -1,0 +1,24 @@
+.delete {
+    border: none;
+    background-color: transparent;
+}
+
+a {
+    color: black;
+}
+
+a:hover {
+    color: rgb(63, 63, 63);
+}
+
+#space {
+    padding-right: 1%;
+}
+
+.right-align {
+    text-align: right;
+}
+
+.margin-below {
+    margin-bottom: 0.5%;
+}
