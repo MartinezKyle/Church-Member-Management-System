@@ -23,9 +23,6 @@ const sessions_controller = {
     deleteSession: function (req, res) {
         var session = req.query.session;
         var date = new Date(req.query.date);
-        console.log (session);
-        console.log (date);
-        console.log("deleted");
         db.deleteOne (Session, {date: date, session: session}, result => {
             if (result)
                 console.log("deleted");

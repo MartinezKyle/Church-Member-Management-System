@@ -18,9 +18,17 @@ var AttendanceSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    baptism: {
+        type: String,
+        required: true
+    },
 	date: {
         type: Date,
         required: true
+    },
+    logtime: {
+        type: Date,
+        required: true,
     }
 });
 

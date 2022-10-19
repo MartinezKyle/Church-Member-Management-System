@@ -27,7 +27,7 @@
         <!-- CSS -->
         <link rel="stylesheet" href="/css/style.css" />
         <link rel="stylesheet" href="/css/table.css" />
-
+        <script type="text/javascript" src="/js/sessionAttendance.js"></script>
 
         <title>UCCA</title>
     </head>
@@ -62,7 +62,7 @@
                         </thead>
                         <div id="attendees">
                             {{#each data}}
-								{{> sessionTable lastname=lastname firstname=firstname baptism=baptism time=time phonenum=phonenum}}
+								{{> sessionTable lastname=lastname firstname=firstname baptism=baptism time=time phonenum=phonenum ymddate=ymddate session=session}}
 							{{/each}}
                         </div>
                     </table>

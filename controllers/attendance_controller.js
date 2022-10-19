@@ -13,12 +13,23 @@ const attendance_controller = {
                 session: req.query.session,
                 firstname: data.firstname,
                 lastname: data.lastname,
-                date: today
+                baptism: data.baptism,
+                date: today,
+                logtime: day
             };
             console.log(query);
             db.insertOne(Attendance, query, (data) => {
                 console.log(data)
             });
+        });
+    },
+
+    deleteAttendance: function(req, res) {
+        var date = new Date(req.query.date);
+        db.deleteOne(Attendance, {date: date, session: req.query.session, phonenum: req.query.phonenum}, result =>{
+            
+            var url = "/sessionAttendance?date=" + req.query.date + "&session=" + req.query.session
+            res.redirect(url);
         });
     }
 };

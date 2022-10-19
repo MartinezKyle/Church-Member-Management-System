@@ -68,9 +68,18 @@ const controller = {
 			console.log(tempArray);
             res.render("sessions_repo", { data: tempArray });
         });
-        /*res.render("sessions_repo", {
-            title: "Sessions"
-        });*/
+    },
+
+    loadSessionAttendance: (req, res) =>{
+        var date = new Date(req.query.date);
+        db.findMany(Attendance, {date: date, session: req.query.session}, {_id: 0, lastname: 1, firstname:1, baptism: 1, session: 1, ymddate: { $dateToString: {date: "$date", format: "%Y-%m-%d" }}, time: {$dateToString: {date: "$logtime", format: "%H-%M-%S", timezone: "+08:00" }}, phonenum: 1}, (data) => {
+            const tempArray = [];
+			if (data.length !== 0){
+				data.forEach(doc => tempArray.push(doc.toObject()));
+			}
+			console.log(tempArray);
+            res.render("session", { data: tempArray });
+        });
     },
 	
 	//-----------------------Post Members Routing------------------------//
@@ -102,7 +111,7 @@ const controller = {
 		Check if there is an account in the Database.
     */
     CheckLogin: function(req, res){
-        db.findOne(User, { phonenum: req.query.phonenum, password: req.query.password }, null, (data) => {
+        db.findOne(User, { phonenum: req.query.phonenum, password: req.query.password, permission: req.query.permission}, null, (data) => {
 			res.send(data);
 		});
     }
