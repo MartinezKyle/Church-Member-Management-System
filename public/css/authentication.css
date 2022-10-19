@@ -3,6 +3,11 @@
     padding-bottom: 15%;
 }
 
+body {
+    background-image: url("../images/bg-image.jpg");
+    background-size: cover;
+}
+
 .size {
     height: 44vh;
     width: 42vw;
