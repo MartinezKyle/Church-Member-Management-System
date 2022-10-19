@@ -72,7 +72,7 @@ const controller = {
 
     loadSessionAttendance: (req, res) =>{
         var date = new Date(req.query.date);
-        db.findMany(Attendance, {date: date, session: req.query.session}, {_id: 0, lastname: 1, firstname:1, baptism: 1, session: 1, ymddate: { $dateToString: {date: "$date", format: "%Y-%m-%d" }}, time: {$dateToString: {date: "$logtime", format: "%H-%M-%S", timezone: "+08:00" }}, phonenum: 1}, (data) => {
+        db.findMany(Attendance, {date: date, session: req.query.session}, {_id: 0, lastname: 1, firstname:1, baptism: 1, session: 1, ymddate: { $dateToString: {date: "$date", format: "%Y-%m-%d" }}, time: {$dateToString: {date: "$logtime", format: "%H:%M:%S", timezone: "+08:00" }}, phonenum: 1}, (data) => {
             const tempArray = [];
 			if (data.length !== 0){
 				data.forEach(doc => tempArray.push(doc.toObject()));
