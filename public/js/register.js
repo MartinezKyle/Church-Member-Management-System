@@ -24,13 +24,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 }
             });
 			
-			var url = `/addMembers?lastname=${lastname.value}&firstname=${firstname.value}&baptism=${baptism.value}`
+			/*var url = `/addMembers?lastname=${lastname.value}&firstname=${firstname.value}&baptism=${baptism.value}`
 			$.get(url, (data, status, xhr) => {
                 alert(status);
                 if (status == "success") {
                     document.querySelector("#members").innerHTML += data;
                 }
-            });
+            });*/
 			
             var form = document.getElementById("register");
             form.reset();
