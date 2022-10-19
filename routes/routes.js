@@ -16,7 +16,7 @@ app.get('/admin_homepage', controller.loadAdminHP);
 app.get('/attendance', controller.loadAttendance);
 app.get('/sessions', controller.loadSessions);
 app.get('/deleteMember', memberlist_controller.deleteMember);
-
+app.get('/addSession', sessions_controller.findSession);
 //-------- Members Info ---------//
 app.get('/addMembers', register_controller.addMembers);
 app.get('/addAttendance', attendance_controller.addAttendance);

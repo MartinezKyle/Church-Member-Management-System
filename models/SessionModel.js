@@ -1,8 +1,9 @@
 var mongoose = require('mongoose');
+const { Timestamp } = require('mongodb');
 
 var SessionSchema = new mongoose.Schema({
     date: {
-        type: String,
+        type: Date,
         required: true,
     },
     

@@ -5,6 +5,7 @@ const online_url = process.env.ONLINE_URL;
 
 const UserModel = require('./UserModel.js');
 const AttendanceModel = require('./AttendanceModel.js');
+const SessionModel = require('./SessionModel.js');
 
 const options = {
     useUnifiedTopology: true,

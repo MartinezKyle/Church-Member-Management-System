@@ -1,6 +1,7 @@
 const db = require("../models/db.js");
 const User = require("../models/UserModel.js");
 const Attendance = require("../models/AttendanceModel.js");
+const Session = require('../models/SessionModel.js');
 
 const controller = {
 	//-----------------------Handlebars Routing----------------------------//
@@ -59,17 +60,17 @@ const controller = {
     },
 
     loadSessions: (req, res) => {
-        /*db.findMany(User, {}, null, (data) => {
+        db.findMany(Session, {}, null, (data) => {
 			const tempArray = [];
 			if (data.length !== 0){
 				data.forEach(doc => tempArray.push(doc.toObject()));
 			}
 			console.log(tempArray);
-            res.render("admin_homepage", { data: tempArray });
-        });*/
-        res.render("sessions_repo", {
-            title: "Sessions"
+            res.render("sessions_repo", { data: tempArray });
         });
+        /*res.render("sessions_repo", {
+            title: "Sessions"
+        });*/
     },
 	
 	//-----------------------Post Members Routing------------------------//
