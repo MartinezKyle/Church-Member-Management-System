@@ -19,9 +19,8 @@ var AttendanceSchema = new mongoose.Schema({
         required: true,
     },
 	date: {
-        type: String,
-        required: true,
-        unique: true
+        type: Date,
+        required: true
     }
 });
 

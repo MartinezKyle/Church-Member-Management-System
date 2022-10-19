@@ -5,8 +5,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
 		
         if (phonenum.value != "" && session.value != "") {
 			var url = `/addAttendance?phonenum=${phonenum.value}&session=${session.value}`;
-			
 			$.get(url, (data, status, xhr) => {
+                alert(status);
+                if (status == "success") {
+                    console.log("HELLO");
+                }
+            });
+            var url = `/addSession?session=${session.value}`;
+            $.get(url, (data, status, xhr) => {
                 alert(status);
                 if (status == "success") {
                     console.log("HELLO");
