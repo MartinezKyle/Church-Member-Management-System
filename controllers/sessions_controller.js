@@ -9,7 +9,7 @@ const sessions_controller = {
         var day = temptoday.getDate();
         var year = temptoday.getFullYear();
         var session = req.query.session;
-        var today = new Date(year, month, day, 0, 0, 0);
+        var today = new Date(year, month, day, -16, 0, 0);
         console.log("Existing: ");
         db.findOne(Session, {date: today, session: session}, null, (data) => {
             console.log(data);
@@ -23,9 +23,14 @@ const sessions_controller = {
     deleteSession: function (req, res) {
         var session = req.query.session;
         var date = new Date(req.query.date);
+        console.log (session);
+        console.log (date);
         console.log("deleted");
         db.deleteOne (Session, {date: date, session: session}, result => {
-            console.log("deleted");
+            if (result)
+                console.log("deleted");
+            else
+                console.log("fail");
         });
         db.deleteMany (Attendance, {date: date, session: session}, result =>{
             console.log("deleted");

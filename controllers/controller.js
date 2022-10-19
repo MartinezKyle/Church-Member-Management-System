@@ -60,7 +60,7 @@ const controller = {
     },
 
     loadSessions: (req, res) => {
-        db.findMany(Session, {}, null, (data) => {
+        db.findMany(Session, {}, {_id: 0, ymddate: { $dateToString: {date: "$date", format: "%Y-%m-%d" }}, session: 1}, (data) => {
 			const tempArray = [];
 			if (data.length !== 0){
 				data.forEach(doc => tempArray.push(doc.toObject()));
