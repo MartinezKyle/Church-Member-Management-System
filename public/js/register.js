@@ -34,7 +34,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
 		var churchstatus = "For Admin Review";
 		var permission = "user";
 		
-		if (phonenum.value == "" || firstname.value == "" || lastname.value == "" || birthdate.value == "" || address.value == "" || gender.value == "" || baptism.value == "" || password1.value == "" || password2.value == "") {
+		if (phonenum.value == "" || firstname.value == "" || lastname.value == "" || birthdate.value == "" || address.value == "" || gender.value == "" || baptism.value == "Select Baptism Status" || password1.value == "" || password2.value == "") {
+			document.querySelector("#errorText").innerHTML = "";
+			document.querySelector("#errorText").innerHTML += "Fill up all fields.";
+			console.log("error");
+		}
+		else if (baptism.value != "Unbaptized" && (baptismlocation.value == "" || baptismdate.value == "")) {
 			document.querySelector("#errorText").innerHTML = "";
 			document.querySelector("#errorText").innerHTML += "Fill up all fields.";
 			console.log("error");
