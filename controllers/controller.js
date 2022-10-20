@@ -37,8 +37,12 @@ const controller = {
 			if (data.length !== 0){
 				data.forEach(doc => tempArray.push(doc.toObject()));
 			}
-			console.log(tempArray);
-            res.render("admin_homepage", { data: tempArray });
+            db.countDocuments(User, {}, (count) => {
+                console.log(tempArray);
+                console.log(count);
+                res.render("admin_homepage", { data: tempArray, count});
+            });
+			
         });
     },
 	
@@ -65,8 +69,12 @@ const controller = {
 			if (data.length !== 0){
 				data.forEach(doc => tempArray.push(doc.toObject()));
 			}
-			console.log(tempArray);
-            res.render("sessions_repo", { data: tempArray });
+            db.countDocuments(Session, {}, (count) => {
+                console.log(tempArray);
+                console.log(count);
+                res.render("sessions_repo", { data: tempArray, count });
+            });
+            
         });
     },
 
@@ -77,8 +85,11 @@ const controller = {
 			if (data.length !== 0){
 				data.forEach(doc => tempArray.push(doc.toObject()));
 			}
-			console.log(tempArray);
-            res.render("session", { data: tempArray });
+            db.countDocuments(Attendance, {date: date, session: req.query.session}, (count) => {
+                console.log(tempArray);
+                console.log(count);
+                res.render("session", { data: tempArray, count });
+            });
         });
     },
 	
