@@ -19,7 +19,7 @@ const attendance_controller = {
             };
             console.log(query);
             db.insertOne(Attendance, query, (data) => {
-                console.log(data)
+                console.log(data);
             });
         });
     },
