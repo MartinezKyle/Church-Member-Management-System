@@ -1,4 +1,23 @@
 document.addEventListener("DOMContentLoaded", function (event) {
+	$("#phonenum").keyup(function () {
+        var input = this;
+        var url = `/getCheckPhone?q=${input.value}`;
+
+        $.get(url, (data, status, xhr) => {
+            if (status == "success") {
+                if (!data) {
+                    document.querySelector("#errorText").innerHTML = "";
+					input.style.backgroundColor = "#e3e3e3";
+                    document.querySelector("#submit").disabled = false;
+                } else {
+					input.style.backgroundColor = "red";
+                    document.querySelector("#errorText").innerHTML = "Phone Number already in the database";
+                    document.querySelector("#submit").disabled = true;
+                }
+            }
+        });
+    });
+	
 	$("#submit").click(function () {
         var phonenum = document.querySelector("#phonenum");
 		var firstname = document.querySelector("#firstname");
@@ -14,7 +33,23 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 		var churchstatus = "For Admin Review";
 		var permission = "user";
-        if (phonenum.value != "" && firstname.value != "" && lastname.value != "" && birthdate.value != "" && address.value != "" && gender.value != "" && baptism.value != "" && password1.value != "" && password2.value != "" && password2.value == password1.value) {
+		
+		if (phonenum.value == "" || firstname.value == "" || lastname.value == "" || birthdate.value == "" || address.value == "" || gender.value == "" || baptism.value == "" || password1.value == "" || password2.value == "") {
+			document.querySelector("#errorText").innerHTML = "";
+			document.querySelector("#errorText").innerHTML += "Fill up all fields.";
+			console.log("error");
+		}
+		else if (password2.value != password1.value) {
+			document.querySelector("#errorText").innerHTML = "";
+			document.querySelector("#errorText").innerHTML += "Passwords don't match.";
+			console.log("error");
+		}
+		else if (baptism.value == "Unbaptized" && (baptismlocation.value != "" || baptismdate.value != "")) {
+			document.querySelector("#errorText").innerHTML = "";
+			document.querySelector("#errorText").innerHTML += "Unbaptized, therefore baptism location and date should not exist.";
+			console.log("error");
+		}
+        else {
 			var url = `/addUser?phonenum=${phonenum.value}&firstname=${firstname.value}&lastname=${lastname.value}&password=${password1.value}&birthdate=${birthdate.value}&address=${address.value}&gender=${gender.value}&status=For%20Admin%20Review&baptism=${baptism.value}&baptismdate=${baptismdate.value}&baptismlocation=${baptismlocation.value}&permission=user`;
 			
 			$.get(url, (data, status, xhr) => {
@@ -24,22 +59,17 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 }
             });
 			
-			/*var url = `/addMembers?lastname=${lastname.value}&firstname=${firstname.value}&baptism=${baptism.value}`
+			var url = `/addMembers?lastname=${lastname.value}&firstname=${firstname.value}&baptism=${baptism.value}`
 			$.get(url, (data, status, xhr) => {
                 alert(status);
                 if (status == "success") {
                     document.querySelector("#members").innerHTML += data;
                 }
-            });*/
+            });
 			
             var form = document.getElementById("register");
             form.reset();
 			window.location.href = `/login`; 
         }
-		else {
-			document.querySelector("#errorText").innerHTML = "";
-			document.querySelector("#errorText").innerHTML += "Fill up all fields.";
-			console.log("error");
-		}
     });   
 });

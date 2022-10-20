@@ -20,14 +20,19 @@ app.get('/addSession', sessions_controller.findSession);
 app.get('/deleteSession', sessions_controller.deleteSession);
 app.get('/sessionAttendance', controller.loadSessionAttendance);
 app.get('/deleteAttendance', attendance_controller.deleteAttendance);
+
 //-------- Members Info ---------//
-//app.get('/addMembers', register_controller.addMembers);
+app.get('/addMembers', register_controller.addMembers);
 app.get('/addAttendance', attendance_controller.addAttendance);
 
 //-------- Register Actions ---------//
 app.get('/addUser', register_controller.getAdd);
+app.get('/getCheckPhone', register_controller.getCheckPhone);
 
 //-------- Login Checking ----------//
 app.post('/CheckLogin', controller.CheckLogin);
+
+//-------- Attendance Checking ----------//
+app.get('/getCheckAttendance', attendance_controller.getCheckAttendance);
 
 module.exports = app;

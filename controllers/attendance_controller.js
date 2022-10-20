@@ -31,6 +31,14 @@ const attendance_controller = {
             var url = "/sessionAttendance?date=" + req.query.date + "&session=" + req.query.session
             res.redirect(url);
         });
+    },
+	
+    getCheckAttendance: function(req, res) {
+		console.log("Hello2");
+		db.findOne(Attendance, { phonenum: req.query.phonenum, session: req.query.session }, null, (data) => {
+			res.send(data);
+		});
+		
     }
 };
 
