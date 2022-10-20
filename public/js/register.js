@@ -47,10 +47,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
 		var baptismdate = document.querySelector("#baptismaldate");
 		var password1 = document.querySelector("#password1");
 		var password2 = document.querySelector("#password2");
-
+		var today = new Date();
 		var churchstatus = "For Admin Review";
 		var permission = "user";
-		
+
 		if (phonenum.value == "" || firstname.value == "" || lastname.value == "" || birthdate.value == "" || address.value == "" || gender.value == "" || baptism.value == "Select Baptism Status" || password1.value == "" || password2.value == "") {
 			document.querySelector("#errorText").innerHTML = "";
 			document.querySelector("#errorText").innerHTML += "Fill up all fields.";
@@ -70,6 +70,18 @@ document.addEventListener("DOMContentLoaded", function (event) {
 			document.querySelector("#errorText").innerHTML = "";
 			document.querySelector("#errorText").innerHTML += "Unbaptized, therefore baptism location and date should not exist.";
 			console.log("error");
+		}
+		else if (baptism.value != "Unbaptized" && ((new Date(birthdate.value) > today && new Date(baptismdate.value) > today) || new Date(birthdate.value) > new Date(baptismdate.value))){
+			document.querySelector("#errorText").innerHTML = "";
+			document.querySelector("#errorText").innerHTML += "Invalid Birthdate and Baptismal date.";
+		}
+		else if (baptism.value != "Unbaptized" && new Date(baptismdate.value) > today){
+			document.querySelector("#errorText").innerHTML = "";
+			document.querySelector("#errorText").innerHTML += "Invalid Baptismal date.";
+		}
+		else if (new Date(birthdate.value) > today){
+			document.querySelector("#errorText").innerHTML = "";
+			document.querySelector("#errorText").innerHTML += "Invalid Birthdate.";
 		}
         else {
 			var url = `/addUser?phonenum=${phonenum.value}&firstname=${firstname.value}&lastname=${lastname.value}&password=${password1.value}&birthdate=${birthdate.value}&address=${address.value}&gender=${gender.value}&status=For%20Admin%20Review&baptism=${baptism.value}&baptismdate=${baptismdate.value}&baptismlocation=${baptismlocation.value}&permission=user`;

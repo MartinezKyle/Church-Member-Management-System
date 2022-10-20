@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 						}
 					});
 							
-					var url = `/addSession?session=${session.value}`;
+					var url = `/addSession?session=${session}`;
 					$.get(url, (data, status, xhr) => {
 						alert(status);
 						if (status == "success") {
