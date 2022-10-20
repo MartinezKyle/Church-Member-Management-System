@@ -17,6 +17,23 @@ document.addEventListener("DOMContentLoaded", function (event) {
             }
         });
     });
+
+	$("#baptismstatus").change(function () {
+		var baptstat = this;
+
+		if (baptstat.value == "Infant Baptism" || baptstat.value == "Water Baptism"){
+			$("#baptismaldate").prop('disabled', false);
+			$("#baptismallocation").prop('disabled', false);
+			$("#baptismaldate").val(null);
+			$("#baptismallocation").val(null);
+		}
+		else{
+			$("#baptismaldate").prop('disabled', true);
+			$("#baptismallocation").prop('disabled', true);
+			$("#baptismaldate").val(null);
+			$("#baptismallocation").val(null);
+		}
+	});
 	
 	$("#submit").click(function () {
         var phonenum = document.querySelector("#phonenum");

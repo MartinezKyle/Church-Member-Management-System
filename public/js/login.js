@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 }
             });
             var form = document.getElementById("login");
-            form.reset();
+            //form.reset();
         } else {
 			document.getElementById("errorText").innerHTML = "";
 			document.getElementById("errorText").innerHTML += "Enter registered number/password.";
