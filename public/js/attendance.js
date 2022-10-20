@@ -19,28 +19,27 @@ document.addEventListener("DOMContentLoaded", function (event) {
     });
 	
 	$("#submit").click(function () {
-        var phonenum = document.querySelector("#phonenum");
-		var session = document.querySelector("#session");
-		
-		if (phonenum.value == "" || session.value == "Select Session"){
+        var phonenum = document.querySelector("#phonenum").value;
+		var session = document.querySelector("#session").value;
+		console.log(phonenum);
+		console.log(session);
+		if (phonenum == "" || session == "Select Session"){
 			document.querySelector("#errorText").innerHTML = "";
 			document.querySelector("#errorText").innerHTML += "Fill up all fields.";
 			console.log("error");
 		}
         else {
-			var url = `/getCheckAttendance?phonenum=${phonenum.value}&session=${session.value}`;
-			$.get(url, (data, status, xhr) => {
-				// Starting here.
-                if (status == "success") {
-					
-                    var url = `/addAttendance?phonenum=${phonenum.value}&session=${session.value}`;
+			$.get('getCheckAttendance', {phonenum: phonenum, session: session}, function (result) {
+				if (!result){
+					console.log(result);
+					var url = `/addAttendance?phonenum=${phonenum}&session=${session}`;
 					$.get(url, (data, status, xhr) => {
 						alert(status);
 						if (status == "success") {
 							console.log("HELLO");
 						}
 					});
-					
+							
 					var url = `/addSession?session=${session.value}`;
 					$.get(url, (data, status, xhr) => {
 						alert(status);
@@ -48,14 +47,15 @@ document.addEventListener("DOMContentLoaded", function (event) {
 							console.log("HELLO");
 						}
 					});
-					var form = document.getElementById("attendance");
-					form.reset();
-					
-                }
-            });
-			document.querySelector("#errorText").innerHTML = "";
-			document.querySelector("#errorText").innerHTML += "Phone Number is already in the specified Attendance.";
-			console.log("error");
+				}
+				else{
+					document.querySelector("#errorText").innerHTML = "";
+					document.querySelector("#errorText").innerHTML += "Phone Number is already in the specified Attendance.";
+					console.log("error");
+				}
+				var form = document.getElementById("attendance");
+				form.reset();
+			});
         }
     });   
 });
