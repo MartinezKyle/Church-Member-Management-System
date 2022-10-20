@@ -7,7 +7,7 @@ const attendance_controller = {
         console.log("Hello there2");
         db.findOne(User, { phonenum: req.query.phonenum }, null, (data) => {
             day = new Date();
-            today = new Date(day.getFullYear(), day.getMonth(), day.getDate(), -16, 0, 0);
+            today = new Date(day.getFullYear(), day.getMonth(), day.getDate(), +8, 0, 0);
             var query ={
                 phonenum: req.query.phonenum,
                 session: req.query.session,
