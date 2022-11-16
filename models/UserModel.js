@@ -45,10 +45,6 @@ var UserSchema = new mongoose.Schema({
     baptismlocation: {
         type: String,
         required: false,
-    },
-    permission: {
-        type: String,
-        required: true
     }
 });
 

@@ -1,5 +1,6 @@
 const express = require('express');
 const controller = require('../controllers/controller.js');
+const login_controller = require('../controllers/login_controller.js');
 const memberlist_controller = require('../controllers/memberlist_controller.js');
 const attendance_controller = require('../controllers/attendance_controller.js');
 const register_controller = require('../controllers/register_controller.js');
@@ -30,7 +31,7 @@ app.get('/addUser', register_controller.getAdd);
 app.get('/getCheckPhone', register_controller.getCheckPhone);
 
 //-------- Login Checking ----------//
-app.post('/CheckLogin', controller.CheckLogin);
+app.post('/CheckLogin', login_controller.CheckLogin);
 
 //-------- Attendance Checking ----------//
 app.get('/getCheckAttendance', attendance_controller.getCheckAttendance);

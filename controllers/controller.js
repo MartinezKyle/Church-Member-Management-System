@@ -2,7 +2,7 @@ const db = require("../models/db.js");
 const User = require("../models/UserModel.js");
 const Attendance = require("../models/AttendanceModel.js");
 const Session = require('../models/SessionModel.js');
-
+const Admin = require('../models/AdminModel.js');
 const controller = {
 	//-----------------------Handlebars Routing----------------------------//
     redirectHP: (req, res) => {
@@ -121,11 +121,7 @@ const controller = {
 	/*
 		Check if there is an account in the Database.
     */
-    CheckLogin: function(req, res){
-        db.findOne(User, { phonenum: req.query.phonenum, password: req.query.password, permission: req.query.permission}, null, (data) => {
-			res.send(data);
-		});
-    }
+
 };
 
 module.exports = controller;

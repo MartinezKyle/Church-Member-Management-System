@@ -49,7 +49,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
 		var password2 = document.querySelector("#password2");
 		var today = new Date();
 		var churchstatus = "For Admin Review";
-		var permission = "user";
 
 		if (phonenum.value == "" || firstname.value == "" || lastname.value == "" || birthdate.value == "" || address.value == "" || gender.value == "" || baptism.value == "Select Baptism Status" || password1.value == "" || password2.value == "") {
 			document.querySelector("#errorText").innerHTML = "";
@@ -84,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 			document.querySelector("#errorText").innerHTML += "Invalid Birthdate.";
 		}
         else {
-			var url = `/addUser?phonenum=${phonenum.value}&firstname=${firstname.value}&lastname=${lastname.value}&password=${password1.value}&birthdate=${birthdate.value}&address=${address.value}&gender=${gender.value}&status=For%20Admin%20Review&baptism=${baptism.value}&baptismdate=${baptismdate.value}&baptismlocation=${baptismlocation.value}&permission=user`;
+			var url = `/addUser?phonenum=${phonenum.value}&firstname=${firstname.value}&lastname=${lastname.value}&password=${password1.value}&birthdate=${birthdate.value}&address=${address.value}&gender=${gender.value}&status=For%20Admin%20Review&baptism=${baptism.value}&baptismdate=${baptismdate.value}&baptismlocation=${baptismlocation.value}`;
 			
 			$.get(url, (data, status, xhr) => {
                 alert(status);
@@ -93,13 +92,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 }
             });
 			
-			var url = `/addMembers?lastname=${lastname.value}&firstname=${firstname.value}&baptism=${baptism.value}`
+			/*var url = `/addMembers?lastname=${lastname.value}&firstname=${firstname.value}&baptism=${baptism.value}`
 			$.get(url, (data, status, xhr) => {
                 alert(status);
                 if (status == "success") {
                     document.querySelector("#members").innerHTML += data;
                 }
-            });
+            });*/
 			
             var form = document.getElementById("register");
             form.reset();

@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         var pass = document.querySelector('#password');
         		
         if(number.value != "" && pass.value != ""){
-            var url = `/CheckLogin?phonenum=${number.value}&password=${pass.value}&permission=admin`;
+            var url = `/CheckLogin?phonenum=${number.value}&password=${pass.value}`;
             $.post(url, (data, status, xhr) => {
                 if(status == "success"){
                     if(!data){
