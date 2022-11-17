@@ -23,9 +23,16 @@ const controller = {
         });
     },
 
-    loadRegister: (req, res) =>{
+    loadRegister: (req, res) => {
         res.render("register", {
             title: "Register",
+            customCSS: '<link rel="stylesheet" href="CSS/register.css">'
+        });
+    },
+
+    loadRegisterModerator: (req, res) => {
+        res.render("register_moderator", {
+            title: "Register Moderator",
             customCSS: '<link rel="stylesheet" href="CSS/register.css">'
         });
     },

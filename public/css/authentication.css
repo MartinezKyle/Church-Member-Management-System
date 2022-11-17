@@ -4,7 +4,7 @@
 }
 
 body {
-    background-image: url("../images/bg-image.jpg");
+    background-image: url("../images/ucca.jpg");
     background-size: cover;
 }
 
@@ -64,7 +64,6 @@ label {
     opacity: .25;
     margin-left: 2%;
     margin-right: 2%;
-    color: white;
 }
 
 /* removing arrows from input tags with type="number" */

@@ -1,21 +1,19 @@
-<tbody>
-    <tr>
-        <td>
-            <a href="/sessionAttendance?date={{ ymddate }}&session={{ session }}"
-                >{{ ymddate }}</a
-            >
-        </td>
-        <td>{{ session }}</td>
-        <td class="right-align">
-            <button
-                type="button"
-                class="delete"
-                aria-label="delete-button"
-                data-date = {{ ymddate }}
-                data-session = {{ session }}
-            >
-                <i class="fa-solid fa-trash"></i>
-            </button>
-        </td>
-    </tr>
-</tbody>
+<tr>
+    <td>
+        <a href="/sessionAttendance?date={{ ymddate }}&session={{ session }}"
+            >{{ ymddate }}</a
+        >
+    </td>
+    <td>{{ session }}</td>
+    <td class="right-align">
+        <button
+            type="button"
+            class="delete"
+            aria-label="delete-button"
+            data-date = {{ ymddate }}
+            data-session = {{ session }}
+        >
+            <i class="fa-solid fa-trash"></i>
+        </button>
+    </td>
+</tr>

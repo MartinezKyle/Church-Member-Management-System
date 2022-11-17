@@ -1,0 +1,38 @@
+#moderator-registration {
+    width: 40%;
+}
+
+form {
+    margin-bottom: 1%;
+}
+
+.section {
+    width: 100%;
+}
+
+.btn {
+    background-color: black;
+}
+
+.row {
+    margin-bottom: 1rem;
+}
+
+.vr {
+    width: 1px;
+    background-color: currentColor;
+    opacity: .25;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+/* removing arrows from input tags with type="number" */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
