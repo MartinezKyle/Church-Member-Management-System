@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     if(!data){
                         document.getElementById("errorText").innerHTML = "Admin account with this phonenum/password does not exist";
                     } else {
-                        alert("Logged in");
+                        // alert("Logged in");
                         window.location.href = '/loadMembers';
                     }
                 }

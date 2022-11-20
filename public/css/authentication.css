@@ -19,12 +19,6 @@ body {
     padding: 5% 3% 5% 3%;
 }
 
-.registration-form {
-    background-color: #000000bf;
-    border-radius: 10px;
-    padding: 3% 2% 3% 2%;
-}
-
 h1 {
     text-align: center;
 }
@@ -41,38 +35,6 @@ label {
     background-color: black;
 }
 
-.auth-switch {
-    color: white;
-    text-decoration: none;
-}
-
-.auth-switch:hover {
-    color: white;
-    text-decoration: underline;
-}
-
 .row {
     margin-bottom: 1rem;
-}
-
-.vr {
-    display: inline-block;
-    align-self: stretch;
-    width: 1px;
-    min-height: 1em;
-    background-color: currentColor;
-    opacity: .25;
-    margin-left: 2%;
-    margin-right: 2%;
-}
-
-/* removing arrows from input tags with type="number" */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-input[type=number] {
-    -moz-appearance: textfield;
 }

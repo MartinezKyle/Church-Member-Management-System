@@ -14,6 +14,8 @@ app.get('/login', controller.loadLogin);
 app.get('/register', controller.loadRegister);
 app.get('/register-moderator', controller.loadRegisterModerator);
 app.get('/loadMembers', controller.loadMembers);
+app.get('/load_moderators', controller.loadModerators);
+app.get('/profile', controller.loadProfile);
 app.get('/admin_homepage', controller.loadAdminHP);
 app.get('/attendance', controller.loadAttendance);
 app.get('/sessions', controller.loadSessions);

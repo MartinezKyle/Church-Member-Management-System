@@ -26,6 +26,11 @@ form {
     margin-right: 2%;
 }
 
+#trigger-help-modal {
+    border: none;
+    background-color: transparent;
+}
+
 /* removing arrows from input tags with type="number" */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

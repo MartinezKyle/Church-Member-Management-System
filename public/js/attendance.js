@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 					input.style.backgroundColor = "#e3e3e3";
                     document.querySelector("#submit").disabled = false;
                 } else {
-					input.style.backgroundColor = "red";
+					// input.style.backgroundColor = "red";
                     document.querySelector("#errorText").innerHTML = "Phone Number not in the database";
                     document.querySelector("#submit").disabled = true;
                 }

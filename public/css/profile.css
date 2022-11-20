@@ -1,0 +1,40 @@
+.bold {
+    font-weight: bold;
+}
+
+.padding-bot-0 {
+    margin-bottom: 0;
+}
+
+h1 {
+    font-size: 54px;
+    margin-bottom: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #212529;
+}
+
+#baptism {
+    font-size: 29px;
+}
+
+#details {
+    font-size: 20px;
+    margin-bottom: 0;
+}
+
+#delete-user {
+    border: none;
+    background-color: transparent;
+}
+
+hr {
+    width: 100vw;
+}
+
+#w50 {
+    width: 50%;
+}
+

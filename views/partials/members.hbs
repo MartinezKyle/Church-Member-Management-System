@@ -1,6 +1,6 @@
 <tr>
 	<td>
-		<a href="admin_profile.html"
+		<a href="/profile"
 			>{{ lastname }}, {{ firstname }}</a
 		>
 	</td>
@@ -8,9 +8,12 @@
 	<td class="right-align">
 		<button
 			type="button"
-			class="delete"
-			aria-label="delete-button"
-			value = {{ phonenum }}
+			id="trigger-delete-modal"
+			aria-label="trigger-delete-modal"
+			data-bs-toggle="modal"
+			data-bs-target="#delete-modal"
+			data-id = {{ phonenum }}
+			{{!-- value = {{ phonenum }} --}}
 		>
 			<i class="fa-solid fa-trash"></i>
 		</button>

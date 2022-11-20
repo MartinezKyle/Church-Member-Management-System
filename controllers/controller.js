@@ -52,6 +52,20 @@ const controller = {
 			
         });
     },
+
+    loadModerators: (req, res) => {
+        res.render("moderators", {
+            title: "Moderators",
+            customCSS: '<link rel="stylesheet" href="CSS/register.css">'
+        });
+    },
+
+    loadProfile: (req, res) => {
+        res.render("profile", {
+            title: "Profile",
+            customCSS: '<link rel="stylesheet" href="CSS/profile.css">'
+        });
+    },
 	
 	loadAdminHP: (req, res) =>{
         res.render("admin_homepage", {
