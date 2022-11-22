@@ -27,12 +27,15 @@
         <!-- CSS -->
         <link rel="stylesheet" href="/css/style.css" />
         <link rel="stylesheet" href="/css/table.css" />
+
         <script type="text/javascript" src="/js/sessionAttendance.js"></script>
 
         <title>UCCA</title>
     </head>
     <body>
         <div class="container-fluid h-100">
+            {{> modal}}
+
             <div>
                 {{!-- Navigation Bar --}}
                 {{> navbar}}
@@ -41,31 +44,99 @@
             <div class="content">
                 <div class="d-flex flex-row justify-content-between">
                     <div>
-                        <p id="navigation">Members</p>
+                        <p id="navigation"><a href="/sessions">All Sessions</a> / 12-10-2022 Morning Session</p>
                     </div>
                     <div>
                         <p id="date">October 12, 2022</p>
                     </div>
                 </div>
 
-                <div>
-                    <table class="table">
-                        <caption>
-                            COUNT:&ensp;{{ count }}
-                        </caption>
-                        <thead>
-                            <tr>
-                                <th scope="col">Name</th>
-                                <th scope="col">Category</th>
-                                <th scope="col">Time</th>
-                            </tr>
-                        </thead>
-                        <div id="attendees">
-                            {{#each data}}
-								{{> sessionTable lastname=lastname firstname=firstname baptism=baptism time=time phonenum=phonenum ymddate=ymddate session=session}}
-							{{/each}}
-                        </div>
-                    </table>
+                <div class="repository">
+                    <div class="d-flex justify-content-end">
+                        <form class="d-flex" id="search">
+                            <input class="form-control me-2" type="search" placeholder="John Doe" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                    <div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">
+                                        <div class="d-flex align-items-center">
+                                            <div>Name</div>
+                                            <div class="d-flex flex-column">
+                                                <div id="sort-group">
+                                                    <button
+                                                        type="button"
+                                                        id="sort-name-asc"
+                                                        class="fa-button">
+                                                        <i class="fa-solid fa-caret-up fa-2xs"></i>
+                                                    </button>
+                                                </div>
+                                                <div>
+                                                    <button
+                                                        type="button"
+                                                        id="sort-name-desc"
+                                                        class="fa-button">
+                                                        <i class="fa-sharp fa-solid fa-caret-down fa-2xs"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </th>
+                                    <th scope="col">
+                                        Category
+                                        <button
+                                            type="button"
+                                            id="filter-category"
+                                            class="fa-button">
+                                            <i class="fa-sharp fa-solid fa-caret-down fa-2xs"></i>
+                                        </button>
+                                    </th>
+                                    <th scope="col" colspan="2">
+                                        <div class="d-flex align-items-center">
+                                            <div>Time</div>
+                                            <div class="d-flex flex-column">
+                                                <div id="sort-group">
+                                                    <button
+                                                        type="button"
+                                                        id="sort-time-asc"
+                                                        class="fa-button">
+                                                        <i class="fa-solid fa-caret-up fa-2xs"></i>
+                                                    </button>
+                                                </div>
+                                                <div>
+                                                    <button
+                                                        type="button"
+                                                        id="sort-time-desc"
+                                                        class="fa-button">
+                                                        <i class="fa-sharp fa-solid fa-caret-down fa-2xs"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <div id="attendees">
+                                {{#each data}}
+                                    {{> sessionTable lastname=lastname firstname=firstname baptism=baptism time=time phonenum=phonenum ymddate=ymddate session=session}}
+                                {{/each}}
+                            </div>
+                        </table>
+                    </div>
+
+                    <div class="d-flex justify-content-end">
+                        <button type="button" class="btn btn-dark" id="print-attendance">Print Attendance</button>
+                    </div>
+
+                    <div class="d-flex justify-content-center">
+                        {{> pagination }}
+                    </div>
                 </div>
             </div>
         </div>

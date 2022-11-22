@@ -30,7 +30,7 @@ a:hover {
     margin: auto;
 } */
 
-#repository {
+.repository {
     width: 70%;
     margin: auto;
 }
@@ -50,4 +50,8 @@ a:hover {
 
 .page-link:hover {
     color: black;
+}
+
+.pagination {
+    margin-top: 5%;
 }

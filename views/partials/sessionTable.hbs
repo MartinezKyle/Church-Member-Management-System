@@ -1,23 +1,22 @@
-<tbody>
-    <tr>
-        <td>
-            <a href="/session"
-                >{{ lastname }}, {{ firstname }}</a
-            >
-        </td>
-        <td>{{ baptism }}</td>
-        <td>{{ time }}</td>
-        <td class="right-align">
-            <button
-                type="button"
-                class="delete"
-                aria-label="delete-button"
-                data-date = {{ ymddate }}
-                data-session = {{ session }}
-                data-phonenum = {{ phonenum }}
-            >
-                <i class="fa-solid fa-trash"></i>
-            </button>
-        </td>
-    </tr>
-</tbody>
+<tr>
+    <td>
+        <a href="/session"
+            >{{ lastname }}, {{ firstname }}</a
+        >
+    </td>
+    <td>{{ baptism }}</td>
+    <td>{{ time }}</td>
+    <td class="right-align">
+        <button
+            type="button"
+            id="trigger-delete-modal"
+            class="fa-button"
+            aria-label="delete-button"
+            data-date = {{ ymddate }}
+            data-session = {{ session }}
+            data-phonenum = {{ phonenum }}
+        >
+            <i class="fa-solid fa-trash"></i>
+        </button>
+    </td>
+</tr>
