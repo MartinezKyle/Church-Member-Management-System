@@ -20,6 +20,7 @@
         ></script>
 
         <link rel="stylesheet" href="/css/style.css" />
+        <link rel="stylesheet" href="/css/attendance.css" />
         <script type="text/javascript" src="/js/attendance.js"></script>
         <title>Document</title>
     </head>
@@ -38,7 +39,18 @@
                             class="form-control"
                             id="phonenum"
                         />
+                        <p id="errorText"></p>
                     </div>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input
+                            class="form-control"
+                            type="text" id="name"
+                            value="Oscar Wilde"
+                            aria-label="Disabled input example"
+                            disabled readonly>
+                    </div>
+                    
                     <div class="mb-3">
                         <label for="session" class="form-label">Session</label>
                         <select name="session" class="form-select" id="session">
@@ -56,7 +68,6 @@
                         class="btn btn-dark"
                     >Record Attendance</button> --}}
                 </form>
-				<p id="errorText"></p>
                 <button id="submit" class="btn btn-dark">Record Attendance</button>
             </div>
         </div>

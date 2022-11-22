@@ -11,6 +11,14 @@ body {
     height: 100vh;
 }
 
+.h100-per {
+    height: 100%;
+}
+
+.w100 {
+    width: 100%;
+}
+
 .content {
     padding-left: 6%;
     padding-right: 6%;

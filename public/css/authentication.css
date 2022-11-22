@@ -1,78 +1,48 @@
 .container {
     height: 100vh;
-    padding-bottom: 15%;
+    width: 100vw;
+    margin-left: 0;
+    padding-left: 0;
 }
 
 body {
-    background-image: url("../images/ucca.jpg");
+    background-image: url("../images/background-test3.png");
     background-size: cover;
 }
 
-.size {
-    height: 44vh;
-    width: 42vw;
-}
-
 .login-form {
-    background-color: #000000bf;
-    border-radius: 10px;
+    /* min-height: 55vh; */
+    min-width: 27vw;
+    height: 55vh;
+    overflow: hidden;
+    /* background-color: #000000; */
+    background-color: white;
     padding: 5% 3% 5% 3%;
+    margin-left: 15%;
+    border-radius: 10px;
 }
 
-.registration-form {
-    background-color: #000000bf;
-    border-radius: 10px;
-    padding: 3% 2% 3% 2%;
+form {
+    height: 90%;
 }
 
 h1 {
     text-align: center;
-}
-
-form {
-    margin-bottom: 1%;
+    color: black;
+    font-size: 30px;
+    margin-bottom: 7%;
 }
 
 label {
-    color: white;
+    color: black;
 }
 
 .btn {
-    background-color: black;
-}
-
-.auth-switch {
-    color: white;
-    text-decoration: none;
-}
-
-.auth-switch:hover {
-    color: white;
-    text-decoration: underline;
+    /* background-color: #88543a; */
+    background-color: #3E3E32;
+    width: 100%;
 }
 
 .row {
     margin-bottom: 1rem;
-}
-
-.vr {
-    display: inline-block;
-    align-self: stretch;
-    width: 1px;
-    min-height: 1em;
-    background-color: currentColor;
-    opacity: .25;
-    margin-left: 2%;
-    margin-right: 2%;
-}
-
-/* removing arrows from input tags with type="number" */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-input[type=number] {
-    -moz-appearance: textfield;
 }

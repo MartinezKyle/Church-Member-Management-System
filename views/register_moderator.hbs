@@ -49,15 +49,18 @@
                                 <label for="firstname" class="form-label">First Name</label>
                                 <input class="form-control" id="firstname" />
                             </div>
+
                             <div class="col">
                                 <label for="lastname" class="form-label">Last Name</label>
                                 <input class="form-control" id="lastname" />
                             </div>
                         </div>
+
                         <div class="mb-3">
                             <label for="address" class="form-label">Phone Number</label>
                             <input class="form-control" id="phonenum" />
                         </div>
+
                         <div class="mb-3">
                             <label
                                 for="password1"
@@ -65,27 +68,41 @@
                             >Password</label>
                             <input type="password" class="form-control" id="password1" />
                         </div>
+
                         <div class="mb-3">
                             <label for="password2" class="form-label">Repeat
                                 Password</label>
                             <input type="password" class="form-control" id="password2" />
                         </div>
 
-                        <button
-                            type="button"
-                            id="submit"
-                            class="btn btn-dark"
-                        >Register Moderator</button>
+                        <div class="d-flex justify-content-center">
+                            <button
+                                type="button"
+                                id="submit"
+                                class="btn btn-dark"
+                            >Register Moderator
+                            </button>
+                        </div>
                     </form>
+
+                    <div class="strike">
+                        <span>or</span>
+                    </div>
+
+                    <div class="w100 d-flex justify-content-center align-items-center">
+                        <div>
+                            <button type="button" id="bulk-register" class="btn btn-dark">Import Excel File</button>
+                        </div>
+                        
+                        <div>
+                            <button type="button" id="trigger-help-modal">
+                                <i class="fa-regular fa-circle-question"></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
 
-                <div>
-                    <p>or</p>
-                </div>
-
-                <div>
-                    <button type="button" id="bulk-register" class="btn btn-dark">Import Excel File</button>
-                </div>
+                
             </div>
         </div>
 
