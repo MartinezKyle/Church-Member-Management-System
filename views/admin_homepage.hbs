@@ -60,21 +60,54 @@
                             </button>
                         </form>
                     </div>
+
                     <div>
                         <table class="table">
                             <caption>
                                 COUNT:&ensp;{{ count }}
                             </caption>
+
                             <thead>
                                 <tr>
-                                    <th scope="col">Name</th>
-                                    <th scope="col" colspan="2">Category</th>
+                                    <th scope="col">
+                                        <div class="d-flex align-items-center">
+                                            <div>Name</div>
+                                            <div class="d-flex flex-column">
+                                                <div id="sort-group">
+                                                    <button
+                                                        type="button"
+                                                        id="sort-asc"
+                                                        class="fa-button">
+                                                        <i class="fa-solid fa-caret-up fa-2xs"></i>
+                                                    </button>
+                                                </div>
+                                                <div>
+                                                    <button
+                                                        type="button"
+                                                        id="sort-desc"
+                                                        class="fa-button">
+                                                        <i class="fa-sharp fa-solid fa-caret-down fa-2xs"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </th>
+                                    <th scope="col" colspan="2">
+                                        Category
+                                        <button
+                                            type="button"
+                                            id="sort-desc"
+                                            class="fa-button">
+                                            <i class="fa-sharp fa-solid fa-caret-down fa-2xs"></i>
+                                        </button>
+                                        </th>
                                 </tr>
                             </thead>
+
                             <div id="members">
                                 {{#each data}}
-                                                        {{> members lastname=lastname firstname=firstname baptism=baptism phonenum=phonenum}}
-                                                    {{/each}}
+                                    {{> members lastname=lastname firstname=firstname baptism=baptism phonenum=phonenum}}
+                                {{/each}}
                             </div>
                         </table>
                     </div>

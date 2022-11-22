@@ -1,4 +1,4 @@
-#trigger-delete-modal {
+.fa-button {
     border: none;
     background-color: transparent;
 }
@@ -38,6 +38,10 @@ a:hover {
 #search {
     width: 40%;
     margin-bottom: 3%;
+}
+
+#sort-group {
+    height: 10px;
 }
 
 .page-link {
