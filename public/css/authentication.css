@@ -12,18 +12,18 @@ body {
 
 .login-form {
     /* min-height: 55vh; */
-    min-width: 27vw;
-    height: 55vh;
+    min-width: 30vw;
+    height: 70vh;
     overflow: hidden;
     /* background-color: #000000; */
     background-color: white;
     padding: 5% 3% 5% 3%;
-    margin-left: 15%;
+    margin-left: 10%;
     border-radius: 10px;
 }
 
 form {
-    height: 90%;
+    height: 80%;
 }
 
 h1 {
@@ -45,4 +45,12 @@ label {
 
 .row {
     margin-bottom: 1rem;
+}
+
+@media only screen and (min-width: 1400px) {
+    .login-form {
+        min-width: 27vw;
+        height: 50vh;
+        margin-left: 15%;
+    }
 }
