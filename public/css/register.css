@@ -1,5 +1,5 @@
 #moderator-registration {
-    width: 40%;
+    width: 30vw;
 }
 
 form {
@@ -12,6 +12,7 @@ form {
 
 .btn {
     background-color: black;
+    margin-top: 2%;
 }
 
 .row {
@@ -20,10 +21,48 @@ form {
 
 .vr {
     width: 1px;
-    background-color: currentColor;
+    background-color: black;
     opacity: .25;
     margin-left: 2%;
     margin-right: 2%;
+}
+
+.strike {
+    display: block;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap; 
+    width: 100%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.strike > span {
+    position: relative;
+    display: inline-block;
+    /* color: black; */
+    /* opacity: .25; */
+}
+
+.strike > span:before,
+.strike > span:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 100vw;
+    height: 1px;
+    background: black;
+    opacity: .25;
+}
+
+.strike > span:before {
+    right: 100%;
+    margin-right: 15px;
+}
+
+.strike > span:after {
+    left: 100%;
+    margin-left: 15px;
 }
 
 #trigger-help-modal {

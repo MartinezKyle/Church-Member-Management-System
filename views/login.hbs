@@ -26,41 +26,50 @@
     </head>
 
     <body>
-        <div class="container d-flex justify-content-center align-items-center">
-            <div class="size">
+        <div id="bg-image"></div>
+
+        <div class="container d-flex align-items-center">
+            <div class="login-form">
                 <h1>UCCA Member<br>Management System</h1>
-                <div class="login-form">
-                    <form id="login">
-                        <div class="mb-3">
-                            <label for="phonenum" class="form-label">
-                                Phone Number
-                            </label>
-                            <input
-                                type="number"
-                                class="form-control"
-                                id="phonenum"
-                            />
+
+                <form id="login">
+                    <div class="d-flex h100-per flex-column justify-content-between">
+                        <div>
+                            <div class="mb-3">
+                                <label for="phonenum" class="form-label">
+                                    Phone Number
+                                </label>
+                                <input
+                                    type="number"
+                                    class="form-control"
+                                    id="phonenum"
+                                />
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">
+                                    Password
+                                </label>
+                                <input
+                                    type="password"
+                                    class="form-control"
+                                    id="password"
+                                />
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="password" class="form-label">
-                                Password
-                            </label>
-                            <input
-                                type="password"
-                                class="form-control"
-                                id="password"
-                            />
+
+                        <div>
+                            <div>
+                                <button
+                                    type="button"
+                                    id="submit"
+                                    class="btn btn-dark"
+                                    >Login
+                                </button>
+                            </div>
+                            <p id = "errorText"></p>
                         </div>
-						<p id = "errorText"></p>
-                        <button
-                            type="button"
-                            id="submit"
-                            class="btn btn-dark"
-                        >Login</button>
-                    </form>
-                    {{!-- <a href="/register" class="auth-switch">New to church? Sign up
-                        here!</a> --}}
-                </div>
+                    </div>
+                </form>
             </div>
         </div>
 
