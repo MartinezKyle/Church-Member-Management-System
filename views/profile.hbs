@@ -46,21 +46,21 @@
                     <h1><span class="bold">LAST NAME</span>, First Name</h1>
                     <p id="baptism">Baptism Status</p>
                 </div>
-                <div>
+                <div class="d-flex flex-column">
                     <div class="d-flex padding-bot-0">
                         <div>
                             <p id="details">Personal Details</p>
                         </div>
                         <div>
-                            <button type="button" id="delete-user" aria-label="delete-user-button">
+                            <button type="button" id="edit-user" aria-label="delete-user-button">
                                 <i class="fa-solid fa-pencil"></i>
                             </button>
                         </div>
                     </div>
 
-                    <hr/>
+                    <hr>
 
-                    <div id="w50">
+                    <div class="flex-grow-1" id="w50">
                         <table class="table table-borderless table-sm">
                             <tbody>
                                 <tr>
@@ -86,9 +86,15 @@
                             </tbody>
                         </table>
                     </div>
-                </div>
-                <div>
-                    <p id="delete-member">Delete Member</p>
+
+                    <div>
+                        <button
+                            type="button"
+                            id="delete-member">
+                            Delete Member
+                        </button>
+                        {{!-- <p id="delete-member">Delete Member</p> --}}
+                    </div>
                 </div>
             </div>
         </div>

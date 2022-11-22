@@ -3,7 +3,7 @@
     background-color: transparent;
 }
 
-a {
+/* a {
     color: black;
     text-decoration: none;
 }
@@ -11,7 +11,7 @@ a {
 a:hover {
     color: black;
     text-decoration: underline;
-}
+} */
 
 #space {
     padding-right: 1%;
