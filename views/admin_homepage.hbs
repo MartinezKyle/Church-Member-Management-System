@@ -63,10 +63,6 @@
 
                     <div>
                         <table class="table">
-                            <caption>
-                                COUNT:&ensp;{{ count }}
-                            </caption>
-
                             <thead>
                                 <tr>
                                     <th scope="col">
@@ -93,13 +89,27 @@
                                         </div>
                                     </th>
                                     <th scope="col" colspan="2">
-                                        Category
+                                        {{!-- Category
                                         <button
                                             type="button"
                                             id="sort-desc"
                                             class="fa-button">
                                             <i class="fa-sharp fa-solid fa-caret-down fa-2xs"></i>
-                                        </button>
+                                        </button> --}}
+                                        <div class="dropdown">
+                                            <button
+                                                class="dropdown-btn dropdown-toggle"
+                                                type="button"
+                                                data-bs-toggle="dropdown"
+                                                aria-expanded="false">
+                                                Category
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><button class="dropdown-item dropdown-option category" id="filter-unbaptized" type="button">Unbaptized</button></li>
+                                                <li><button class="dropdown-item dropdown-option category" id="filter-infant" type="button">Infant Baptism</button></li>
+                                                <li><button class="dropdown-item dropdown-option dropdown-option-last category" id="filter-water" type="button">Water Baptism</button></li>
+                                            </ul>
+                                        </div>
                                     </th>
                                 </tr>
                             </thead>

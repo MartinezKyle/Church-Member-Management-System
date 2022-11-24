@@ -44,6 +44,39 @@ a:hover {
     height: 10px;
 }
 
+.dropdown-btn {
+    background-color: transparent;
+    border: none;
+    font-weight: bold;
+}
+
+.dropdown-option {
+    margin: 0 0 10px 7px;
+    /* margin-left: 5px; */
+    /* margin-bottom: 5px; */
+}
+
+.dropdown-option-last {
+    margin: 0 0 0 7px;
+}
+
+.category {
+    width: fit-content;
+    padding: 1px 10px 1px 10px;
+    border-radius: 5px;
+    /* For Unbaptized */
+    background-color: rgba(227, 226, 224, 0.5);
+    color: rgb(50, 48, 44);
+
+    /* For Infant Baptism */
+    background-color: rgb(219, 237, 219);
+    color: rgb(28, 56, 41);
+
+    /* For Water Baptism */
+    background-color: rgb(211, 229, 239);
+    color: rgb(24, 51, 71);
+}
+
 .page-link {
     color: black;
 }
