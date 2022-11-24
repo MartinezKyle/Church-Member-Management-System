@@ -9,10 +9,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     document.querySelector("#errorText").innerHTML = "";
 					input.style.backgroundColor = "#e3e3e3";
                     document.querySelector("#submit").disabled = false;
+					document.querySelector("#name").value = data.lastname + ", " + data.firstname;
                 } else {
 					// input.style.backgroundColor = "red";
                     document.querySelector("#errorText").innerHTML = "Phone Number not in the database";
                     document.querySelector("#submit").disabled = true;
+					document.querySelector("#name").value = "";
                 }
             }
         });
@@ -34,27 +36,28 @@ document.addEventListener("DOMContentLoaded", function (event) {
 					console.log(result);
 					var url = `/addAttendance?phonenum=${phonenum}&session=${session}`;
 					$.get(url, (data, status, xhr) => {
-						alert(status);
+						/*alert(status);
 						if (status == "success") {
 							console.log("HELLO");
-						}
+						}*/
 					});
 							
 					var url = `/addSession?session=${session}`;
 					$.get(url, (data, status, xhr) => {
-						alert(status);
+						/*alert(status);
 						if (status == "success") {
 							console.log("HELLO");
-						}
+						}*/
 					});
+					var form = document.getElementById("attendance");
+					form.reset();
+					document.querySelector("#session").value = session;
 				}
 				else{
 					document.querySelector("#errorText").innerHTML = "";
 					document.querySelector("#errorText").innerHTML += "Phone Number is already in the specified Attendance.";
 					console.log("error");
 				}
-				var form = document.getElementById("attendance");
-				form.reset();
 			});
         }
     });   
