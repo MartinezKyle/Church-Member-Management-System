@@ -3,16 +3,6 @@
     background-color: transparent;
 }
 
-/* a {
-    color: black;
-    text-decoration: none;
-}
-
-a:hover {
-    color: black;
-    text-decoration: underline;
-} */
-
 #space {
     padding-right: 1%;
 }
@@ -24,11 +14,6 @@ a:hover {
 .margin-below {
     margin-bottom: 0.5%;
 }
-
-/* .table {
-    width: 60%;
-    margin: auto;
-} */
 
 .repository {
     width: 70%;
@@ -52,15 +37,13 @@ a:hover {
 
 .dropdown-option {
     margin: 0 0 10px 7px;
-    /* margin-left: 5px; */
-    /* margin-bottom: 5px; */
 }
 
 .dropdown-option-last {
     margin: 0 0 0 7px;
 }
 
-.category {
+.category, .category:hover {
     width: fit-content;
     padding: 1px 10px 1px 10px;
     border-radius: 5px;
@@ -75,6 +58,23 @@ a:hover {
     /* For Water Baptism */
     background-color: rgb(211, 229, 239);
     color: rgb(24, 51, 71);
+}
+
+.session-type, .session-type:hover {
+    width: fit-content;
+    padding: 1px 10px 1px 10px;
+    border-radius: 5px;
+    /* For Morning Session */
+    background: rgb(253, 236, 200);
+    color: rgb(64, 44, 27);
+    
+    /* For Afternoon Session */
+    background: rgb(255, 226, 221);
+    color: rgb(93, 23, 21);
+
+    /* For Life's Journey */
+    background: #2C3849;
+    color: #e1f3ff;
 }
 
 .page-link {
