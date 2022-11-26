@@ -44,7 +44,7 @@
             <div class="content">
                 <div class="d-flex flex-row justify-content-between">
                     <div>
-                        <p id="navigation">All Churchgoers</p>
+                        <p id="navigation">All Moderators</p>
                     </div>
                     <div>
                         <p id="date">October 12, 2022</p>
@@ -65,7 +65,7 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">
+                                    <th scope="col" colspan="2">
                                         <div class="d-flex align-items-center">
                                             <div>Name</div>
                                             <div class="d-flex flex-column">
@@ -88,35 +88,12 @@
                                             </div>
                                         </div>
                                     </th>
-                                    <th scope="col" colspan="2">
-                                        {{!-- Category
-                                        <button
-                                            type="button"
-                                            id="sort-desc"
-                                            class="fa-button">
-                                            <i class="fa-sharp fa-solid fa-caret-down fa-2xs"></i>
-                                        </button> --}}
-                                        <div class="dropdown">
-                                            <button
-                                                class="dropdown-btn dropdown-toggle"
-                                                type="button"
-                                                data-bs-toggle="dropdown"
-                                                aria-expanded="false">
-                                                Category
-                                            </button>
-                                            <ul class="dropdown-menu">
-                                                <li><button class="dropdown-item dropdown-option category" id="filter-unbaptized" type="button">Unbaptized</button></li>
-                                                <li><button class="dropdown-item dropdown-option category" id="filter-infant" type="button">Infant Baptism</button></li>
-                                                <li><button class="dropdown-item dropdown-option dropdown-option-last category" id="filter-water" type="button">Water Baptism</button></li>
-                                            </ul>
-                                        </div>
-                                    </th>
                                 </tr>
                             </thead>
 
                             <div id="members">
                                 {{#each data}}
-                                    {{> members lastname=lastname firstname=firstname baptism=baptism phonenum=phonenum}}
+                                    {{> moderator lastname=lastname firstname=firstname phonenum=phonenum}}
                                 {{/each}}
                             </div>
                         </table>

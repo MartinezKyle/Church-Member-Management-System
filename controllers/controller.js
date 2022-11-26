@@ -54,9 +54,9 @@ const controller = {
     },
 
     loadModerators: (req, res) => {
-        res.render("moderators", {
+        res.render("moderators_list", {
             title: "Moderators",
-            customCSS: '<link rel="stylesheet" href="CSS/register.css">'
+            customCSS: '<link rel="stylesheet" href="CSS/table.css">'
         });
     },
 
