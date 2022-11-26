@@ -18,7 +18,6 @@ const register_controller = {
     },
 	
     getCheckPhone: function(req, res) {
-		console.log("Hello2");
 		db.findOne(User, { phonenum: req.query.q }, null, (data) => {
 			res.send(data);
 		});

@@ -100,9 +100,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 }
             });*/
 			
-            var form = document.getElementById("register");
+            var form = document.getElementById("register-churchgoer");
             form.reset();
-			window.location.href = `/login`; 
+			window.location.href = `/register`; 
         }
     });   
 });

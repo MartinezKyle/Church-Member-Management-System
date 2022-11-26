@@ -11,17 +11,17 @@ const sessions_controller = {
         var session = req.query.session;
         var today = new Date(year, month, day, +8, 0, 0);
         db.findOne(Session, {date: today, session: session}, null, (data) => {
-            if (!data){
+            if (data){
+                console.log("Session Exists");
+                console.log(data);
+            }
+            else{
                 db.insertOne(Session, {date: today, session: session}, (data2) => {
                     console.log("Session Added");
                     console.log(data2);
                 });
             }
-            else
-            {
-                console.log("Session Exists");
-                console.log(data);
-            }
+            
         });
     },
     deleteSession: function (req, res) {

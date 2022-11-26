@@ -4,7 +4,6 @@ const Attendance = require("../models/AttendanceModel.js");
 
 const attendance_controller = {
     addAttendance: function(req, res) {
-        console.log("Hello there2");
         db.findOne(User, { phonenum: req.query.phonenum }, null, (data) => {
             day = new Date();
             today = new Date(day.getFullYear(), day.getMonth(), day.getDate(), +8, 0, 0);
@@ -34,7 +33,6 @@ const attendance_controller = {
     },
 	
     getCheckAttendance: function(req, res) {
-		console.log("Hello2");
         day = new Date();
         today = new Date(day.getFullYear(), day.getMonth(), day.getDate(), +8, 0, 0);
 		db.findOne(Attendance, { phonenum: req.query.phonenum, session: req.query.session, date: today }, null, (data) => {

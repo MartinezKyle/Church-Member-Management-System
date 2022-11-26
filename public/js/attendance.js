@@ -1,9 +1,29 @@
 document.addEventListener("DOMContentLoaded", function (event) {
+	selectVal()
+
+	function selectVal(){
+		var selectVal = window.location.search.substring(1).split("=")[1];
+		console.log(selectVal);
+		document.getElementById("session").value=selectVal;
+	}; 
+
 	$("#phonenum").keyup(function () {
         var input = this;
         var url = `/getCheckPhone?q=${input.value}`;
-
-        $.get(url, (data, status, xhr) => {
+		$.get('getCheckPhone', {q: input.value}, function (result) {
+			if (!result){
+				document.querySelector("#errorText").innerHTML = "Phone Number not in the database";
+                document.querySelector("#submit").disabled = true;
+				document.querySelector("#name").value = "";
+			}
+			else{
+				document.querySelector("#errorText").innerHTML = "";
+				input.style.backgroundColor = "#e3e3e3";
+                document.querySelector("#submit").disabled = false;
+				document.querySelector("#name").value = result.lastname + ", " + result.firstname;
+			}
+		});
+        /*$.get(url, (data, status, xhr) => {
             if (status == "success") {
                 if (data) {
                     document.querySelector("#errorText").innerHTML = "";
@@ -17,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 					document.querySelector("#name").value = "";
                 }
             }
-        });
+        });*/
     });
 	
 	$("#submit").click(function () {
@@ -34,24 +54,16 @@ document.addEventListener("DOMContentLoaded", function (event) {
 			$.get('getCheckAttendance', {phonenum: phonenum, session: session}, function (result) {
 				if (!result){
 					console.log(result);
-					var url = `/addAttendance?phonenum=${phonenum}&session=${session}`;
-					$.get(url, (data, status, xhr) => {
-						/*alert(status);
-						if (status == "success") {
-							console.log("HELLO");
-						}*/
-					});
-							
-					var url = `/addSession?session=${session}`;
-					$.get(url, (data, status, xhr) => {
-						/*alert(status);
-						if (status == "success") {
-							console.log("HELLO");
-						}*/
-					});
+					/*var url = `/addAttendance?phonenum=${phonenum}&session=${session}`;
+					$.get(url, (data, status, xhr) => {})*/
+					$.get('addAttendance', {phonenum: phonenum, session: session})
+					$.get('addSession', {session: session})							
+					/*var url = `/addSession?session=${session}`;
+					$.get(url, (data, status, xhr) => {})*/
 					var form = document.getElementById("attendance");
 					form.reset();
-					document.querySelector("#session").value = session;
+					document.querySelector("#errorText").innerHTML = "";
+					window.location.href = `/attendance?session=${session}`;
 				}
 				else{
 					document.querySelector("#errorText").innerHTML = "";
