@@ -3,7 +3,7 @@ const controller = require('../controllers/controller.js');
 const login_controller = require('../controllers/login_controller.js');
 const memberlist_controller = require('../controllers/memberlist_controller.js');
 const attendance_controller = require('../controllers/attendance_controller.js');
-const register_controller = require('../controllers/register_controller.js');
+const register_churchgoer_controller = require('../controllers/register_churchgoer_controller.js');
 const sessions_controller = require('../controllers/sessions_controller.js');
 const app = express.Router();
 
@@ -26,12 +26,12 @@ app.get('/sessionAttendance', controller.loadSessionAttendance);
 app.get('/deleteAttendance', attendance_controller.deleteAttendance);
 
 //-------- Members Info ---------//
-app.get('/addMembers', register_controller.addMembers);
+app.get('/addMembers', register_churchgoer_controller.addMembers);
 app.get('/addAttendance', attendance_controller.addAttendance);
 
 //-------- Register Actions ---------//
-app.get('/addUser', register_controller.getAdd);
-app.get('/getCheckPhone', register_controller.getCheckPhone);
+app.get('/addUser', register_churchgoer_controller.getAdd);
+app.get('/getCheckPhone', register_churchgoer_controller.getCheckPhone);
 
 //-------- Login Checking ----------//
 app.post('/CheckLogin', login_controller.CheckLogin);
