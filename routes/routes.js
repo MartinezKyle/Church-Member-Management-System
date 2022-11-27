@@ -31,6 +31,7 @@ app.get('/addAttendance', attendance_controller.addAttendance);
 
 //-------- Register Actions ---------//
 app.get('/addUser', register_churchgoer_controller.getAdd);
+app.post('/addMultipleCG', register_churchgoer_controller.addMultiple);
 app.get('/getCheckPhone', register_churchgoer_controller.getCheckPhone);
 
 //-------- Login Checking ----------//

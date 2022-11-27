@@ -1,5 +1,6 @@
 const db = require("../models/db.js");
 const User = require("../models/UserModel.js");
+const converter = require('csvtojson');
 
 const register_churchgoer_controller = {
     addMembers: function(req, res) {
@@ -21,6 +22,19 @@ const register_churchgoer_controller = {
 			res.send(data);
 		});
 		
+    },
+
+    addMultiple: function(req, res) {
+        if (!req.files) {
+            return res.status(400).send("No files were uploaded.");
+        }
+        var files = req.files.csv;
+        console.log(files.name);
+        console.log(typeof(files));
+
+        /*db.insertMany(User, req.query.docs, (result) =>{
+            console.log(result);
+        });*/
     }
 };
 module.exports = register_churchgoer_controller;

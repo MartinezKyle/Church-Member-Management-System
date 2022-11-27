@@ -1,3 +1,5 @@
+//const csv_to_json = require("./csv_to_json.js")
+
 document.addEventListener("DOMContentLoaded", function (event) {
 	$("#phonenum").keyup(function () {
         var input = this;
@@ -35,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 		}
 	});
 	
-	$("#submit").click(function () {
+	$("#submit-single").click(function () {
         var phonenum = document.querySelector("#phonenum");
 		var firstname = document.querySelector("#firstname");
 		var lastname = document.querySelector("#lastname");
@@ -104,5 +106,74 @@ document.addEventListener("DOMContentLoaded", function (event) {
             form.reset();
 			window.location.href = `/register`; 
         }
-    });   
+    });
+	$("#register-multiple-churchgoer").submit(function() {
+		var fileList = document.querySelector("#csv").files;
+		if (fileList.length==0){
+			console.log("Please choose a file");
+			alert("Please choose a file");
+			return false;
+		}
+		else{
+			var filename = fileList[0].name;
+       		var ext = filename.substring(filename.lastIndexOf(".")).toLowerCase();
+			if (ext == ".csv") {
+				return true;
+			}
+			else{
+				console.log("Please choose a valid csv file");
+				alert("Please choose a valid csv file");
+				return false;
+			}
+		}
+	});  
 });
+
+/*
+			var jsonData= [];
+				try {
+					var reader = new FileReader();
+					reader.readAsBinaryString(files[0]);
+					reader.onload = function(e) {
+						var headers = [];
+						var rows = e.target.result.split("\n");
+						console.log(rows.length);
+						for (var i = 0; i < rows.length; i++) {
+							console.log("hello " + i);
+							var cells = rows[i].split(",");
+							var rowData = {};
+							for(var j=0;j<cells.length;j++){
+								if(i==0){
+									var headerName = cells[j].trim();
+									headers.push(headerName);
+								}
+								else{
+									var key = headers[j];
+									if(key){
+										rowData[key] = cells[j].trim();
+									}
+								}
+							}
+							if(i!=0){
+								jsonData.push(rowData);
+							}
+						}
+						console.log("done hello");
+						console.log(jsonData);
+						var docs =  JSON.stringify(jsonData, null, 0);
+						console.log(strtr(base64_encode(JSON.stringify(jsonData, null, 0)), '+/=', '._-'));
+						console.log("/addMultipleCG?docs=" + docs);
+						$.post("addMultipleCG", {docs: docs}, 'json', function(result) {
+							console.log(result);
+						});
+					}
+				}
+				catch(e){
+					console.log("done catch");
+					console.error(e);
+				}
+			}	
+			else{
+				console.log("Please choose a valid .csv file");
+			}
+*/

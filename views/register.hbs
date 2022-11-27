@@ -24,6 +24,7 @@
             crossorigin="anonymous"
         ></script>
         <script type="text/javascript" src="/js/register_churchgoer.js"></script>
+        <script type="text/javascript" src="/js/csv_to_json.js"></script>
 
         <!-- CSS -->
         <link rel="stylesheet" href="/css/style.css" />
@@ -148,7 +149,7 @@
                         <div class="d-flex justify-content-center">
                             <button
                                 type="button"
-                                id="submit"
+                                id="submit-single"
                                 class="btn btn-dark"
                                 >Register Churchgoer
                             </button>
@@ -162,9 +163,12 @@
                 </div>
 
                 <div class="w100 d-flex justify-content-center align-items-center">
-                    <div>
-                        <button type="button" id="bulk-register" class="btn btn-dark">Import Excel File</button>
-                    </div>
+                    <form id="register-multiple-churchgoer" action="/addMultipleCG" method="post" enctype="multipart/form-data">
+                        <label for="csv-input" class="btn btn-dark">
+                            <input type="file" accept = ".csv" name="csv" id="csv" hidden> Choose .csv File
+                        </label>
+                        <button type="submit" id="submit-bulk" class="btn btn-dark">Import</button>
+                    </form>
                     <div>
                         <button type="button" id="trigger-help-modal">
                             <i class="fa-regular fa-circle-question"></i>
