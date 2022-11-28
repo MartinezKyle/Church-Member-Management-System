@@ -85,6 +85,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
 			document.querySelector("#errorText").innerHTML += "Invalid Birthdate.";
 		}
         else {
+			if(baptismlocation.value == ""){
+				baptismlocation.value = null
+			};
+			if(baptismdate.value == ""){
+				baptismdate.value = null;
+			}
 			var url = `/addUser?phonenum=${phonenum.value}&firstname=${firstname.value}&lastname=${lastname.value}&password=${password1.value}&birthdate=${birthdate.value}&address=${address.value}&gender=${gender.value}&status=For%20Admin%20Review&baptism=${baptism.value}&baptismdate=${baptismdate.value}&baptismlocation=${baptismlocation.value}`;
 			
 			$.get(url, (data, status, xhr) => {
@@ -94,52 +100,47 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 }
             });
 			
-			/*var url = `/addMembers?lastname=${lastname.value}&firstname=${firstname.value}&baptism=${baptism.value}`
-			$.get(url, (data, status, xhr) => {
-                alert(status);
-                if (status == "success") {
-                    document.querySelector("#members").innerHTML += data;
-                }
-            });*/
-			
             var form = document.getElementById("register-churchgoer");
             form.reset();
 			window.location.href = `/register`; 
         }
     });
-	$("#register-multiple-churchgoer").submit(function() {
+
+	/*$("#csvlabel").click(function(){
+		$("#csv").click();
+	});*/
+
+	$("#csv").change(function() {
+		var fileList = $("#csv").prop('files');
+		console.log("Hello: " + fileList[0].name);
+		if (fileList.length==0){
+			document.querySelector("#csvlabel").innerHTML = "";
+			document.querySelector("#csvlabel").innerHTML += 'Choose a .csv File';
+		}
+		else{
+			document.querySelector("#csvlabel").innerHTML = "";
+			document.querySelector("#csvlabel").innerHTML = fileList[0].name + "(Click again to choose another .csv file)";
+		}
+	});
+
+	$("#submit-bulk").click(function() {
 		var fileList = document.querySelector("#csv").files;
 		if (fileList.length==0){
 			console.log("Please choose a file");
 			alert("Please choose a file");
-			return false;
 		}
 		else{
 			var filename = fileList[0].name;
        		var ext = filename.substring(filename.lastIndexOf(".")).toLowerCase();
 			if (ext == ".csv") {
-				return true;
-			}
-			else{
-				console.log("Please choose a valid csv file");
-				alert("Please choose a valid csv file");
-				return false;
-			}
-		}
-	});  
-});
-
-/*
-			var jsonData= [];
+				var jsonData= [];
 				try {
 					var reader = new FileReader();
-					reader.readAsBinaryString(files[0]);
+					reader.readAsBinaryString(fileList[0]);
 					reader.onload = function(e) {
 						var headers = [];
 						var rows = e.target.result.split("\n");
-						console.log(rows.length);
 						for (var i = 0; i < rows.length; i++) {
-							console.log("hello " + i);
 							var cells = rows[i].split(",");
 							var rowData = {};
 							for(var j=0;j<cells.length;j++){
@@ -149,8 +150,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
 								}
 								else{
 									var key = headers[j];
+									var value = cells[j].trim();
+									if (value == 'null' || value == ''){
+										value = null;
+									}
 									if(key){
-										rowData[key] = cells[j].trim();
+										rowData[key] = value;
 									}
 								}
 							}
@@ -158,13 +163,15 @@ document.addEventListener("DOMContentLoaded", function (event) {
 								jsonData.push(rowData);
 							}
 						}
-						console.log("done hello");
-						console.log(jsonData);
+						//console.log(jsonData);
 						var docs =  JSON.stringify(jsonData, null, 0);
-						console.log(strtr(base64_encode(JSON.stringify(jsonData, null, 0)), '+/=', '._-'));
 						console.log("/addMultipleCG?docs=" + docs);
-						$.post("addMultipleCG", {docs: docs}, 'json', function(result) {
-							console.log(result);
+						$.ajax({
+							url: "/addMultipleCG",
+							type: "POST",
+							data: JSON.stringify(jsonData, null, 0),
+							processData: false,
+							contentType: "application/json; charset=UTF-8",
 						});
 					}
 				}
@@ -172,8 +179,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
 					console.log("done catch");
 					console.error(e);
 				}
-			}	
-			else{
-				console.log("Please choose a valid .csv file");
 			}
-*/
+			else{
+				console.log("Please choose a valid csv file");
+				alert("Please choose a valid csv file");
+			}
+		}
+	});  
+});
+

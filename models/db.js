@@ -29,8 +29,8 @@ const database = {
     },
 
     insertMany: function(model, docs, callback) {
-        model.insertMany(docs, function(error, result) {
-            if(error) return callback(false);
+        model.insertMany(docs, {ordered: false}, function(error, result) {
+            if(error) return callback(error);
             console.log('Added ' + result);
             return callback(true);
         });
