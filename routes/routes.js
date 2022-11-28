@@ -11,7 +11,7 @@ const app = express.Router();
 app.get('/', controller.getIndex);
 app.get('/getIndex', controller.getIndex);
 app.get('/login', controller.loadLogin);
-app.get('/register', controller.loadRegister);
+app.get('/register-churchgoer', controller.loadRegisterChurchgoer);
 app.get('/register-moderator', controller.loadRegisterModerator);
 app.get('/loadMembers', controller.loadMembers);
 app.get('/load_moderators', controller.loadModerators);

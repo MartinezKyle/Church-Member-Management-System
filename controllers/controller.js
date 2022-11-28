@@ -23,8 +23,8 @@ const controller = {
         });
     },
 
-    loadRegister: (req, res) => {
-        res.render("register", {
+    loadRegisterChurchgoer: (req, res) => {
+        res.render("register_churchgoer", {
             title: "Register",
             customCSS: '<link rel="stylesheet" href="CSS/register.css">'
         });
