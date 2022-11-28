@@ -23,6 +23,7 @@
             integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
             crossorigin="anonymous"
         ></script>
+        <script type="text/javascript" src="/js/register_admin.js"></script>
 
         <!-- CSS -->
         <link rel="stylesheet" href="/css/style.css" />
@@ -78,11 +79,12 @@
                         <div class="d-flex justify-content-center">
                             <button
                                 type="button"
-                                id="submit"
+                                id="submit-single"
                                 class="btn btn-dark"
                             >Register Moderator
                             </button>
                         </div>
+                        <p id = "errorText"></p>
                     </form>
 
                     <div class="strike">
@@ -91,8 +93,12 @@
 
                     <div class="w100 d-flex justify-content-center align-items-center">
                         <div>
-                            <button type="button" id="bulk-register" class="btn btn-dark">Import Excel File</button>
-                        </div>
+                        <label for="csv" id = "csvlabel" class="btn btn-dark">
+                            Choose a .csv File
+                        </label>
+                        <input type="file" accept = ".csv" name="csv" id="csv" hidden>
+                        <button type="button" id="submit-bulk" class="btn btn-dark">Import</button>
+                    </div>
                         
                         <div>
                             <button type="button" id="trigger-help-modal">

@@ -5,6 +5,7 @@ const memberlist_controller = require('../controllers/memberlist_controller.js')
 const attendance_controller = require('../controllers/attendance_controller.js');
 const register_churchgoer_controller = require('../controllers/register_churchgoer_controller.js');
 const sessions_controller = require('../controllers/sessions_controller.js');
+const register_admin_controller = require('../controllers/register_admin_controller.js')
 const app = express.Router();
 
 //-------- Webpages ----------//
@@ -33,6 +34,9 @@ app.get('/addAttendance', attendance_controller.addAttendance);
 app.get('/addUser', register_churchgoer_controller.getAdd);
 app.post('/addMultipleCG', register_churchgoer_controller.addMultiple);
 app.get('/getCheckPhone', register_churchgoer_controller.getCheckPhone);
+app.get('/addMod', register_admin_controller.getAdd);
+app.post('/addMultipleMod', register_admin_controller.addMultiple);
+app.get('/getCheckPhoneMod', register_admin_controller.getCheckPhone);
 
 //-------- Login Checking ----------//
 app.post('/CheckLogin', login_controller.CheckLogin);

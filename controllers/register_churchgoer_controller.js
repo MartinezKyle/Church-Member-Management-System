@@ -1,6 +1,5 @@
 const db = require("../models/db.js");
 const User = require("../models/UserModel.js");
-const converter = require('csvtojson');
 
 const register_churchgoer_controller = {
     addMembers: function(req, res) {

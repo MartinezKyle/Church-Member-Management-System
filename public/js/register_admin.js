@@ -3,7 +3,7 @@
 document.addEventListener("DOMContentLoaded", function (event) {
 	$("#phonenum").keyup(function () {
         var input = this;
-        var url = `/getCheckPhone?q=${input.value}`;
+        var url = `/getCheckPhoneMod?q=${input.value}`;
 
         $.get(url, (data, status, xhr) => {
             if (status == "success") {
@@ -19,45 +19,15 @@ document.addEventListener("DOMContentLoaded", function (event) {
             }
         });
     });
-
-	$("#baptismstatus").change(function () {
-		var baptstat = this;
-
-		if (baptstat.value == "Infant Baptism" || baptstat.value == "Water Baptism"){
-			$("#baptismaldate").prop('disabled', false);
-			$("#baptismallocation").prop('disabled', false);
-			$("#baptismaldate").val(null);
-			$("#baptismallocation").val(null);
-		}
-		else{
-			$("#baptismaldate").prop('disabled', true);
-			$("#baptismallocation").prop('disabled', true);
-			$("#baptismaldate").val(null);
-			$("#baptismallocation").val(null);
-		}
-	});
 	
 	$("#submit-single").click(function () {
         var phonenum = document.querySelector("#phonenum");
 		var firstname = document.querySelector("#firstname");
 		var lastname = document.querySelector("#lastname");
-		var birthdate = document.querySelector("#birthdate");
-		var address = document.querySelector("#address");
-		var gender = document.querySelector("#gender");
-		var baptism= document.querySelector("#baptismstatus");
-		var baptismlocation = document.querySelector("#baptismallocation");
-		var baptismdate = document.querySelector("#baptismaldate");
 		var password1 = document.querySelector("#password1");
 		var password2 = document.querySelector("#password2");
-		var today = new Date();
-		var churchstatus = "For Admin Review";
 
-		if (phonenum.value == "" || firstname.value == "" || lastname.value == "" || birthdate.value == "" || address.value == "" || gender.value == "" || baptism.value == "Select Baptism Status" || password1.value == "" || password2.value == "") {
-			document.querySelector("#errorText").innerHTML = "";
-			document.querySelector("#errorText").innerHTML += "Fill up all fields.";
-			console.log("error");
-		}
-		else if (baptism.value != "Unbaptized" && (baptismlocation.value == "" || baptismdate.value == "")) {
+		if (phonenum.value == "" || firstname.value == "" || lastname.value == ""  || password1.value == "" || password2.value == "") {
 			document.querySelector("#errorText").innerHTML = "";
 			document.querySelector("#errorText").innerHTML += "Fill up all fields.";
 			console.log("error");
@@ -67,31 +37,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
 			document.querySelector("#errorText").innerHTML += "Passwords don't match.";
 			console.log("error");
 		}
-		else if (baptism.value == "Unbaptized" && (baptismlocation.value != "" || baptismdate.value != "")) {
-			document.querySelector("#errorText").innerHTML = "";
-			document.querySelector("#errorText").innerHTML += "Unbaptized, therefore baptism location and date should not exist.";
-			console.log("error");
-		}
-		else if (baptism.value != "Unbaptized" && ((new Date(birthdate.value) > today && new Date(baptismdate.value) > today) || new Date(birthdate.value) > new Date(baptismdate.value))){
-			document.querySelector("#errorText").innerHTML = "";
-			document.querySelector("#errorText").innerHTML += "Invalid Birthdate and Baptismal date.";
-		}
-		else if (baptism.value != "Unbaptized" && new Date(baptismdate.value) > today){
-			document.querySelector("#errorText").innerHTML = "";
-			document.querySelector("#errorText").innerHTML += "Invalid Baptismal date.";
-		}
-		else if (new Date(birthdate.value) > today){
-			document.querySelector("#errorText").innerHTML = "";
-			document.querySelector("#errorText").innerHTML += "Invalid Birthdate.";
-		}
         else {
-			if(baptismlocation.value == ""){
-				baptismlocation.value = null
-			};
-			if(baptismdate.value == ""){
-				baptismdate.value = null;
-			}
-			var url = `/addUser?phonenum=${phonenum.value}&firstname=${firstname.value}&lastname=${lastname.value}&password=${password1.value}&birthdate=${birthdate.value}&address=${address.value}&gender=${gender.value}&status=For%20Admin%20Review&baptism=${baptism.value}&baptismdate=${baptismdate.value}&baptismlocation=${baptismlocation.value}`;
+			
+			var url = `/addMod?phonenum=${phonenum.value}&firstname=${firstname.value}&lastname=${lastname.value}&password=${password1.value}`;
 			
 			$.get(url, (data, status, xhr) => {
                 alert(status);
@@ -100,15 +48,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 }
             });
 			
-            var form = document.getElementById("register-churchgoer");
+            var form = document.getElementById("register-moderator");
             form.reset();
-			window.location.href = `/register-churchgoer`; 
+			window.location.href = `/register-moderator`; 
         }
     });
-
-	/*$("#csvlabel").click(function(){
-		$("#csv").click();
-	});*/
 
 	$("#csv").change(function() {
 		var fileList = $("#csv").prop('files');
@@ -119,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 		}
 		else{
 			document.querySelector("#csvlabel").innerHTML = "";
-			document.querySelector("#csvlabel").innerHTML = fileList[0].name + "(Click again to choose another .csv file)";
+			document.querySelector("#csvlabel").innerHTML = fileList[0].name + " (Click again to choose another .csv file)";
 		}
 	});
 
@@ -163,11 +107,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
 								jsonData.push(rowData);
 							}
 						}
-						//console.log(jsonData);
+						console.log(jsonData);
 						var docs =  JSON.stringify(jsonData, null, 0);
-						console.log("/addMultipleCG?docs=" + docs);
 						$.ajax({
-							url: "/addMultipleCG",
+							url: "/addMultipleMod",
 							type: "POST",
 							data: JSON.stringify(jsonData, null, 0),
 							processData: false,
