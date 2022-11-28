@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 					reader.readAsBinaryString(fileList[0]);
 					reader.onload = function(e) {
 						var headers = [];
-						var rows = e.target.result.split("\n");
+						var rows = e.target.result.replace("ï»¿", "").split("\n");
 						for (var i = 0; i < rows.length; i++) {
 							var cells = rows[i].split(",");
 							var rowData = {};
