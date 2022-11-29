@@ -61,9 +61,25 @@ const controller = {
     },
 
     loadProfile: (req, res) => {
-        res.render("profile", {
-            title: "Profile",
-            customCSS: '<link rel="stylesheet" href="CSS/profile.css">'
+        var phonenum = req.query.phonenum;
+         db.findOne(User, {phonenum: phonenum}, null, (result) => {
+            if (!result){
+                res.sendStatus(404);
+            }
+            else{
+                var profile = result;
+                console.log(profile);
+                if (profile.baptism == "Unbaptized"){
+                    baptstatid = "ub";
+                }
+                else if (profile.baptism == "Infant Baptism"){
+                    baptstatid = "ib";
+                }
+                else if (profile.baptism == "Water Baptism"){
+                    baptstatid = "wb";
+                }
+                res.render("profile", {lastname: profile.lastname, firstname: profile.firstname, phonenum: profile.phonenum, birthdate: profile.birthdate, address: profile.address, gender: profile.gender, status: profile.status, baptism: profile.baptism, baptismdate: profile.baptismdate, baptismlocation: profile.baptismlocation, baptstatid:baptstatid});
+            }
         });
     },
 	

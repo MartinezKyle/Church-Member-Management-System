@@ -5,12 +5,12 @@ const Attendance = require("../models/AttendanceModel.js");
 const memberlist_controller = {
     deleteMember: function (req, res) {
         var phonenum = req.query.phonenum;
-        console.log("deleted");
+        console.log("deleting: " + phonenum);
         db.deleteOne (User, {phonenum: phonenum}, result => {
-            console.log("deleted");
+            console.log(result);
         });
         db.deleteMany (Attendance, {phonenum: phonenum}, result =>{
-            console.log("deleted");
+            console.log(result);
         });
         res.redirect("/loadMembers");
     },
