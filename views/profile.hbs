@@ -35,6 +35,8 @@
 
     <body>
         <div class="container-fluid h-100">
+            {{> editChurchgoerModal}}
+
             <div>
                 {{!-- Navigation Bar --}}
                 {{> navbar}}
@@ -54,7 +56,14 @@
                             <p id="details">Personal Details</p>
                         </div>
                         <div>
-                            <button type="button" id="edit-user" aria-label="delete-user-button">
+                            <button
+                                type="button"
+                                id="trigger-edit-churchgoer-modal"
+                                class="fa-button"
+                                aria-label="trigger-edit-churchgoer-modal"
+                                data-bs-toggle="modal"
+			                    data-bs-target="#edit-churchgoer-modal"
+			                    data-id = {{ phonenum }}>
                                 <i class="fa-solid fa-pencil"></i>
                             </button>
                         </div>

@@ -46,13 +46,21 @@ h1 {
     margin-bottom: 0;
 }
 
-#edit-user {
-    border: none;
-    background-color: transparent;
+.row {
+    margin-bottom: 1em;
+}
+
+input {
+    height: fit-content;
+}
+
+.form-text {
+    color: red;
+    /* display: none; */
 }
 
 hr {
-    width: 100vw;
+    width: 100%;
 }
 
 #w50 {
