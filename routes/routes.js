@@ -8,18 +8,31 @@ const sessions_controller = require('../controllers/sessions_controller.js');
 const register_admin_controller = require('../controllers/register_admin_controller.js')
 const app = express.Router();
 
+const session = require('express-session');
+const MongoDBSession = require('connect-mongodb-session')(session);
+
 //-------- Webpages ----------//
 app.get('/', controller.getIndex);
 app.get('/getIndex', controller.getIndex);
 app.get('/login', controller.loadLogin);
 app.get('/register-churchgoer', controller.loadRegisterChurchgoer);
 app.get('/register-moderator', controller.loadRegisterModerator);
+
 app.get('/loadMembers', controller.loadMembers);
+app.get('/loadMembers2', controller.loadMembers2);
+app.get('/loadMembers3', controller.loadMembers3);
+app.get('/loadMembers4', controller.loadMembers4);
+
 app.get('/load_moderators', controller.loadModerators);
 app.get('/profile', controller.loadProfile);
 app.get('/admin_homepage', controller.loadAdminHP);
 app.get('/attendance', controller.loadAttendance);
+
 app.get('/sessions', controller.loadSessions);
+app.get('/sessions2', controller.loadSessions2);
+app.get('/sessions3', controller.loadSessions3);
+app.get('/sessions4', controller.loadSessions4);
+
 app.get('/deleteMember', memberlist_controller.deleteMember);
 app.get('/addSession', sessions_controller.addSession);
 app.get('/deleteSession', sessions_controller.deleteSession);
@@ -40,6 +53,8 @@ app.get('/getCheckPhoneMod', register_admin_controller.getCheckPhone);
 
 //-------- Login Checking ----------//
 app.post('/CheckLogin', login_controller.CheckLogin);
+app.get('/AllowLogin', controller.AllowLogin);
+app.get('/Logout', controller.Logout);
 
 //-------- Attendance Checking ----------//
 app.get('/getCheckAttendance', attendance_controller.getCheckAttendance);
