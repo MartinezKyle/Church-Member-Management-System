@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 		$("#csv").click();
 	});*/
 
-	$("#csv").change(function() {
+	/*$("#csv").change(function() {
 		var fileList = $("#csv").prop('files');
 		console.log("Hello: " + fileList[0].name);
 		if (fileList.length==0){
@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 			document.querySelector("#csvlabel").innerHTML = "";
 			document.querySelector("#csvlabel").innerHTML = fileList[0].name + "(Click again to choose another .csv file)";
 		}
-	});
+	});*/
 
 	$("#submit-bulk").click(function() {
 		var fileList = document.querySelector("#csv").files;
@@ -170,7 +170,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 							url: "/addMultipleCG",
 							type: "POST",
 							data: JSON.stringify(jsonData, null, 0),
-							processData: false,
+							processData: true,
 							contentType: "application/json; charset=UTF-8",
 						});
 					}

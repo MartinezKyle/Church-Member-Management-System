@@ -6,6 +6,7 @@ const favicon = require('express-favicon');
 const exphbs = require('express-handlebars');
 const session = require('express-session');
 const bycrypt = require('bcrypt');
+const bodyParser = require('body-parser');
 const MongoDBSession = require('connect-mongodb-session')(session);
 const routes = require('./routes/routes.js');
 const db = require('./models/db.js');
@@ -15,6 +16,10 @@ const port = 3000; //Port number
 
 //Sets app to use static files for displays
 app.use(express.static(__dirname + "/public"));
+
+//Sets the app to use body-parser
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 //Sets the app to use routes.js for page routing
 app.use(`/`, routes);
