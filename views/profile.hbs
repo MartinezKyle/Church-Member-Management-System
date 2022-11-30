@@ -28,15 +28,11 @@
         <link rel="stylesheet" href="/css/style.css" />
         <link rel="stylesheet" href="/css/profile.css" />
 
-        <script type="text/javascript" src="/js/profile.js"></script>
-
         <title>UCCA</title>
     </head>
 
     <body>
         <div class="container-fluid h-100">
-            {{> editChurchgoerModal}}
-
             <div>
                 {{!-- Navigation Bar --}}
                 {{> navbar}}
@@ -47,8 +43,8 @@
                     <p id="navigation">Members / <a href="/loadMembers">Churchgoers</a> / [insert name] </p>
                 </div>
                 <div>
-                    <h1><span class="bold">{{ lastname }}</span>, {{ firstname }}</h1>
-                    <p class="baptism" id="{{baptstatid}}"> {{ baptism }} </p>
+                    <h1><span class="bold">LAST NAME</span>, First Name</h1>
+                    <p class="baptism">INFANT BAPTISM</p>
                 </div>
                 <div class="d-flex flex-column">
                     <div class="d-flex padding-bot-0">
@@ -56,14 +52,7 @@
                             <p id="details">Personal Details</p>
                         </div>
                         <div>
-                            <button
-                                type="button"
-                                id="trigger-edit-churchgoer-modal"
-                                class="fa-button"
-                                aria-label="trigger-edit-churchgoer-modal"
-                                data-bs-toggle="modal"
-			                    data-bs-target="#edit-churchgoer-modal"
-			                    data-id = {{ phonenum }}>
+                            <button type="button" id="edit-user" aria-label="delete-user-button">
                                 <i class="fa-solid fa-pencil"></i>
                             </button>
                         </div>
@@ -76,32 +65,24 @@
                             <tbody>
                                 <tr>
                                     <td>Phone Number</td>
-                                    <th scope="row" id="phonenum-display">{{phonenum}}</th>
+                                    <th scope="row">09870980987</th>
                                 </tr>
                                 <tr>
                                     <td>Birthday</td>
-                                    <th scope="row"> {{ birthdate }} </th>
+                                    <th scope="row">December 31, 1996</th>
                                 </tr>
                                 <tr>
                                     <td>Gender</td>
-                                    <th scope="row"> {{ gender }} </th>
+                                    <th scope="row">Male</th>
                                 </tr>
                                 <tr>
                                     <td>Address</td>
-                                    <th scope="row"> {{ address }} </th>
+                                    <th scope="row">Doon</th>
                                 </tr>
                                 <tr>
                                     <td>Status</td>
-                                    <th scope="row"> {{ status }} </th>
+                                    <th scope="row">Alive</th>
                                 </tr>
-                                <tr>
-                                    <td>Baptism Date</td>
-                                    <th scope="row"> {{ baptismdate }} </th>
-                                </tr>
-                                <tr>
-                                    <td>Baptism Location</td>
-                                    <th scope="row"> {{ baptismlocation }} </th>
-                                </tr>                               
                             </tbody>
                         </table>
                     </div>

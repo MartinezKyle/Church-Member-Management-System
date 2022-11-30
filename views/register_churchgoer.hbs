@@ -161,27 +161,18 @@
                     <span>or</span>
                 </div>
 
-                <div class="d-flex flex-column align-items-center">
-                    <div class="d-flex justify-content-center align-items-center width-fit">
-                        <div>
-                            {{!-- <label for="formFile" class="form-label">Import a CSV file</label> --}}
-                            <input class="form-control" type="file" name="csv" id="csv" accept=".csv" aria-labelledby="import-csv">
-                        </div>
-                        {{!-- <div>
-                            <label for="csv" id = "csvlabel" class="btn btn-dark">
-                                Choose a .csv File
-                            </label>
-                            <input type="file" accept = ".csv" name="csv" id="csv" hidden>
-                            <button type="button" id="submit-bulk" class="btn btn-dark">Import</button>
-                        </div> --}}
-                        <div>
-                            <button type="button" id="trigger-help-modal">
-                                <i class="fa-regular fa-circle-question"></i>
-                            </button>
-                        </div>
+                <div class="w100 d-flex justify-content-center align-items-center">
+                    <div>
+                        <label for="csv" id = "csvlabel" class="btn btn-dark">
+                            Choose a .csv File
+                        </label>
+                        <input type="file" accept = ".csv" name="csv" id="csv" hidden>
+                        <button type="button" id="submit-bulk" class="btn btn-dark">Import</button>
                     </div>
                     <div>
-                        <button type="button" id="submit-bulk" class="btn btn-dark">Import</button>
+                        <button type="button" id="trigger-help-modal">
+                            <i class="fa-regular fa-circle-question"></i>
+                        </button>
                     </div>
                 </div>
 

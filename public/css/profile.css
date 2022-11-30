@@ -11,34 +11,24 @@ h1 {
     margin-bottom: 0;
 }
 
-.baptism#ub {
+.baptism {
     width: fit-content;
     padding: 1px 10px 1px 10px;
     border-radius: 5px;
     font-size: 23px;
     font-weight: bolder;
+
+    /* For Unbaptized */
     background-color: rgba(227, 226, 224, 0.5);
     color: rgb(50, 48, 44);
-}
 
-.baptism#ib {
-    width: fit-content;
-    padding: 1px 10px 1px 10px;
-    border-radius: 5px;
-    font-size: 23px;
-    font-weight: bolder;
+    /* For Infant Baptism */
     background-color: rgb(219, 237, 219);
     color: rgb(28, 56, 41);
-}
 
-.baptism#wb {
-    width: fit-content;
-    padding: 1px 10px 1px 10px;
-    border-radius: 5px;
-    font-size: 23px;
-    font-weight: bolder;
-    background-color: rgb(211, 229, 239);
-    color: rgb(24, 51, 71);
+    /* For Water Baptism */
+    /* background-color: rgb(211, 229, 239);
+    color: rgb(24, 51, 71); */
 }
 
 #details {
@@ -46,21 +36,13 @@ h1 {
     margin-bottom: 0;
 }
 
-.row {
-    margin-bottom: 1em;
-}
-
-input {
-    height: fit-content;
-}
-
-.form-text {
-    color: red;
-    /* display: none; */
+#edit-user {
+    border: none;
+    background-color: transparent;
 }
 
 hr {
-    width: 100%;
+    width: 100vw;
 }
 
 #w50 {

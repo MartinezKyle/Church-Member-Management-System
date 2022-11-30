@@ -3,9 +3,6 @@ const User = require("../models/UserModel.js");
 const Attendance = require("../models/AttendanceModel.js");
 const Session = require('../models/SessionModel.js');
 const Admin = require('../models/AdminModel.js');
-var phonenum = null;
-var loggedin = false;
-
 const controller = {
 	//-----------------------Handlebars Routing----------------------------//
     redirectHP: (req, res) => {
@@ -13,140 +10,93 @@ const controller = {
     },
 	
 	getIndex: function (req, res) {
-        res.render("login", { 
-			title: "Login",
-            customCSS: '<link rel="stylesheet" href="CSS/login.css">'
-		});
+		console.log("getIndex: " + req.session.pnum);
+		if(req.session.pnum)
+			res.redirect('/loadMembers');
+		else
+			res.render("login", { 
+				title: "Login",
+				customCSS: '<link rel="stylesheet" href="CSS/login.css">'
+			});
     },
 
     loadLogin: (req, res) => {
-        res.render("login", {
-            title: "Login",
-            customCSS: '<link rel="stylesheet" href="CSS/login.css">'
-        });
+		console.log("loadLogin: " + req.session.pnum);
+		if(req.session.pnum)
+			res.redirect('/loadMembers');
+		else
+			res.render("login", {
+				title: "Login",
+				customCSS: '<link rel="stylesheet" href="CSS/login.css">'
+			});
     },
 
     loadRegisterChurchgoer: (req, res) => {
-        res.render("register_churchgoer", {
-            title: "Register",
-            customCSS: '<link rel="stylesheet" href="CSS/register.css">'
-        });
+		if(req.session.pnum)
+			res.render("register_churchgoer", {
+				title: "Register",
+				customCSS: '<link rel="stylesheet" href="CSS/register.css">'
+			});
+		else
+			res.redirect('/login');
     },
 
     loadRegisterModerator: (req, res) => {
-        res.render("register_moderator", {
-            title: "Register Moderator",
-            customCSS: '<link rel="stylesheet" href="CSS/register.css">'
-        });
+		if(req.session.pnum)
+			res.render("register_moderator", {
+				title: "Register Moderator",
+				customCSS: '<link rel="stylesheet" href="CSS/register.css">'
+			});
+		else
+			res.redirect('/login');
     },
 	
 	loadMembers: function (req, res) {
 		console.log("Hello there");
-        db.findMany(User, {}, null, (data) => {
-			const tempArray = [];
-			if (data.length !== 0){
-				data.forEach(doc => tempArray.push(doc.toObject()));
-			}
-            db.countDocuments(User, {}, (count) => {
-                console.log(tempArray);
-                console.log(count);
-                res.render("admin_homepage", { data: tempArray, count});
-            });
-			
-        });
-    },
-
-    loadMembers2: function (req, res) {
-		console.log("Hello there");
-        db.findMany(User, {baptism: "Unbaptized"}, null, (data) => {
-			const tempArray = [];
-			if (data.length !== 0){
-				data.forEach(doc => tempArray.push(doc.toObject()));
-			}
-            db.countDocuments(User, {}, (count) => {
-                console.log(tempArray);
-                console.log(count);
-                res.render("admin_homepage", { data: tempArray, count});
-            });
-			
-        });
-    },
-
-    loadMembers3: function (req, res) {
-		console.log("Hello there");
-        db.findMany(User, {baptism: "Infant Baptism"}, null, (data) => {
-			const tempArray = [];
-			if (data.length !== 0){
-				data.forEach(doc => tempArray.push(doc.toObject()));
-			}
-            db.countDocuments(User, {}, (count) => {
-                console.log(tempArray);
-                console.log(count);
-                res.render("admin_homepage", { data: tempArray, count});
-            });
-			
-        });
-    },
-
-    loadMembers4: function (req, res) {
-		console.log("Hello there");
-        db.findMany(User, {baptism: "Water Baptism"}, null, (data) => {
-			const tempArray = [];
-			if (data.length !== 0){
-				data.forEach(doc => tempArray.push(doc.toObject()));
-			}
-            db.countDocuments(User, {}, (count) => {
-                console.log(tempArray);
-                console.log(count);
-                res.render("admin_homepage", { data: tempArray, count});
-            });
-			
-        });
+		if(req.session.pnum)
+			db.findMany(User, {}, null, (data) => {
+				const tempArray = [];
+				if (data.length !== 0){
+					data.forEach(doc => tempArray.push(doc.toObject()));
+				}
+				db.countDocuments(User, {}, (count) => {
+					console.log(tempArray);
+					console.log(count);
+					res.render("admin_homepage", { data: tempArray, count});
+				});
+				
+			});
+		else	
+			res.redirect('/login');
     },
 
     loadModerators: (req, res) => {
-        console.log("Hello there");
-        db.findMany(Admin, {}, null, (data) => {
-			const tempArray = [];
-			if (data.length !== 0){
-				data.forEach(doc => tempArray.push(doc.toObject()));
-			}
-            db.countDocuments(User, {}, (count) => {
-                console.log(tempArray);
-                console.log(count);
-                res.render("moderators_list", { data: tempArray, count});
-            });
-			
-        });
+		if(req.session.pnum)
+			res.render("moderators_list", {
+				title: "Moderators",
+				customCSS: '<link rel="stylesheet" href="CSS/table.css">'
+			});
+		else
+			res.redirect('/login');
     },
 
     loadProfile: (req, res) => {
-        var phonenum = req.query.phonenum;
-         db.findOne(User, {phonenum: phonenum}, null, (result) => {
-            if (!result){
-                res.sendStatus(404);
-            }
-            else{
-                var profile = result;
-                console.log(profile);
-                if (profile.baptism == "Unbaptized"){
-                    baptstatid = "ub";
-                }
-                else if (profile.baptism == "Infant Baptism"){
-                    baptstatid = "ib";
-                }
-                else if (profile.baptism == "Water Baptism"){
-                    baptstatid = "wb";
-                }
-                res.render("profile", {lastname: profile.lastname, firstname: profile.firstname, phonenum: profile.phonenum, birthdate: profile.birthdate, address: profile.address, gender: profile.gender, status: profile.status, baptism: profile.baptism, baptismdate: profile.baptismdate, baptismlocation: profile.baptismlocation, baptstatid:baptstatid});
-            }
-        });
+		if(req.session.pnum)
+			res.render("profile", {
+				title: "Profile",
+				customCSS: '<link rel="stylesheet" href="CSS/profile.css">'
+			});
+		else
+			res.redirect('/login');
     },
 	
 	loadAdminHP: (req, res) =>{
-        res.render("admin_homepage", {
-            title: "Admin Homepage"
-        });
+		if(req.session.pnum)
+			res.render("admin_homepage", {
+				title: "Admin Homepage"
+			});
+		else	
+			res.redirect('/login');
     },
 	
     getFavicon: function (req, res) {
@@ -154,104 +104,50 @@ const controller = {
     },
 	
 	loadAttendance: (req, res) =>{
-        res.render("attendance", {
-            title: "Attendance",
-            customCSS: '<link rel="stylesheet" href="CSS/register.css">'
-        });
+		if(req.session.pnum)
+			res.render("attendance", {
+				title: "Attendance",
+				customCSS: '<link rel="stylesheet" href="CSS/register.css">'
+			});
+		else	
+			res.redirect('/login');
     },
 
     loadSessions: (req, res) => {
-        db.findMany(Session, {}, {_id: 0, ymddate: { $dateToString: {date: "$date", format: "%Y-%m-%d" }}, session: 1}, (data) => {
-			const tempArray = [];
-			if (data.length !== 0){
-				data.forEach(doc => tempArray.push(doc.toObject()));
-			}
-            db.countDocuments(Session, {}, (count) => {
-                console.log(tempArray);
-                console.log(count);
-                res.render("sessions_repo", { data: tempArray, count });
-            });
-            
-        });
-    },
-
-    loadSessions2: (req, res) => {
-        db.findMany(Session, {session: "MorningSession"}, {_id: 0, ymddate: { $dateToString: {date: "$date", format: "%Y-%m-%d" }}, session: 1}, (data) => {
-			const tempArray = [];
-			if (data.length !== 0){
-				data.forEach(doc => tempArray.push(doc.toObject()));
-			}
-            db.countDocuments(Session, {}, (count) => {
-                console.log(tempArray);
-                console.log(count);
-                res.render("sessions_repo", { data: tempArray, count });
-            });
-            
-        });
-    },
-
-    loadSessions3: (req, res) => {
-        db.findMany(Session, {session: "AfternoonSession"}, {_id: 0, ymddate: { $dateToString: {date: "$date", format: "%Y-%m-%d" }}, session: 1}, (data) => {
-			const tempArray = [];
-			if (data.length !== 0){
-				data.forEach(doc => tempArray.push(doc.toObject()));
-			}
-            db.countDocuments(Session, {}, (count) => {
-                console.log(tempArray);
-                console.log(count);
-                res.render("sessions_repo", { data: tempArray, count });
-            });
-            
-        });
-    },
-
-    loadSessions4: (req, res) => {
-        db.findMany(Session, {session: "LifeJourney"}, {_id: 0, ymddate: { $dateToString: {date: "$date", format: "%Y-%m-%d" }}, session: 1}, (data) => {
-			const tempArray = [];
-			if (data.length !== 0){
-				data.forEach(doc => tempArray.push(doc.toObject()));
-			}
-            db.countDocuments(Session, {}, (count) => {
-                console.log(tempArray);
-                console.log(count);
-                res.render("sessions_repo", { data: tempArray, count });
-            });
-            
-        });
+		if(req.session.pnum)
+			db.findMany(Session, {}, {_id: 0, ymddate: { $dateToString: {date: "$date", format: "%Y-%m-%d" }}, session: 1}, (data) => {
+				const tempArray = [];
+				if (data.length !== 0){
+					data.forEach(doc => tempArray.push(doc.toObject()));
+				}
+				db.countDocuments(Session, {}, (count) => {
+					console.log(tempArray);
+					console.log(count);
+					res.render("sessions_repo", { data: tempArray, count });
+				});
+				
+			});
+		else	
+			res.redirect('/login');
     },
 
     loadSessionAttendance: (req, res) =>{
-        var date = new Date(req.query.date);
-        db.findMany(Attendance, {date: date, session: req.query.session}, {_id: 0, lastname: 1, firstname:1, baptism: 1, session: 1, ymddate: { $dateToString: {date: "$date", format: "%Y-%m-%d" }}, time: {$dateToString: {date: "$logtime", format: "%H:%M:%S", timezone: "+08:00" }}, phonenum: 1}, (data) => {
-            const tempArray = [];
-			if (data.length !== 0){
-				data.forEach(doc => tempArray.push(doc.toObject()));
-			}
-            db.countDocuments(Attendance, {date: date, session: req.query.session}, (count) => {
-                console.log(tempArray);
-                console.log(count);
-                res.render("session", { data: tempArray, count });
-            });
-        });
-    },
-
-    /*
-        Stores the username used in the login for future use.
-    */ 
-    AllowLogin: function(req, res) {
-        phonenum = req.query.phonenum;
-        console.log(phonenum);
-        loggedin = true;
-        res.sendStatus(200);
-    },
-
-    /*
-        Resets values that indicate a user is logged in.
-    */ 
-    Logout: function(req, res){
-        phonenum = null;
-        loggedin = false;
-        res.redirect('/login');
+		if(req.session.pnum) {
+			var date = new Date(req.query.date);
+			db.findMany(Attendance, {date: date, session: req.query.session}, {_id: 0, lastname: 1, firstname:1, baptism: 1, session: 1, ymddate: { $dateToString: {date: "$date", format: "%Y-%m-%d" }}, time: {$dateToString: {date: "$logtime", format: "%H:%M:%S", timezone: "+08:00" }}, phonenum: 1}, (data) => {
+				const tempArray = [];
+				if (data.length !== 0){
+					data.forEach(doc => tempArray.push(doc.toObject()));
+				}
+				db.countDocuments(Attendance, {date: date, session: req.query.session}, (count) => {
+					console.log(tempArray);
+					console.log(count);
+					res.render("session", { data: tempArray, count });
+				});
+			});
+		} else	
+			res.redirect('/login');
+        
     },
 	
 	//-----------------------Post Members Routing------------------------//

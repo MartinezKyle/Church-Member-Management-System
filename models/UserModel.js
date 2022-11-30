@@ -16,7 +16,7 @@ var UserSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-        required: false,
+        required: true,
     },
     birthdate: {
         type: Date,
