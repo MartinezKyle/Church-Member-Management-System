@@ -65,6 +65,10 @@ form {
     margin-left: 15px;
 }
 
+.width-fit {
+    width: fit-content;
+}
+
 #trigger-help-modal {
     border: none;
     background-color: transparent;
