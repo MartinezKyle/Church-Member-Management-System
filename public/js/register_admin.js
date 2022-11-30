@@ -1,3 +1,4 @@
+
 //const csv_to_json = require("./csv_to_json.js")
 
 document.addEventListener("DOMContentLoaded", function (event) {
@@ -54,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         }
     });
 
-	$("#csv").change(function() {
+	/*$("#csv").change(function() {
 		var fileList = $("#csv").prop('files');
 		console.log("Hello: " + fileList[0].name);
 		if (fileList.length==0){
@@ -65,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 			document.querySelector("#csvlabel").innerHTML = "";
 			document.querySelector("#csvlabel").innerHTML = fileList[0].name + " (Click again to choose another .csv file)";
 		}
-	});
+	});*/
 
 	$("#submit-bulk").click(function() {
 		var fileList = document.querySelector("#csv").files;
