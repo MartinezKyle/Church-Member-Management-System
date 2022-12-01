@@ -19,9 +19,6 @@ app.get('/register-churchgoer', controller.loadRegisterChurchgoer);
 app.get('/register-moderator', controller.loadRegisterModerator);
 
 app.get('/loadMembers', controller.loadMembers);
-app.get('/loadMembers2', controller.loadMembers2);
-app.get('/loadMembers3', controller.loadMembers3);
-app.get('/loadMembers4', controller.loadMembers4);
 
 app.get('/load_moderators', controller.loadModerators);
 app.get('/profile', controller.loadProfile);
