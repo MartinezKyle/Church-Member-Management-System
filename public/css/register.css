@@ -10,6 +10,10 @@ form {
     width: 100%;
 }
 
+.section-2 {
+    padding-bottom: 1rem;
+}
+
 .btn {
     background-color: black;
     margin-top: 2%;
@@ -33,8 +37,8 @@ form {
     overflow: hidden;
     white-space: nowrap; 
     width: 100%;
-    margin-top: 1%;
-    margin-bottom: 1%;
+    margin-top: 2%;
+    margin-bottom: 2%;
 }
 
 .strike > span {
@@ -72,4 +76,8 @@ form {
 #trigger-help-modal {
     border: none;
     background-color: transparent;
+}
+
+.margin-bot-1-per {
+    margin-bottom: 1%;
 }

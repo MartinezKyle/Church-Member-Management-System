@@ -65,6 +65,7 @@
                                         <label for="phonenum" class="form-label">Phone Number</label>
                                         <input type="number" class="form-control" id="phonenum" />
                                     </div>
+
                                     <div class="col">
                                         <label
                                             for="birthdate"
@@ -76,16 +77,18 @@
                                             id="birthdate"
                                         />
                                     </div>
+
+                                    <div class="col">
+                                        <label for="gender" class="form-label">Gender</label>
+                                        <select name="gender" class="form-select" id="gender">
+                                            <option selected disabled hidden>Select gender</option>
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
+                                        </select>
+                                    </div>
                                 </div>
 
-                                <div class="mb-3">
-                                    <label for="gender" class="form-label">Gender</label>
-                                    <select name="gender" class="form-select" id="gender">
-                                        <option selected disabled hidden>Select gender</option>
-                                        <option value="Male">Male</option>
-                                        <option value="Female">Female</option>
-                                    </select>
-                                </div>
+                                
 
                                 <div class="mb-3">
                                     <label for="address" class="form-label">Address</label>
@@ -95,41 +98,41 @@
 
                             <div class="vr"></div>
 
-                            <div class="section">
-                                <div class="row">
-                                    <div class="col">
-                                        <label for="baptismstatus" class="form-label">Baptism
-                                            Status</label>
-                                        <select
-                                            name="baptismstatus"
-                                            class="form-select"
-                                            id="baptismstatus"
-                                        >
-                                            <option selected disabled hidden>Select Baptism
-                                                Status</option>
-                                            <option value="Unbaptized">Unbaptized</option>
-                                            <option value="Infant Baptism">Infant Baptism</option>
-                                            <option value="Water Baptism">Water Baptism</option>
-                                        </select>
+                            <div class="section section-2 d-flex flex-column justify-content-between">
+                                <div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <label for="baptismstatus" class="form-label">Baptism
+                                                Status</label>
+                                            <select
+                                                name="baptismstatus"
+                                                class="form-select"
+                                                id="baptismstatus"
+                                            >
+                                                <option selected disabled hidden>Select Baptism
+                                                    Status</option>
+                                                <option value="Unbaptized">Unbaptized</option>
+                                                <option value="Infant Baptism">Infant Baptism</option>
+                                                <option value="Water Baptism">Water Baptism</option>
+                                            </select>
+                                        </div>
+                                        <div class="col">
+                                            <label for="province" class="form-label" disabled="true">Baptismal Date</label>
+                                            <input
+                                                type="date"
+                                                class="form-control"
+                                                id="baptismaldate"
+                                            />
+                                        </div>
                                     </div>
-
-                                    <div class="col">
-                                        <label for="province" class="form-label" disabled="true">Baptismal Date</label>
-                                        <input
-                                            type="date"
-                                            class="form-control"
-                                            id="baptismaldate"
-                                        />
+                                    <div class="mb-3">
+                                        <label for="cell-number" class="form-label">Baptismal
+                                            Location</label>
+                                        <input class="form-control" id="baptismallocation" disabled="true"/>
                                     </div>
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="cell-number" class="form-label">Baptismal
-                                        Location</label>
-                                    <input class="form-control" id="baptismallocation" disabled="true"/>
                                 </div>
                     
-                                <div class="mb-3">
+                                {{!-- <div class="mb-3">
                                     <label
                                         for="password1"
                                         class="form-label"
@@ -141,17 +144,20 @@
                                     <label for="password2" class="form-label">Repeat
                                         Password</label>
                                     <input type="password" class="form-control" id="password2" />
+                                </div> --}}
+                                <div>
+                                    <button
+                                        type="button"
+                                        id="submit-single"
+                                        class="btn btn-dark"
+                                        >Register Churchgoer
+                                    </button>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="d-flex justify-content-center">
-                            <button
-                                type="button"
-                                id="submit-single"
-                                class="btn btn-dark"
-                                >Register Churchgoer
-                            </button>
+                            
                         </div>
                         <p id = "errorText"></p>
                     </form>
@@ -163,7 +169,7 @@
 
                 <div class="d-flex flex-column align-items-center">
                     <div class="d-flex justify-content-center align-items-center width-fit">
-                        <div>
+                        <div class="margin-bot-1-per">
                             {{!-- <label for="formFile" class="form-label">Import a CSV file</label> --}}
                             <input class="form-control" type="file" name="csv" id="csv" accept=".csv" aria-labelledby="import-csv">
                         </div>
@@ -181,7 +187,7 @@
                         </div>
                     </div>
                     <div>
-                        <button type="button" id="submit-bulk" class="btn btn-dark">Import</button>
+                        <button type="button" id="submit-bulk" class="btn btn-dark">Bulk Registration Using CSV File</button>
                     </div>
                 </div>
 
