@@ -122,23 +122,31 @@ const controller = {
 
     loadProfile: (req, res) => {
         var phonenum = req.query.phonenum;
-         db.findOne(User, {phonenum: phonenum}, null, (result) => {
+         db.findOne(User, {phonenum: phonenum}, {_id: 0, lastname: 1, firstname: 1, phonenum: 1, ymdbirthdate: {$dateToString: {format: "%Y-%m-%d", date: "$birthdate" }}, address: 1, gender: 1, status: 1, baptism: 1, ymdbaptismdate: {$dateToString: {date: "$baptismdate", format: "%Y-%m-%d" }}, baptismlocation: 1}, (result) => {
             if (!result){
                 res.sendStatus(404);
             }
             else{
-                var profile = result;
-                console.log(profile);
+                var profile = result.toObject();
+                var baptstatid;
+                var bapthidden;
+                var baptdisabled;
                 if (profile.baptism == "Unbaptized"){
                     baptstatid = "ub";
+                    bapthidden = "hidden";
+                    baptdisabled = "disabled";
                 }
                 else if (profile.baptism == "Infant Baptism"){
                     baptstatid = "ib";
+                    bapthidden = "";
+                    baptdisabled = "";
                 }
                 else if (profile.baptism == "Water Baptism"){
                     baptstatid = "wb";
+                    bapthidden = "";
+                    baptdisabled = "";
                 }
-                res.render("profile", {lastname: profile.lastname, firstname: profile.firstname, phonenum: profile.phonenum, birthdate: profile.birthdate, address: profile.address, gender: profile.gender, status: profile.status, baptism: profile.baptism, baptismdate: profile.baptismdate, baptismlocation: profile.baptismlocation, baptstatid:baptstatid});
+                res.render("profile", {lastname: profile.lastname, firstname: profile.firstname, phonenum: profile.phonenum, birthdate: profile.ymdbirthdate, address: profile.address, gender: profile.gender, status: profile.status, baptism: profile.baptism, baptismdate: profile.ymdbaptismdate, baptismlocation: profile.baptismlocation, baptstatid:baptstatid, bapthidden:bapthidden, baptdisabled: baptdisabled});
             }
         });
     },

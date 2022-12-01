@@ -27,6 +27,13 @@ const register_churchgoer_controller = {
         db.insertMany(User, req.body, (result) =>{
             console.log(result);
         });
+    },
+
+    updateOne: function(req, res) {
+        console.log(req.query.origphonenum);
+        db.updateOne(User, {phonenum:req.query.origphonenum}, {$set: {phonenum: req.query.phonenum, lastname: req.query.lastname, firstname: req.query.firstname, birthdate: req.query.birthdate, address: req.query.address, gender: req.query.gender, baptism: req.query.baptism, baptismlocation: req.query.baptismlocation, baptismdate: req.query.baptismdate}},(result =>{
+            res.send(result);
+        }));
     }
 };
 module.exports = register_churchgoer_controller;

@@ -2,7 +2,7 @@
   <div class="modal-dialog ">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Edit [name] Details</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Edit {{lastname}}, {{firstname}}'s Details</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -10,34 +10,34 @@
           <div class="row">
             <div class="col">
                 <label for="first-name" class="form-label">First Name</label>
-                <input class="form-control form-control-sm" id="first-name" value="Keigo">
-                <div id="first-name-error" class="form-text">Names cannot have numbers</div>
+                <input class="form-control form-control-sm" id="firstname" value="{{firstname}}">
+                <div id="first-name-error" class="form-text" hidden>Names cannot have numbers</div>
             </div>
 
             <div class="col">
                 <label for="last-name" class="form-label">Last Name</label>
-                <input class="form-control form-control-sm" id="last-name" value="Higashino">
-                <div id="last-name-error" class="form-text">Names cannot have numbers</div>
+                <input class="form-control form-control-sm" id="lastname" value="{{lastname}}">
+                <div id="last-name-error" class="form-text" hidden>Names cannot have numbers</div>
             </div>
           </div>
 
           <div class="row">
             <div class="col">
                 <label for="phone-num" class="form-label">Phone Number</label>
-                <input class="form-control form-control-sm" id="phone-num" type="number" value="09999999999">
-                <div id="phone-num-error" class="form-text">Invalid phone number format</div>
+                <input class="form-control form-control-sm" id="phonenum" type="number" value="{{phonenum}}">
+                <div id="phone-num-error" class="form-text"></div>
             </div>
 
             <div class="col">
                 <label for="birthday" class="form-label">Birthday</label>
-                <input class="form-control form-control-sm" type="date" id="birthday" value="2001/05/05">
-                <div id="birthday-error" class="form-text">Cannot input a date past today's date</div>
+                <input class="form-control form-control-sm" type="date" id="birthdate" value="{{birthdate}}">
+                <div id="birthday-error" class="form-text"></div>
             </div>
 
             <div class="col">
                 <label for="gender" class="form-label">Gender</label>
                 <select name="gender" class="form-select form-select-sm" id="gender">
-                    <option selected hidden value="current-gender">Male</option>
+                    <option selected hidden value="{{gender}}">{{gender}}</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                 </select>
@@ -46,7 +46,7 @@
 
           <div class="mb-3">
               <label for="address" class="form-label">Address</label>
-              <input class="form-control form-control-sm" id="address" value="123 Banda Doon">
+              <input class="form-control form-control-sm" id="address" value="{{address}}">
           </div>
 
           <div class="row">
@@ -56,9 +56,9 @@
                 <select
                     name="baptismstatus"
                     class="form-select form-select-sm"
-                    id="baptismstatus"
+                    id="baptism"
                 >
-                    <option selected hidden value="current-baptism">Unbaptized</option>
+                    <option selected hidden value="{{baptism}}">{{baptism}}</option>
                     <option value="Unbaptized">Unbaptized</option>
                     <option value="Infant Baptism">Infant Baptism</option>
                     <option value="Water Baptism">Water Baptism</option>
@@ -70,21 +70,23 @@
                 <input
                     type="date"
                     class="form-control form-control-sm"
-                    id="baptismaldate"
+                    id="baptismdate"
+                    value="{{baptismdate}}"
+                    {{baptdisabled}}
                 />
-                <div id="birthday-error" class="form-text">Cannot input a date past today's date</div>
+                <div id="baptismdate-error" class="form-text"></div>
             </div>
           </div>
 
           <div class="mb-3">
               <label for="address" class="form-label">Baptism Location</label>
-              <input class="form-control form-control-sm" id="address" value="123 Banda Doon">
+              <input class="form-control form-control-sm" id="baptismlocation" value="{{baptismlocation}}" {{baptdisabled}}>
           </div>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-primary" id="update" data-phonenum="{{phonenum}}">Save changes</button>
       </div>
     </div>
   </div>

@@ -35,7 +35,7 @@
 
     <body>
         <div class="container-fluid h-100">
-            {{> editChurchgoerModal}}
+            {{> editChurchgoerModal lastname=lastname firstname=firstname baptism=baptism phonenum=phonenum birthdate=birthdate gender=gender address=address status=status baptismdate=baptismdate baptismlocation=baptismlocation}}
 
             <div>
                 {{!-- Navigation Bar --}}
@@ -80,7 +80,7 @@
                                 </tr>
                                 <tr>
                                     <td>Birthday</td>
-                                    <th scope="row"> {{ birthdate }} </th>
+                                    <th scope="row"> {{birthdate}} </th>
                                 </tr>
                                 <tr>
                                     <td>Gender</td>
@@ -94,11 +94,11 @@
                                     <td>Status</td>
                                     <th scope="row"> {{ status }} </th>
                                 </tr>
-                                <tr>
+                                <tr {{bapthidden}}>
                                     <td>Baptism Date</td>
                                     <th scope="row"> {{ baptismdate }} </th>
                                 </tr>
-                                <tr>
+                                <tr {{bapthidden}}>
                                     <td>Baptism Location</td>
                                     <th scope="row"> {{ baptismlocation }} </th>
                                 </tr>                               

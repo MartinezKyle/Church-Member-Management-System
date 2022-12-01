@@ -47,6 +47,7 @@ app.get('/addAttendance', attendance_controller.addAttendance);
 app.get('/addUser', register_churchgoer_controller.getAdd);
 app.post('/addMultipleCG', register_churchgoer_controller.addMultiple);
 app.get('/getCheckPhone', register_churchgoer_controller.getCheckPhone);
+app.get('/updateCG', register_churchgoer_controller.updateOne);
 app.get('/addMod', register_admin_controller.getAdd);
 app.post('/addMultipleMod', register_admin_controller.addMultiple);
 app.get('/getCheckPhoneMod', register_admin_controller.getCheckPhone);

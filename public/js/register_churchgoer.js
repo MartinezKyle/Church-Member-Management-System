@@ -105,24 +105,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 			window.location.href = `/register-churchgoer`; 
         }
     });
-
-	/*$("#csvlabel").click(function(){
-		$("#csv").click();
-	});*/
-
-	/*$("#csv").change(function() {
-		var fileList = $("#csv").prop('files');
-		console.log("Hello: " + fileList[0].name);
-		if (fileList.length==0){
-			document.querySelector("#csvlabel").innerHTML = "";
-			document.querySelector("#csvlabel").innerHTML += 'Choose a .csv File';
-		}
-		else{
-			document.querySelector("#csvlabel").innerHTML = "";
-			document.querySelector("#csvlabel").innerHTML = fileList[0].name + "(Click again to choose another .csv file)";
-		}
-	});*/
-
+	
 	$("#submit-bulk").click(function() {
 		var fileList = document.querySelector("#csv").files;
 		if (fileList.length==0){
