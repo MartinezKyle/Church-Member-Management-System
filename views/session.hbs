@@ -89,14 +89,23 @@
                                         </div>
                                     </th>
                                     <th scope="col">
-                                        Category
-                                        <button
-                                            type="button"
-                                            id="filter-category"
-                                            class="fa-button">
-                                            <i class="fa-sharp fa-solid fa-caret-down fa-2xs"></i>
-                                        </button>
-                                    </th>
+                                        <div class="dropdown">
+                                            <button
+                                                class="dropdown-btn dropdown-toggle"
+                                                type="button"
+                                                data-bs-toggle="dropdown"
+                                                aria-expanded="false">
+                                                Category
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><button class="dropdown-item dropdown-option category" id="filter-all" type="button"><a href="?date={{ymddate}}&session={{session}}">All</a></button></li>
+                                                <li><button class="dropdown-item dropdown-option category" id="filter-unbaptized" type="button"><a href="?date={{ymddate}}&session={{session}}&baptism=Unbaptized">Unbaptized</a></button></li>
+                                                <li><button class="dropdown-item dropdown-option category" id="filter-infant" type="button"><a href="?date={{ymddate}}&session={{session}}&baptism=Infant Baptism">Infant Baptism</a></button></li>
+                                                <li><button class="dropdown-item dropdown-option dropdown-option-last category" id="filter-water" type="button"><a href="?date={{ymddate}}&session={{session}}&baptism=Water Baptism">Water Baptism</a></button></li>
+                                            </ul>
+                                        </div>
+                                    </th>                                            
+
                                     <th scope="col" colspan="2">
                                         <div class="d-flex align-items-center">
                                             <div>Time</div>

@@ -29,9 +29,6 @@ app.get('/admin_homepage', controller.loadAdminHP);
 app.get('/attendance', controller.loadAttendance);
 
 app.get('/sessions', controller.loadSessions);
-app.get('/sessions2', controller.loadSessions2);
-app.get('/sessions3', controller.loadSessions3);
-app.get('/sessions4', controller.loadSessions4);
 
 app.get('/deleteMember', memberlist_controller.deleteMember);
 app.get('/addSession', sessions_controller.addSession);

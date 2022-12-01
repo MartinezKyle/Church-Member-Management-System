@@ -43,36 +43,48 @@
     margin: 0 0 0 7px;
 }
 
-.category, .category:hover {
+.category[id='Unbaptized'], .category[id='Unbaptized']:hover {
     width: fit-content;
     padding: 1px 10px 1px 10px;
     border-radius: 5px;
-    /* For Unbaptized */
     background-color: rgba(227, 226, 224, 0.5);
     color: rgb(50, 48, 44);
-
-    /* For Infant Baptism */
-    /* background-color: rgb(219, 237, 219);
-    color: rgb(28, 56, 41); */
-
-    /* For Water Baptism */
-    /* background-color: rgb(211, 229, 239);
-    color: rgb(24, 51, 71); */
 }
 
-.session-type, .session-type:hover {
+.category[id='Infant Baptism'], .category[id='Infant Baptism']:hover {
     width: fit-content;
     padding: 1px 10px 1px 10px;
     border-radius: 5px;
-    /* For Morning Session */
+    background-color: rgb(219, 237, 219);
+    color: rgb(28, 56, 41);
+}
+
+.category[id='Water Baptism'], .category[id='Water Baptism']:hover {
+    width: fit-content;
+    padding: 1px 10px 1px 10px;
+    border-radius: 5px;
+    background-color: rgb(211, 229, 239);
+    color: rgb(24, 51, 71);
+}
+
+.session-type[id='MorningSession'], .session-type[id='MorningSession']:hover {
+    width: fit-content;
+    padding: 1px 10px 1px 10px;
+    border-radius: 5px;
     background: rgb(253, 236, 200);
     color: rgb(64, 44, 27);
-    
-    /* For Afternoon Session */
+}
+.session-type[id='AfternoonSession'], .session-type[id='AfternoonSession']:hover {
+    width: fit-content;
+    padding: 1px 10px 1px 10px;
+    border-radius: 5px;
     background: rgb(255, 226, 221);
     color: rgb(93, 23, 21);
-
-    /* For Life's Journey */
+}
+.session-type[id='LifeJourney'], .session-type[id='LifeJourney']:hover {
+    width: fit-content;
+    padding: 1px 10px 1px 10px;
+    border-radius: 5px;
     background: #2C3849;
     color: #e1f3ff;
 }

@@ -5,14 +5,13 @@
         >
     </td>
     <td>
-        <div class="session-type">{{ session }}</div>
+        <div class="session-type" id="{{session}}">{{ session }}</div>
     </td>
     <td class="right-align">
         <button
             type="button"
-            id="trigger-delete-modal"
-            class="fa-button"
-            aria-label="delete-button"
+			class="delete"
+			aria-label="delete-button"
             data-date = {{ ymddate }}
             data-session = {{ session }}
         >

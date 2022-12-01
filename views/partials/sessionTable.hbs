@@ -1,17 +1,18 @@
 <tr>
     <td>
-        <a href="/session"
+        <a href="/profile?phonenum={{phonenum}}"
             >{{ lastname }}, {{ firstname }}</a
         >
     </td>
-    <td>{{ baptism }}</td>
+    <td>
+        <div class="category" id="{{baptism}}">{{ baptism }}</div>
+    </td>
     <td>{{ time }}</td>
     <td class="right-align">
         <button
             type="button"
-            id="trigger-delete-modal"
-            class="fa-button"
-            aria-label="delete-button"
+			class="delete"
+			aria-label="delete-button"
             data-date = {{ ymddate }}
             data-session = {{ session }}
             data-phonenum = {{ phonenum }}
