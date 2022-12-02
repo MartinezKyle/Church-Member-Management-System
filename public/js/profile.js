@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 					input.style.backgroundColor = "#e3e3e3";
                     document.querySelector("#update").disabled = false;
                 } else {
-					input.style.backgroundColor = "red";
+					// input.style.backgroundColor = "red";
                     document.querySelector("#phone-num-error").innerHTML = "Phone Number already in the database";
                     document.querySelector("#update").disabled = true;
                 }

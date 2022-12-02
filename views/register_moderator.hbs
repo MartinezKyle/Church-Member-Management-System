@@ -43,58 +43,57 @@
                     <p id="navigation">Registration / Register Moderator</p>
                 </div>
 
-                <div id="moderator-registration">
-                    <form id="register-moderator">
-                        <div class="row">
-                            <div class="col">
-                                <label for="firstname" class="form-label">First Name</label>
-                                <input class="form-control" id="firstname" />
+                <div id="moderator-registration" class="d-flex">
+                    <div>
+                        <form id="register-moderator">
+                            <div class="row">
+                                <div class="col">
+                                    <label for="firstname" class="form-label">First Name</label>
+                                    <input class="form-control" id="firstname" />
+                                </div>
+                                <div class="col">
+                                    <label for="lastname" class="form-label">Last Name</label>
+                                    <input class="form-control" id="lastname" />
+                                </div>
                             </div>
-
-                            <div class="col">
-                                <label for="lastname" class="form-label">Last Name</label>
-                                <input class="form-control" id="lastname" />
+                            <div class="mb-3">
+                                <label for="address" class="form-label">Phone Number</label>
+                                <input class="form-control" id="phonenum" />
                             </div>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="address" class="form-label">Phone Number</label>
-                            <input class="form-control" id="phonenum" />
-                        </div>
-
-                        <div class="mb-3">
-                            <label
-                                for="password1"
-                                class="form-label"
-                            >Password</label>
-                            <input type="password" class="form-control" id="password1" />
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="password2" class="form-label">Repeat
-                                Password</label>
-                            <input type="password" class="form-control" id="password2" />
-                        </div>
-
-                        <div class="d-flex justify-content-center">
-                            <button
-                                type="button"
-                                id="submit-single"
-                                class="btn btn-dark"
-                            >Register Moderator
-                            </button>
-                        </div>
-                        <p id = "errorText"></p>
-                    </form>
-
-                    <div class="strike">
-                        <span>or</span>
+                            <div class="mb-3">
+                                <label
+                                    for="password1"
+                                    class="form-label"
+                                >Password</label>
+                                <input type="password" class="form-control" id="password1" />
+                            </div>
+                            <div class="mb-3">
+                                <label for="password2" class="form-label">Repeat
+                                    Password</label>
+                                <input type="password" class="form-control" id="password2" />
+                            </div>
+                            {{!-- <div class="d-flex justify-content-center"> --}}
+                                <button
+                                    type="button"
+                                    id="submit-single"
+                                    class="btn btn-dark"
+                                >Register Moderator
+                                </button>
+                            {{!-- </div> --}}
+                            <p id = "errorText"></p>
+                        </form>
                     </div>
 
-                    <div class="d-flex flex-column align-items-center">
+                    {{!-- <div class="strike">
+                        <span>or</span>
+                    </div> --}}
+
+                    <div class="vr"></div>
+
+                    <div class="">
+                        <label for="formFile" class="form-label">Import a CSV file for Bulk Registration</label>
                         <div class="d-flex justify-content-center align-items-center width-fit">
                             <div>
-                                {{!-- <label for="formFile" class="form-label">Import a CSV file</label> --}}
                                 <input class="form-control" type="file" name="csv" id="csv" accept=".csv" aria-labelledby="import-csv">
                             </div>
                             {{!-- <div>

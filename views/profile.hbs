@@ -69,9 +69,58 @@
                         </div>
                     </div>
 
-                    <hr>
+                    {{!-- <hr> --}}
 
-                    <div class="flex-grow-1" id="w50">
+                    <div class="d-flex">
+                        <div class="section">
+                            <p class="sub-header"><i class="fa-solid fa-user fa-color"></i> Basic Information</p>
+                            <hr class="sub-hr">
+
+                            <table class="table table-borderless table-sm">
+                                <tbody>
+                                    <tr>
+                                        <td>Phone Number</td>
+                                        <th scope="row" id="phonenum-display">{{phonenum}}</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Birthday</td>
+                                        <th scope="row"> {{birthdate}} </th>
+                                    </tr>
+                                    <tr>
+                                        <td>Gender</td>
+                                        <th scope="row"> {{ gender }} </th>
+                                    </tr>
+                                    <tr>
+                                        <td>Address</td>
+                                        <th scope="row"> {{ address }} </th>
+                                    </tr>
+                                    <tr>
+                                        <td>Status</td>
+                                        <th scope="row"> {{ status }} </th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="section">
+                            <p class="sub-header"><i class="fa-solid fa-church fa-color"></i> Baptismal Information</p>
+                            <hr class="sub-hr">
+
+                            <table class="table table-borderless table-sm">
+                                <tbody>
+                                    <tr {{bapthidden}}>
+                                        <td>Baptism Date</td>
+                                        <th scope="row"> {{ baptismdate }} </th>
+                                    </tr>
+                                    <tr {{bapthidden}}>
+                                        <td>Baptism Location</td>
+                                        <th scope="row"> {{ baptismlocation }} </th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    {{!-- <div class="flex-grow-1" id="w50">
                         <table class="table table-borderless table-sm">
                             <tbody>
                                 <tr>
@@ -104,7 +153,7 @@
                                 </tr>                               
                             </tbody>
                         </table>
-                    </div>
+                    </div> --}}
 
                     <div>
                         <button
