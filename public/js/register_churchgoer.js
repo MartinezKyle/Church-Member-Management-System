@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 		var today = new Date();
 		var churchstatus = "For Admin Review";
 
-		if (phonenum.value == "" || firstname.value == "" || lastname.value == "" || birthdate.value == "" || address.value == "" || gender.value == "" || baptism.value == "Select Baptism Status" || password1.value == "" || password2.value == "") {
+		if (phonenum.value == "" || firstname.value == "" || lastname.value == "" || birthdate.value == "" || address.value == "" || gender.value == "" || baptism.value == "Select Baptism Status" /*|| password1.value == "" || password2.value == ""*/) {
 			document.querySelector("#errorText").innerHTML = "";
 			document.querySelector("#errorText").innerHTML += "Fill up all fields.";
 			console.log("error");
@@ -62,11 +62,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
 			document.querySelector("#errorText").innerHTML += "Fill up all fields.";
 			console.log("error");
 		}
-		else if (password2.value != password1.value) {
+		/*else if (password2.value != password1.value) {
 			document.querySelector("#errorText").innerHTML = "";
 			document.querySelector("#errorText").innerHTML += "Passwords don't match.";
 			console.log("error");
-		}
+		}*/
 		else if (baptism.value == "Unbaptized" && (baptismlocation.value != "" || baptismdate.value != "")) {
 			document.querySelector("#errorText").innerHTML = "";
 			document.querySelector("#errorText").innerHTML += "Unbaptized, therefore baptism location and date should not exist.";
