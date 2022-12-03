@@ -10,11 +10,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 if (!data) {
                     document.querySelector("#errorText").innerHTML = "";
 					input.style.backgroundColor = "#e3e3e3";
-                    document.querySelector("#submit").disabled = false;
+                    document.querySelector("#submit-single").disabled = false;
                 } else {
 					input.style.backgroundColor = "red";
                     document.querySelector("#errorText").innerHTML = "Phone Number already in the database";
-                    document.querySelector("#submit").disabled = true;
+                    document.querySelector("#submit-single").disabled = true;
                 }
             }
         });
