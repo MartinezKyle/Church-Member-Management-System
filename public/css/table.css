@@ -100,3 +100,8 @@
 .pagination {
     margin-top: 5%;
 }
+
+.page-item.active>.page-link {
+    background-color: #7f62a7;
+    border-color: #7f62a7;
+}
