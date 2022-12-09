@@ -54,4 +54,8 @@ app.get('/Logout', controller.Logout);
 //-------- Attendance Checking ----------//
 app.get('/getCheckAttendance', attendance_controller.getCheckAttendance);
 
+//--------- Report Generation ----------//
+app.get('/generateReport', sessions_controller.generateReport);
+app.get('/generateAttendence', attendance_controller.generateAttendence);
+
 module.exports = app;
