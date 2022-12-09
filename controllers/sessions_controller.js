@@ -38,6 +38,35 @@ const sessions_controller = {
         });
         res.redirect("/sessions");
     },
+
+    generateReport: function(req, res) {
+        db.findMany(Session, {}, null, (data) => {
+            // TODO: NOT DONE HERE, DATE FORMATTING
+            /*
+            var i;
+            var stringDate = [];
+            for (i = 0; i < data.length; i++) {
+                if (data[i].date.getMonth() < 9 && data[i].date.getDate() < 10){
+                    stringDate[i] = data[i].date.getFullYear() + "-0" + (data[i].date.getMonth() + 1) + "-0" + data[i].date.getDate();
+                }
+                else if (data[i].date.getMonth() < 9 && data[i].date.getDate() > 10){
+                    stringDate[i] = data[i].date.getFullYear() + "-0" + (data[i].date.getMonth() + 1) + "-" + data[i].date.getDate();
+                }
+                else if (data[i].date.getMonth() > 9 && data[i].date.getDate() < 10){
+                    stringDate[i] = data[i].date.getFullYear() + "-" + (data[i].date.getMonth() + 1) + "-0" + data[i].date.getDate();
+                }
+                else{
+                    stringDate[i] = data[i].date.getFullYear() + "-" + (data[i].date.getMonth() + 1) + "-" + data[i].date.getDate();
+                }
+            }
+            console.log(stringDate);
+            for (i = 0; i < stringDate.length; i++) {
+                data[i].date = data[i].ymddate;
+            }
+            */
+            res.send(data);
+        });
+    },
 };
 
 module.exports = sessions_controller;
