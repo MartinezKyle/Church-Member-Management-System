@@ -39,7 +39,14 @@ const attendance_controller = {
 			res.send(data);
 		});
 		
-    }
+    },
+
+    generateAttendence: function(req, res) {
+        db.findMany(Attendance, {}, null, (data) => {
+            // TODO: NOT DONE HERE, DATE FORMATTING
+            res.send(data);
+        });
+    },
 };
 
 module.exports = attendance_controller;
