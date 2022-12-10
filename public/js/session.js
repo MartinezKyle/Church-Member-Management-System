@@ -81,4 +81,27 @@ document.addEventListener("DOMContentLoaded", function (event) {
             }
         }
     });
+
+    $(".btn").click(function () { 
+        //console.log("SEARCH!");
+        var info = document.querySelector('.form-control');
+        let arrName = info.value.split(', ');
+
+        console.log(arrName);
+        
+        
+        var url = `/searchInfo?date=${arrName[0]}&session=${arrName[1]}`;
+        $.post(url, (data, status, xhr) => {
+            if (status == "success") {
+                if (!data) {
+                    console.log("Does not Exist!");
+                }
+                else {
+                    console.log("Exist!");
+                    window.location.href = "/sessionAttendance?date=" + arrName[0] + "&session=" + arrName[1];
+                }
+            }
+        });
+        
+    });
 });
