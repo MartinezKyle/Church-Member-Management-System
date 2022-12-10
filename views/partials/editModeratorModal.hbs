@@ -2,28 +2,28 @@
   <div class="modal-dialog ">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Edit Moderator {{firstname}} {{lastname}}'s Details</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h5 class="modal-title" id="exampleModalLabel">Edit Moderator <span id="spanlastname"></span>, <span id="spanfirstname"></span>'s Details</h5>
+        <button type="button" class="btn-close" id="clear" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form>
             <div class="row">
                 <div class="col">
                     <label for="first-name" class="form-label">First Name</label>
-                    <input class="form-control form-control-sm" id="firstname" value="{{firstname}}">
+                    <input class="form-control form-control-sm" id="firstname" value="">
                     <div id="first-name-error" class="form-text" hidden>Names cannot have numbers</div>
                 </div>
 
                 <div class="col">
                     <label for="last-name" class="form-label">Last Name</label>
-                    <input class="form-control form-control-sm" id="lastname" value="{{lastname}}">
+                    <input class="form-control form-control-sm" id="lastname" value="">
                     <div id="last-name-error" class="form-text" hidden>Names cannot have numbers</div>
                 </div>
             </div>
 
             <div class="mb-3">
                 <label for="phone-num" class="form-label">Phone Number</label>
-                <input class="form-control form-control-sm" id="phonenum" type="number" value="{{phonenum}}">
+                <input class="form-control form-control-sm" id="phonenum" type="number" value="">
                 <div id="phone-num-error" class="form-text"></div>
             </div>
 
@@ -33,15 +33,15 @@
             </div>
 
             <div class="mb-3">
-                <label for="address" class="form-label">New Password</label>
-                <input class="form-control form-control-sm" id="new-password">
+                <label for="address" class="form-label">Confirm New Password</label>
+                <input class="form-control form-control-sm" id="confirm-new-password">
                 <div id="password-error" class="form-text">The passwords don't seem to match. Type it again?</div>
             </div>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary" id="update" data-phonenum="{{phonenum}}">Save changes</button>
+        <button type="button" class="btn btn-secondary" id="cancel" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" id="update" data-phonenum="">Save changes</button>
       </div>
     </div>
   </div>

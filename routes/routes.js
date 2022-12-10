@@ -2,6 +2,7 @@ const express = require('express');
 const controller = require('../controllers/controller.js');
 const login_controller = require('../controllers/login_controller.js');
 const memberlist_controller = require('../controllers/memberlist_controller.js');
+const moderatorlist_controller = require('../controllers/moderatorlist_controller.js');
 const attendance_controller = require('../controllers/attendance_controller.js');
 const register_churchgoer_controller = require('../controllers/register_churchgoer_controller.js');
 const sessions_controller = require('../controllers/sessions_controller.js');
@@ -28,6 +29,7 @@ app.get('/attendance', controller.loadAttendance);
 app.get('/sessions', controller.loadSessions);
 
 app.get('/deleteMember', memberlist_controller.deleteMember);
+app.get('/deleteModerator', moderatorlist_controller.deleteModerator);
 app.get('/addSession', sessions_controller.addSession);
 app.get('/deleteSession', sessions_controller.deleteSession);
 app.get('/sessionAttendance', controller.loadSessionAttendance);
@@ -45,6 +47,7 @@ app.get('/updateCG', register_churchgoer_controller.updateOne);
 app.get('/addMod', register_admin_controller.getAdd);
 app.post('/addMultipleMod', register_admin_controller.addMultiple);
 app.get('/getCheckPhoneMod', register_admin_controller.getCheckPhone);
+app.get('/updateModerator', moderatorlist_controller.updateOne);
 
 //-------- Login Checking ----------//
 app.post('/CheckLogin', login_controller.CheckLogin);
