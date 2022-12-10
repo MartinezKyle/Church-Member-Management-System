@@ -24,6 +24,7 @@ const sessions_controller = {
             
         });
     },
+
     deleteSession: function (req, res) {
         var session = req.query.session;
         var date = new Date(req.query.date);
@@ -42,28 +43,12 @@ const sessions_controller = {
     generateReport: function(req, res) {
         db.findMany(Session, {}, null, (data) => {
             // TODO: NOT DONE HERE, DATE FORMATTING
-            /*
-            var i;
-            var stringDate = [];
-            for (i = 0; i < data.length; i++) {
-                if (data[i].date.getMonth() < 9 && data[i].date.getDate() < 10){
-                    stringDate[i] = data[i].date.getFullYear() + "-0" + (data[i].date.getMonth() + 1) + "-0" + data[i].date.getDate();
-                }
-                else if (data[i].date.getMonth() < 9 && data[i].date.getDate() > 10){
-                    stringDate[i] = data[i].date.getFullYear() + "-0" + (data[i].date.getMonth() + 1) + "-" + data[i].date.getDate();
-                }
-                else if (data[i].date.getMonth() > 9 && data[i].date.getDate() < 10){
-                    stringDate[i] = data[i].date.getFullYear() + "-" + (data[i].date.getMonth() + 1) + "-0" + data[i].date.getDate();
-                }
-                else{
-                    stringDate[i] = data[i].date.getFullYear() + "-" + (data[i].date.getMonth() + 1) + "-" + data[i].date.getDate();
-                }
-            }
-            console.log(stringDate);
-            for (i = 0; i < stringDate.length; i++) {
-                data[i].date = data[i].ymddate;
-            }
-            */
+            res.send(data);
+        });
+    },
+
+    searchInfo: function(req, res) {
+        db.findOne(Session, {date: req.query.date, session: req.query.session}, null, (data) => {
             res.send(data);
         });
     },
