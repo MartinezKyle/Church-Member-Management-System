@@ -61,4 +61,7 @@ app.get('/getCheckAttendance', attendance_controller.getCheckAttendance);
 app.get('/generateReport', sessions_controller.generateReport);
 app.get('/generateAttendence', attendance_controller.generateAttendence);
 
+//--------- Search ---------//
+app.post('/searchInfo', sessions_controller.searchInfo);
+
 module.exports = app;
