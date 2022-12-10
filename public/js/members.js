@@ -13,6 +13,25 @@ document.addEventListener("DOMContentLoaded", function (event) {
     });
 });
 
+    $(".btn").click(function () { 
+        //console.log("SEARCH!");
+        var phonenum = document.querySelector('.form-control');
+        
+        var url = `/searchPhone?phonenum=${phonenum.value}`;
+        $.post(url, (data, status, xhr) => {
+            if (status == "success") {
+                if (!data) {
+                    console.log("Does not Exist!");
+                }
+                else {
+                    console.log("Exist!");
+                    window.location.href =`/profile?phonenum=${phonenum.value}`;
+                }
+            }
+        });
+        
+    });
+
 /*$(document).ready(() => {
     let phonenum;
 
