@@ -63,5 +63,6 @@ app.get('/generateAttendence', attendance_controller.generateAttendence);
 
 //--------- Search ---------//
 app.post('/searchInfo', sessions_controller.searchInfo);
+app.post('/searchPhone', controller.searchPhone);
 
 module.exports = app;
