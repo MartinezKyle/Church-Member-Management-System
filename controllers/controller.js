@@ -276,6 +276,12 @@ const controller = {
         res.redirect('/login');
     },
 	
+	searchPhone: function(req, res) {
+        db.findOne(User, {phonenum: req.query.phonenum}, null, (data) => {
+            res.send(data);
+        });
+    },
+	
 	//-----------------------Post Members Routing------------------------//
     
 
