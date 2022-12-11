@@ -11,11 +11,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 if (!data) {
                     document.querySelector("#errorText").innerHTML = "";
 					input.style.backgroundColor = "#e3e3e3";
-                    document.querySelector("#submit").disabled = false;
+                    document.querySelector("#submit-single").disabled = false;
                 } else {
 					input.style.backgroundColor = "red";
                     document.querySelector("#errorText").innerHTML = "Phone Number already in the database";
-                    document.querySelector("#submit").disabled = true;
+                    document.querySelector("#submit-single").disabled = true;
                 }
             }
         });
@@ -54,19 +54,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
 			window.location.href = `/register-moderator`; 
         }
     });
-
-	/*$("#csv").change(function() {
-		var fileList = $("#csv").prop('files');
-		console.log("Hello: " + fileList[0].name);
-		if (fileList.length==0){
-			document.querySelector("#csvlabel").innerHTML = "";
-			document.querySelector("#csvlabel").innerHTML += 'Choose a .csv File';
-		}
-		else{
-			document.querySelector("#csvlabel").innerHTML = "";
-			document.querySelector("#csvlabel").innerHTML = fileList[0].name + " (Click again to choose another .csv file)";
-		}
-	});*/
 
 	$("#submit-bulk").click(function() {
 		var fileList = document.querySelector("#csv").files;
