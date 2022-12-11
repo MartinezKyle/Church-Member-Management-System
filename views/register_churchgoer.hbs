@@ -48,7 +48,7 @@
                         <div class="row">
                             <div class="border-end col-xs-12 col-md-6">
                                 {{!-- Name --}}
-                                <div class="row">
+                                <div class="row mb-3">
                                     <div class="col-xs-12 col-sm-6 mb-3 mb-sm-0">
                                         <label for="firstname" class="form-label">First Name</label>
                                         <input class="form-control" id="firstname" />
@@ -59,7 +59,7 @@
                                     </div>
                                 </div>
                                 {{!-- Phone Number, Birthday, & Gender --}}
-                                <div class="row">
+                                <div class="row mb-3">
                                     <div class="col-xs-6 col-sm-4 mb-3 mb-sm-0">
                                         <label for="phonenum" class="form-label">Phone No.</label>
                                         <input type="number" class="form-control" id="phonenum" />
@@ -85,7 +85,7 @@
                                     </div>
                                 </div>
                                 {{!-- Address --}}
-                                <div class="row">
+                                <div class="row mb-3">
                                     <div class="col-xs-12">
                                         <label for="address" class="form-label">Address</label>
                                         <input class="form-control" id="address" />
@@ -95,7 +95,7 @@
 
                             <div class="col-xs-12 col-md-6 d-flex flex-column justify-content-between">
                                 <div>
-                                    <div class="row">
+                                    <div class="row mb-3">
                                         {{!-- Baptism Status --}}
                                         <div class="col-xs-12 col-sm-6 mb-3 mb-sm-0">
                                             <label for="baptismstatus" class="form-label">Baptism Status</label>
@@ -121,7 +121,7 @@
                                             />
                                         </div>
                                     </div>
-                                    <div class="row">
+                                    <div class="row mb-3">
                                         {{!-- Baptismal Location --}}
                                         <div class="col-xs-12">
                                             <label for="cell-number" class="form-label">Baptismal Location</label>
@@ -130,7 +130,7 @@
                                     </div>
                                 </div>
 
-                                <div class="row">
+                                <div class="row mb-3">
                                     <div class="col d-flex align-items-end">
                                         <div>
                                             <button
@@ -150,25 +150,17 @@
                     </form>
                 </div>
 
-                <div class="row">
+                <div class="row my-3">
                     <div class="col"><hr></div>
                     <div class="col-auto"><p>or</p></div>
                     <div class="col"><hr></div>
                 </div>
 
                 <div class="d-flex flex-column align-items-center">
-                    <div class="d-flex justify-content-center align-items-center">
-                        <div class="mb-2">
-                            {{!-- <label for="formFile" class="form-label">Import a CSV file</label> --}}
+                    <div class="d-flex justify-content-center align-items-center mb-3">
+                        <div>
                             <input class="form-control" type="file" name="csv" id="csv" accept=".csv" aria-labelledby="import-csv">
                         </div>
-                        {{!-- <div>
-                            <label for="csv" id = "csvlabel" class="btn btn-dark">
-                                Choose a .csv File
-                            </label>
-                            <input type="file" accept = ".csv" name="csv" id="csv" hidden>
-                            <button type="button" id="submit-bulk" class="btn btn-dark">Import</button>
-                        </div> --}}
                         <div>
                             <button type="button" id="trigger-help-modal" class="fa-button">
                                 <i class="fa-regular fa-circle-question"></i>
@@ -179,8 +171,6 @@
                         <button type="button" id="submit-bulk" class="btn btn-dark">Bulk Registration Using CSV File</button>
                     </div>
                 </div>
-
-                <div class="margin-end"></div>
             </div>
         </div>
 
