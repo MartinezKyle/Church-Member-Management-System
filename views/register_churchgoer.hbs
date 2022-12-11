@@ -45,7 +45,7 @@
 
                 <div id="registration-form">
                     <form id="register-churchgoer">
-                        <div class="row">
+                        <div class="row gx-5">
                             <div class="border-end col-xs-12 col-md-6">
                                 {{!-- Name --}}
                                 <div class="row mb-3">
@@ -131,7 +131,7 @@
                                 </div>
 
                                 <div class="row mb-3">
-                                    <div class="col d-flex align-items-end">
+                                    <div class="col d-flex flex-column align-items-center flex-md-row align-items-md-end">
                                         <div>
                                             <button
                                                 type="button"
@@ -158,20 +158,25 @@
 
                 <div class="d-flex flex-column align-items-center">
                     <div class="d-flex justify-content-center align-items-center mb-3">
+                        {{!-- Upload csv file --}}
                         <div>
                             <input class="form-control" type="file" name="csv" id="csv" accept=".csv" aria-labelledby="import-csv">
                         </div>
+                        {{!-- Help button --}}
                         <div>
                             <button type="button" id="trigger-help-modal" class="fa-button">
                                 <i class="fa-regular fa-circle-question"></i>
                             </button>
                         </div>
                     </div>
+                    {{!-- Confirmation of bulk registration --}}
                     <div>
                         <button type="button" id="submit-bulk" class="btn btn-dark">Bulk Registration Using CSV File</button>
                     </div>
                 </div>
             </div>
+
+            <div class="mb-5"></div>
         </div>
 
         <!-- JavaScript -->

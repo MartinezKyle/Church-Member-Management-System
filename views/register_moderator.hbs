@@ -32,7 +32,7 @@
         <title>UCCA</title>
     </head>
     <body>
-        <div class="container-fluid h-100">
+        <div class="container-fluid">
             <div>
                 {{!-- Navigation Bar --}}
                 {{> navbar}}
@@ -43,74 +43,87 @@
                     <p id="navigation">Registration / Register Moderator</p>
                 </div>
 
-                <div id="moderator-registration" class="d-flex">
-                    <div>
+                <div id="moderator-registration" class="row gx-5">
+                    <div class="border-end col-12 col-md-6">
+                        <p class="fs-6 fw-bold">Single Moderator Registration</p>
                         <form id="register-moderator">
-                            <div class="row">
-                                <div class="col">
+                            <div class="row mb-3">
+                                <div class="col-12 col-sm-6 mb-3 mb-sm-0">
                                     <label for="firstname" class="form-label">First Name</label>
                                     <input class="form-control" id="firstname" />
                                 </div>
-                                <div class="col">
+                                <div class="col-12 col-sm-6">
                                     <label for="lastname" class="form-label">Last Name</label>
                                     <input class="form-control" id="lastname" />
                                 </div>
                             </div>
-                            <div class="mb-3">
-                                <label for="address" class="form-label">Phone Number</label>
-                                <input class="form-control" id="phonenum" />
+
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <label for="address" class="form-label">Phone Number</label>
+                                    <input class="form-control" id="phonenum" />
+                                </div>
                             </div>
-                            <div class="mb-3">
-                                <label
-                                    for="password1"
-                                    class="form-label"
-                                >Password</label>
-                                <input type="password" class="form-control" id="password1" />
+
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <label
+                                        for="password1"
+                                        class="form-label"
+                                    >Password</label>
+                                    <input type="password" class="form-control" id="password1" />
+                                </div>
                             </div>
-                            <div class="mb-3">
-                                <label for="password2" class="form-label">Repeat
-                                    Password</label>
-                                <input type="password" class="form-control" id="password2" />
+
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <label for="password2" class="form-label">Repeat
+                                        Password</label>
+                                    <input type="password" class="form-control" id="password2" />
+                                </div>
                             </div>
-                            {{!-- <div class="d-flex justify-content-center"> --}}
-                                <button
-                                    type="button"
-                                    id="submit-single"
-                                    class="btn btn-dark"
-                                >Register Moderator
-                                </button>
-                            {{!-- </div> --}}
-                            <p id = "errorText"></p>
+                            
+                            <div class="row">
+                                <div class="col d-flex flex-column align-items-center flex-md-row align-items-md-end">
+                                    <div>
+                                        <button
+                                            type="button"
+                                            id="submit-single"
+                                            class="btn btn-dark"
+                                        >Register Moderator
+                                        </button>
+                                    </div>
+                                    <div>
+                                        <p id="errorText" class="mb-0 ms-2"></p>
+                                    </div>
+                                </div>
+                                    
+                            </div>
                         </form>
+
+                        <div class="row my-3 divider">
+                            <div class="col"><hr></div>
+                            <div class="col-auto"><p>or</p></div>
+                            <div class="col"><hr></div>
+                        </div>
                     </div>
 
-                    {{!-- <div class="strike">
-                        <span>or</span>
-                    </div> --}}
-
-                    <div class="vr"></div>
-
-                    <div class="">
-                        <label for="formFile" class="form-label">Import a CSV file for Bulk Registration</label>
-                        <div class="d-flex justify-content-center align-items-center width-fit">
+                    <div class="col-12 col-md-6 d-flex flex-column align-items-center align-items-md-start">
+                        <p class="fs-6 fw-bold">Multiple Moderator Registration</p>
+                        
+                        <div class="d-flex align-items-center mb-3">
                             <div>
                                 <input class="form-control" type="file" name="csv" id="csv" accept=".csv" aria-labelledby="import-csv">
                             </div>
-                            {{!-- <div>
-                                <label for="csv" id = "csvlabel" class="btn btn-dark">
-                                    Choose a .csv File
-                                </label>
-                                <input type="file" accept = ".csv" name="csv" id="csv" hidden>
-                                <button type="button" id="submit-bulk" class="btn btn-dark">Import</button>
-                            </div> --}}
+                            
                             <div>
-                                <button type="button" id="trigger-help-modal">
+                                <button type="button" id="trigger-help-modal" class="fa-button">
                                     <i class="fa-regular fa-circle-question"></i>
                                 </button>
                             </div>
                         </div>
                         <div>
-                            <button type="button" id="submit-bulk" class="btn btn-dark">Import</button>
+                            <button type="button" id="submit-bulk" class="btn btn-dark">Bulk Registration Using CSV File</button>
                         </div>
                     </div>
                 </div>

@@ -1,99 +1,21 @@
-/* #moderator-registration {
-    width: 30vw;
-} */
-
-/* form {
-    margin-bottom: 1%;
-} */
-
-/* .section {
-    border-right: 1px;
-}
-
-.section-2 {
-    padding-bottom: 1rem;
-} */
-
-/* .btn {
-    background-color: black;
-    margin-top: 2%;
-}
-
-.row {
-    margin-bottom: 1rem;
-} */
-
-/* .vr {
-    width: 1px;
-    background-color: black;
-    opacity: .25;
-    margin-left: 2%;
-    margin-right: 2%;
-} */
-
-/* .strike {
-    display: block;
-    text-align: center;
-    overflow: hidden;
-    white-space: nowrap; 
-    width: 100%;
-    margin-top: 2%;
-    margin-bottom: 2%;
-}
-
-.strike > span {
-    position: relative;
-    display: inline-block;
-}
-
-.strike > span:before,
-.strike > span:after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    width: 100vw;
-    height: 1px;
-    background: black;
-    opacity: .25;
-}
-
-.strike > span:before {
-    right: 100%;
-    margin-right: 15px;
-}
-
-.strike > span:after {
-    left: 100%;
-    margin-left: 15px;
-} */
-
-/* .width-fit {
-    width: fit-content;
-} */
-
 #errorText {
-    /* margin: 0; */
-    /* margin-left: 10px; */
     color: red;
 }
 
-/* #trigger-help-modal {
-    border: none;
-    background-color: transparent;
-} */
-
-/* .margin-bot-1-per {
-    margin-bottom: 1%;
-} */
-
+/* below sm */
 @media (max-width: 767.98px) {
     .border-end {
         border-right: none!important;
     }
+
+    .fs-6 {
+        display: none;
+    }
 }
 
-/* @media (max-width: 767px) {
-    .border-end {
-        border-right: none!important;
+/* sm and above */
+@media (min-width: 768px) {
+    .divider {
+        display: none;
     }
-} */
+}
