@@ -32,7 +32,7 @@
         <title>UCCA</title>
     </head>
     <body>
-        <div class="container-fluid h-100">
+        <div class="container-fluid">
             <div>
                 {{!-- Navigation Bar --}}
                 {{> navbar}}
@@ -45,28 +45,26 @@
 
                 <div id="registration-form">
                     <form id="register-churchgoer">
-                        <div class="d-flex justify-content-between">
-                            <div class="section">
+                        <div class="row">
+                            <div class="border-end col-xs-12 col-md-6">
+                                {{!-- Name --}}
                                 <div class="row">
-                                    <div class="col">
+                                    <div class="col-xs-12 col-sm-6 mb-3 mb-sm-0">
                                         <label for="firstname" class="form-label">First Name</label>
                                         <input class="form-control" id="firstname" />
                                     </div>
-
-                                    <div class="col">
+                                    <div class="col-xs-12 col-sm-6">
                                         <label for="lastname" class="form-label">Last Name</label>
                                         <input class="form-control" id="lastname" />
                                     </div>
                                 </div>
-
-                                {{!-- Phone Number & Birthday --}}
+                                {{!-- Phone Number, Birthday, & Gender --}}
                                 <div class="row">
-                                    <div class="col">
-                                        <label for="phonenum" class="form-label">Phone Number</label>
+                                    <div class="col-xs-6 col-sm-4 mb-3 mb-sm-0">
+                                        <label for="phonenum" class="form-label">Phone No.</label>
                                         <input type="number" class="form-control" id="phonenum" />
                                     </div>
-
-                                    <div class="col">
+                                    <div class="col-xs-6 col-sm-4 mb-3 mb-sm-0">
                                         <label
                                             for="birthdate"
                                             class="form-label"
@@ -77,8 +75,7 @@
                                             id="birthdate"
                                         />
                                     </div>
-
-                                    <div class="col">
+                                    <div class="col-xs-12 col-sm-4">
                                         <label for="gender" class="form-label">Gender</label>
                                         <select name="gender" class="form-select" id="gender">
                                             <option selected disabled hidden>Select gender</option>
@@ -87,89 +84,81 @@
                                         </select>
                                     </div>
                                 </div>
-
-                                
-
-                                <div class="mb-3">
-                                    <label for="address" class="form-label">Address</label>
-                                    <input class="form-control" id="address" />
+                                {{!-- Address --}}
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <label for="address" class="form-label">Address</label>
+                                        <input class="form-control" id="address" />
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="vr"></div>
-
-                            <div class="section section-2 d-flex flex-column justify-content-between">
+                            <div class="col-xs-12 col-md-6 d-flex flex-column justify-content-between">
                                 <div>
                                     <div class="row">
-                                        <div class="col">
-                                            <label for="baptismstatus" class="form-label">Baptism
-                                                Status</label>
+                                        {{!-- Baptism Status --}}
+                                        <div class="col-xs-12 col-sm-6 mb-3 mb-sm-0">
+                                            <label for="baptismstatus" class="form-label">Baptism Status</label>
                                             <select
                                                 name="baptismstatus"
                                                 class="form-select"
                                                 id="baptismstatus"
                                             >
-                                                <option selected disabled hidden>Select Baptism
-                                                    Status</option>
+                                                <option selected disabled hidden>Select Baptism Status</option>
                                                 <option value="Unbaptized">Unbaptized</option>
                                                 <option value="Infant Baptism">Infant Baptism</option>
                                                 <option value="Water Baptism">Water Baptism</option>
                                             </select>
                                         </div>
-                                        <div class="col">
-                                            <label for="province" class="form-label" disabled="true">Baptismal Date</label>
+                                        {{!-- Baptismal Date --}}
+                                        <div class="col-xs-12 col-sm-6">
+                                            <label for="province" class="form-label">Baptismal Date</label>
                                             <input
                                                 type="date"
                                                 class="form-control"
                                                 id="baptismaldate"
+                                                disabled="true"
                                             />
                                         </div>
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="cell-number" class="form-label">Baptismal
-                                            Location</label>
-                                        <input class="form-control" id="baptismallocation" disabled="true"/>
+                                    <div class="row">
+                                        {{!-- Baptismal Location --}}
+                                        <div class="col-xs-12">
+                                            <label for="cell-number" class="form-label">Baptismal Location</label>
+                                            <input class="form-control" id="baptismallocation" disabled="true"/>
+                                        </div>
                                     </div>
                                 </div>
-                    
-                                {{!-- <div class="mb-3">
-                                    <label
-                                        for="password1"
-                                        class="form-label"
-                                    >Password</label>
-                                    <input type="password" class="form-control" id="password1" />
-                                </div>
 
-                                <div class="mb-3">
-                                    <label for="password2" class="form-label">Repeat
-                                        Password</label>
-                                    <input type="password" class="form-control" id="password2" />
-                                </div> --}}
-                                <div>
-                                    <button
-                                        type="button"
-                                        id="submit-single"
-                                        class="btn btn-dark"
-                                        >Register Churchgoer
-                                    </button>
+                                <div class="row">
+                                    <div class="col d-flex align-items-end">
+                                        <div>
+                                            <button
+                                                type="button"
+                                                id="submit-single"
+                                                class="btn btn-dark"
+                                                >Register Churchgoer
+                                            </button>
+                                        </div>
+                                        <div>
+                                            <p id="errorText" class="mb-0 ms-2"></p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="d-flex justify-content-center">
-                            
-                        </div>
-                        <p id = "errorText"></p>
                     </form>
                 </div>
 
-                <div class="strike">
-                    <span>or</span>
+                <div class="row">
+                    <div class="col"><hr></div>
+                    <div class="col-auto"><p>or</p></div>
+                    <div class="col"><hr></div>
                 </div>
 
                 <div class="d-flex flex-column align-items-center">
-                    <div class="d-flex justify-content-center align-items-center width-fit">
-                        <div class="margin-bot-1-per">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <div class="mb-2">
                             {{!-- <label for="formFile" class="form-label">Import a CSV file</label> --}}
                             <input class="form-control" type="file" name="csv" id="csv" accept=".csv" aria-labelledby="import-csv">
                         </div>
@@ -181,7 +170,7 @@
                             <button type="button" id="submit-bulk" class="btn btn-dark">Import</button>
                         </div> --}}
                         <div>
-                            <button type="button" id="trigger-help-modal">
+                            <button type="button" id="trigger-help-modal" class="fa-button">
                                 <i class="fa-regular fa-circle-question"></i>
                             </button>
                         </div>
