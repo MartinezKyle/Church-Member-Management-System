@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 	$("#phonenum").keyup(function () {
         var input = this;
         var url = `/getCheckPhone?q=${input.value}`;
-		$.get('getCheckPhone', {q: input.value}, function (result) {
+		$.get("getCheckPhone", {q: input.value}, function (result) {
 			if (!result){
 				document.querySelector("#errorText").innerHTML = "Phone Number not in the database";
                 document.querySelector("#submit").disabled = true;
@@ -23,21 +23,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
 				document.querySelector("#name").value = result.lastname + ", " + result.firstname;
 			}
 		});
-        /*$.get(url, (data, status, xhr) => {
-            if (status == "success") {
-                if (data) {
-                    document.querySelector("#errorText").innerHTML = "";
-					input.style.backgroundColor = "#e3e3e3";
-                    document.querySelector("#submit").disabled = false;
-					document.querySelector("#name").value = data.lastname + ", " + data.firstname;
-                } else {
-					// input.style.backgroundColor = "red";
-                    document.querySelector("#errorText").innerHTML = "Phone Number not in the database";
-                    document.querySelector("#submit").disabled = true;
-					document.querySelector("#name").value = "";
-                }
-            }
-        });*/
     });
 	
 	$("#submit").click(function () {
@@ -51,13 +36,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
 			console.log("error");
 		}
         else {
-			$.get('getCheckAttendance', {phonenum: phonenum, session: session}, function (result) {
+			$.get("getCheckAttendance", {phonenum: phonenum, session: session}, function (result) {
+				console.log("5");
 				if (!result){
 					console.log(result);
 					/*var url = `/addAttendance?phonenum=${phonenum}&session=${session}`;
 					$.get(url, (data, status, xhr) => {})*/
-					$.get('addAttendance', {phonenum: phonenum, session: session})
-					$.get('addSession', {session: session})							
+					$.get("addAttendance", {phonenum: phonenum, session: session});
+					$.get("addSession", {session: session});						
 					/*var url = `/addSession?session=${session}`;
 					$.get(url, (data, status, xhr) => {})*/
 					var form = document.getElementById("attendance");
