@@ -2,13 +2,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
     $(".delete").click(function () {
         var phonenum = $(this).data("id");
         console.log(phonenum);
-        /*var url = '/deleteModerator?phonenum=' + phonenum;
-        $.get(url, (data, status, xhr) => {
-            alert(status);
-            if (status == "success") {
-                window.location.href = "/load_moderators";
-            }
-        });*/
 
         $.get('deleteModerator', {phonenum: phonenum}, function (result) {
             if (result){
