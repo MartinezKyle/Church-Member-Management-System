@@ -92,12 +92,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
         }
     });
     
-        $(".btn").click(function () { 
-        //console.log("SEARCH!");
-        var phonenum = document.querySelector('.form-control');
-
+        $("#button").click(function () { 
+        var phonenum = document.querySelector('#forme');
         console.log(phonenum.value);
-        
         var url = `/searchPhone?phonenum=${phonenum.value}`;
         $.post(url, (data, status, xhr) => {
             if (status == "success") {
@@ -110,7 +107,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 }
             }
         });
-        
         
     });
 });
