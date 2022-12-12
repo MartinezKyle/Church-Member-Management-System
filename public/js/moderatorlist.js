@@ -74,4 +74,22 @@ document.addEventListener("DOMContentLoaded", function (event) {
 			});
         }
     });
+	
+	$(".btn-2").click(function () { 
+        var phonenum = document.querySelector('.form-control-2');
+        console.log(phonenum.value);
+        var url = `/searchPhone?phonenum=${phonenum.value}`;
+        $.post(url, (data, status, xhr) => {
+            if (status == "success") {
+                if (!data) {
+                    console.log("Does not Exist!");
+                }
+                else {
+                    console.log("Exist!");
+                    window.location.href =`/profile?phonenum=${phonenum.value}`;
+                }
+            }
+        });
+        
+    });
 });

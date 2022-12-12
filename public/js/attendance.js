@@ -37,15 +37,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
 		}
         else {
 			$.get("getCheckAttendance", {phonenum: phonenum, session: session}, function (result) {
-				console.log("5");
 				if (!result){
 					console.log(result);
-					/*var url = `/addAttendance?phonenum=${phonenum}&session=${session}`;
-					$.get(url, (data, status, xhr) => {})*/
 					$.get("addAttendance", {phonenum: phonenum, session: session});
-					$.get("addSession", {session: session});						
-					/*var url = `/addSession?session=${session}`;
-					$.get(url, (data, status, xhr) => {})*/
+					$.get("addSession", {session: session});
 					var form = document.getElementById("attendance");
 					form.reset();
 					document.querySelector("#errorText").innerHTML = "";
