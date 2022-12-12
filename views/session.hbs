@@ -33,7 +33,7 @@
         <title>UCCA</title>
     </head>
     <body>
-        <div class="container-fluid h-100">
+        <div class="container-fluid">
             {{> modal}}
 
             <div>
@@ -42,19 +42,12 @@
             </div>
 
             <div class="content">
-                <div class="d-flex flex-row justify-content-between">
-                    <div>
-                        <p id="navigation"><a href="/sessions">All Sessions</a> / 12-10-2022 Morning Session</p>
-                    </div>
-                    <div>
-                        <p id="date">October 12, 2022</p>
-                    </div>
-                </div>
+                {{> breadcrumbs navigation="<p id=\"navigation\"><a href=\"/sessions\">All Sessions</a> / 12-10-2022 Morning Session</p>" date="INSERT DATE HERE"}}
 
                 <div class="repository">
-                    <div class="d-flex justify-content-end">
+                    <div class="d-flex justify-content-end mb-3">
                         <form class="d-flex" id="search">
-                            <input class="form-control me-2" type="search" placeholder="Phonenumber" aria-label="Search">
+                            <input class="form-control me-2" type="search" placeholder="Search a phone number" aria-label="Search">
                             <button class="btn btn-outline-success" type="submit">
                                 <i class="fa-solid fa-magnifying-glass"></i>
                             </button>
@@ -62,7 +55,7 @@
                     </div>
 
                     <div>
-                        <table class="table">
+                        <table class="table table-sm">
                             <thead>
                                 <tr>
                                     <th scope="col">

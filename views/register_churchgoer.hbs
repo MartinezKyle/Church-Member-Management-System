@@ -39,9 +39,7 @@
             </div>
 
             <div class="content">
-                <div>
-                    <p id="navigation">Registration / Register Churchgoer</p>
-                </div>
+                {{> breadcrumbs navigation="<p class=\"fs-5\">Registration / Register Churchgoer</p>" date="INSERT DATE HERE"}}
 
                 <div id="registration-form">
                     <form id="register-churchgoer">
@@ -51,18 +49,18 @@
                                 <div class="row mb-3">
                                     <div class="col-xs-12 col-sm-6 mb-3 mb-sm-0">
                                         <label for="firstname" class="form-label">First Name</label>
-                                        <input class="form-control" id="firstname" />
+                                        <input class="form-control form-control-sm" id="firstname" />
                                     </div>
                                     <div class="col-xs-12 col-sm-6">
                                         <label for="lastname" class="form-label">Last Name</label>
-                                        <input class="form-control" id="lastname" />
+                                        <input class="form-control form-control-sm" id="lastname" />
                                     </div>
                                 </div>
                                 {{!-- Phone Number, Birthday, & Gender --}}
                                 <div class="row mb-3">
                                     <div class="col-xs-6 col-sm-4 mb-3 mb-sm-0">
                                         <label for="phonenum" class="form-label">Phone No.</label>
-                                        <input type="number" class="form-control" id="phonenum" />
+                                        <input type="number" class="form-control form-control-sm" id="phonenum" />
                                     </div>
                                     <div class="col-xs-6 col-sm-4 mb-3 mb-sm-0">
                                         <label
@@ -71,13 +69,13 @@
                                         >Birthdate</label>
                                         <input
                                             type="date"
-                                            class="form-control"
+                                            class="form-control form-control-sm"
                                             id="birthdate"
                                         />
                                     </div>
                                     <div class="col-xs-12 col-sm-4">
                                         <label for="gender" class="form-label">Gender</label>
-                                        <select name="gender" class="form-select" id="gender">
+                                        <select name="gender" class="form-select form-select-sm" id="gender">
                                             <option selected disabled hidden>Select gender</option>
                                             <option value="Male">Male</option>
                                             <option value="Female">Female</option>
@@ -88,7 +86,7 @@
                                 <div class="row mb-3">
                                     <div class="col-xs-12">
                                         <label for="address" class="form-label">Address</label>
-                                        <input class="form-control" id="address" />
+                                        <input class="form-control form-control-sm" id="address" />
                                     </div>
                                 </div>
                             </div>
@@ -101,7 +99,7 @@
                                             <label for="baptismstatus" class="form-label">Baptism Status</label>
                                             <select
                                                 name="baptismstatus"
-                                                class="form-select"
+                                                class="form-select form-select-sm"
                                                 id="baptismstatus"
                                             >
                                                 <option selected disabled hidden>Select Baptism Status</option>
@@ -115,7 +113,7 @@
                                             <label for="province" class="form-label">Baptismal Date</label>
                                             <input
                                                 type="date"
-                                                class="form-control"
+                                                class="form-control form-control-sm"
                                                 id="baptismaldate"
                                                 disabled="true"
                                             />
@@ -125,7 +123,7 @@
                                         {{!-- Baptismal Location --}}
                                         <div class="col-xs-12">
                                             <label for="cell-number" class="form-label">Baptismal Location</label>
-                                            <input class="form-control" id="baptismallocation" disabled="true"/>
+                                            <input class="form-control form-control-sm" id="baptismallocation" disabled="true"/>
                                         </div>
                                     </div>
                                 </div>
@@ -136,7 +134,7 @@
                                             <button
                                                 type="button"
                                                 id="submit-single"
-                                                class="btn btn-dark"
+                                                class="btn btn-dark btn-sm"
                                                 >Register Churchgoer
                                             </button>
                                         </div>

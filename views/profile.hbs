@@ -43,9 +43,17 @@
             </div>
 
             <div class="content">
-                <div>
-                    <p id="navigation">Members / <a href="/loadMembers">Churchgoers</a> / {{ lastname }}, {{ firstname }} </p>
+                <div class="row mb-4">
+                    <div class="col">
+                        <p class="fs-5">Members / <a href="/loadMembers">Churchgoers</a> / {{ lastname }}</p>
+                    </div>
+
+                    <div class="col">
+                        <p class="text-end">{{ date }}</p>
+                    </div>
                 </div>
+                {{!-- {{> breadcrumbs navigation="<p class=\"fs-5\">Members / <a href=\"/loadMembers\">Churchgoers</a> / {{ test1 }} , {{ test2 }} </p>" test1=lastname test2=firstname}} --}}
+                
                 <div>
                     <h1><span class="bold">{{ lastname }}</span>, {{ firstname }}</h1>
                     <p class="baptism" id="{{baptstatid}}"> {{ baptism }} </p>

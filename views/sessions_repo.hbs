@@ -42,17 +42,10 @@
             </div>
 
             <div class="content">
-                <div class="d-flex flex-row justify-content-between">
-                    <div>
-                        <p id="navigation">Sessions</p>
-                    </div>
-                    <div>
-                        <p id="date">October 12, 2022</p>
-                    </div>
-                </div>
+                {{> breadcrumbs navigation="<p class=\"fs-5\">Sessions</p>" date="INSERT DATE HERE"}}
 
                 <div class="repository">
-                    <div class="d-flex justify-content-end">
+                    <div class="d-flex justify-content-end mb-3">
                         <form class="d-flex" id="search">
                             <input class="form-control me-2" type="search" placeholder="YYYY-MM-DD, Session" aria-label="Search">
                             <button class="btn btn-outline-success" type="submit">
@@ -61,7 +54,7 @@
                         </form>
                     </div>
 
-                    <table class="table">
+                    <table class="table table-sm">
                         <thead>
                             <tr>
                                 <th scope="col">

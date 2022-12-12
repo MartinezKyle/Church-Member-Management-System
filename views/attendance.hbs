@@ -26,60 +26,55 @@
     </head>
 
     <body>
-        <div class="container-fluid h-100">
+        <div class="container-fluid">
             <div>
                 {{> navbar}}
             </div>
             <div class="content">
-                <div class="d-flex flex-row justify-content-between breadcrumbs">
-                    <div>
-                        <p id="navigation">Record Attendance</p>
-                    </div>
-                    <div>
-                        <p id="date">December 12, 2022, 7:30 AM</p>
-                    </div>
-                </div>
+                {{> breadcrumbs navigation="<p class=\"fs-5\">Record Attendance</p>" date="INSERT DATE HERE"}}
 
                 <div>
                     <form id="attendance">
-                        <div class="mb-3">
-                            <label for="phonenum" class="form-label">Phone Number</label>
-                            <input
-                                type="number"
-                                class="form-control"
-                                id="phonenum"
-                            />
-                            <p id="errorText"></p>
+                        <div class="row">
+                            <div class="col col-lg-6">
+                                <label for="phonenum" class="form-label">Phone Number</label>
+                                <input
+                                    type="number"
+                                    class="form-control"
+                                    id="phonenum"
+                                />
+                                <p id="errorText"></p>
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Name</label>
-                            <input
-                                class="form-control"
-                                type="text" id="name"
-                                value=""
-                                aria-label="Disabled input example"
-                                disabled>
+                        
+                        <div class="row mb-3">
+                            <div class="col col-lg-6">
+                                <label for="name" class="form-label">Name</label>
+                                <input
+                                    class="form-control"
+                                    type="text" id="name"
+                                    value=""
+                                    aria-label="Disabled input example"
+                                    disabled>
+                            </div>
                         </div>
                     
-                        <div class="mb-3">
-                            <label for="session" class="form-label">Session</label>
-                            <select name="session" class="form-select" id="session">
-                                <option selected disabled hidden value = "Select Session">Select Session</option>
-                                <option value="MorningSession">Morning Session</option>
-                                <option value="AfternoonSession">Afternoon Session</option>
-                                <option value="LifeJourney">Life's Journey</option>
-                            </select>
+                        <div class="row mb-3">
+                            <div class="col col-lg-6">
+                                <label for="session" class="form-label">Session</label>
+                                <select name="session" class="form-select" id="session">
+                                    <option selected disabled hidden value = "Select Session">Select Session</option>
+                                    <option value="MorningSession">Morning Session</option>
+                                    <option value="AfternoonSession">Afternoon Session</option>
+                                    <option value="LifeJourney">Life's Journey</option>
+                                </select>
+                            </div>
                         </div>
-                        {{!-- <p id="errorText"></p>
-                        <button
-                            type="button"
-                            id="submit"
-                            class="btn btn-dark"
-                        >Record Attendance</button> --}}
-                        <button id="submit" class="btn btn-dark">Record Attendance</button>
+
+                        <button type="button" id="submit" class="btn">Record Attendance</button>
+                        {{!-- <p id="errorText"></p> --}}
                     </form>
                 </div>
-                
             </div>
         </div>
 

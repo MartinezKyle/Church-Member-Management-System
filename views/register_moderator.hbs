@@ -39,9 +39,7 @@
             </div>
 
             <div class="content">
-                <div>
-                    <p id="navigation">Registration / Register Moderator</p>
-                </div>
+                {{> breadcrumbs navigation="<p class=\"fs-5\">Registration / Register Moderator</p>" date="INSERT DATE HERE"}}
 
                 <div id="moderator-registration" class="row gx-5">
                     <div class="border-end col-12 col-md-6">
@@ -50,36 +48,32 @@
                             <div class="row mb-3">
                                 <div class="col-12 col-sm-6 mb-3 mb-sm-0">
                                     <label for="firstname" class="form-label">First Name</label>
-                                    <input class="form-control" id="firstname" />
+                                    <input class="form-control form-control-sm" id="firstname" />
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <label for="lastname" class="form-label">Last Name</label>
-                                    <input class="form-control" id="lastname" />
+                                    <input class="form-control form-control-sm" id="lastname" />
                                 </div>
                             </div>
 
                             <div class="row mb-3">
                                 <div class="col">
-                                    <label for="address" class="form-label">Phone Number</label>
-                                    <input class="form-control" id="phonenum" />
+                                    <label for="address" class="form-label">Phone No.</label>
+                                    <input class="form-control form-control-sm" id="phonenum" />
                                 </div>
                             </div>
 
                             <div class="row mb-3">
                                 <div class="col">
-                                    <label
-                                        for="password1"
-                                        class="form-label"
-                                    >Password</label>
-                                    <input type="password" class="form-control" id="password1" />
+                                    <label for="password1" class="form-label">Password</label>
+                                    <input type="password" class="form-control form-control-sm" id="password1" />
                                 </div>
                             </div>
 
                             <div class="row mb-3">
                                 <div class="col">
-                                    <label for="password2" class="form-label">Repeat
-                                        Password</label>
-                                    <input type="password" class="form-control" id="password2" />
+                                    <label for="password2" class="form-label">Repeat Password</label>
+                                    <input type="password" class="form-control form-control-sm" id="password2" />
                                 </div>
                             </div>
                             
@@ -128,6 +122,8 @@
                     </div>
                 </div>
             </div>
+
+            <div class="mb-5"></div>
         </div>
 
         <!-- JavaScript -->
