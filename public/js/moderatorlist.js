@@ -75,8 +75,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
         }
     });
 	
-	$(".btn-2").click(function () { 
-        var phonenum = document.querySelector('.form-control-2');
+	$("#button").click(function () { 
+        var phonenum = document.querySelector('#forme');
         console.log(phonenum.value);
         var url = `/searchPhone?phonenum=${phonenum.value}`;
         $.post(url, (data, status, xhr) => {
