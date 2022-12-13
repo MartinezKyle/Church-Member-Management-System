@@ -4,9 +4,17 @@ document.addEventListener("DOMContentLoaded", function (event) {
         var session = this.dataset.session;
         var url = '/deleteSession?date='+date+'&session='+session;
         $.get(url, (data, status, xhr) => {
-            alert(status);
+            // alert(status);
             if (status == "success") {
                 window.location.href = "/sessions";
+            }
+            else {
+                var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+                var toastList = toastElList.map(function(toastEl) {
+                    return new bootstrap.Toast(toastEl)
+                });
+
+                toastList.forEach(toast => toast.show());
             }
         });
     });

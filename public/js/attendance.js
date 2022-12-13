@@ -44,7 +44,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
 					var form = document.getElementById("attendance");
 					form.reset();
 					document.querySelector("#errorText").innerHTML = "";
-					window.location.href = `/attendance?session=${session}`;
+
+					var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+					var toastList = toastElList.map(function(toastEl) {
+						return new bootstrap.Toast(toastEl)
+					});
+
+					toastList.forEach(toast => toast.show());
+					// window.location.href = `/attendance?session=${session}`;
 				}
 				else{
 					document.querySelector("#errorText").innerHTML = "";

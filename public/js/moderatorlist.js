@@ -4,12 +4,18 @@ document.addEventListener("DOMContentLoaded", function (event) {
         console.log(phonenum);
 
         $.get('deleteModerator', {phonenum: phonenum}, function (result) {
-            if (result){
-                alert("Moderator successfuly deleted");
+            if (result) {
+                // alert("Moderator successfuly deleted");
                 window.location.href ="/load_moderators";
             }
-            else{
-                alert("There is an error in deleting moderator");
+            else {
+                // alert("There is an error in deleting moderator");
+                var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+					var toastList = toastElList.map(function(toastEl) {
+						return new bootstrap.Toast(toastEl)
+					});
+
+                toastList.forEach(toast => toast.show());
             }
         })
     });

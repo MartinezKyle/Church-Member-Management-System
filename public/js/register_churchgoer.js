@@ -94,15 +94,22 @@ document.addEventListener("DOMContentLoaded", function (event) {
 			var url = `/addUser?phonenum=${phonenum.value}&firstname=${firstname.value}&lastname=${lastname.value}&birthdate=${birthdate.value}&address=${address.value}&gender=${gender.value}&status=For%20Admin%20Review&baptism=${baptism.value}&baptismdate=${baptismdate.value}&baptismlocation=${baptismlocation.value}`;
 			
 			$.get(url, (data, status, xhr) => {
-                alert(status);
+                // alert(status);
                 if (status == "success") {
                     console.log("HELLO");
                 }
             });
+
+			var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+			var toastList = toastElList.map(function(toastEl) {
+				return new bootstrap.Toast(toastEl)
+			});
+
+			toastList.forEach(toast => toast.show());
 			
             var form = document.getElementById("register-churchgoer");
             form.reset();
-			window.location.href = `/register-churchgoer`; 
+			// window.location.href = `/register-churchgoer`; 
         }
     });
 	

@@ -5,9 +5,17 @@ document.addEventListener("DOMContentLoaded", function (event) {
         console.log(phonenum);
         var url = '/deleteMember?phonenum=' + phonenum;
         $.get(url, (data, status, xhr) => {
-            alert(status);
+            // alert(status);            
             if (status == "success") {
                 window.location.href = "/loadMembers";
+            }
+            else {
+                var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+                var toastList = toastElList.map(function(toastEl) {
+                    return new bootstrap.Toast(toastEl)
+                });
+
+                toastList.forEach(toast => toast.show());
             }
         });
     });

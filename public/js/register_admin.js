@@ -43,15 +43,22 @@ document.addEventListener("DOMContentLoaded", function (event) {
 			var url = `/addMod?phonenum=${phonenum.value}&firstname=${firstname.value}&lastname=${lastname.value}&password=${password1.value}`;
 			
 			$.get(url, (data, status, xhr) => {
-                alert(status);
+                // alert(status);
                 if (status == "success") {
                     console.log("HELLO");
                 }
             });
 			
+			var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+			var toastList = toastElList.map(function(toastEl) {
+				return new bootstrap.Toast(toastEl)
+			});
+
+			toastList.forEach(toast => toast.show());
+
             var form = document.getElementById("register-moderator");
             form.reset();
-			window.location.href = `/register-moderator`; 
+			// window.location.href = `/register-moderator`; 
         }
     });
 
