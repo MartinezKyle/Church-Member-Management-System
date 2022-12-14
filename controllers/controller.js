@@ -40,10 +40,14 @@ const controller = {
     },
 
     loadRegisterModerator: (req, res) => {
-        res.render("register_moderator", {
-            title: "Register Moderator",
-            customCSS: '<link rel="stylesheet" href="CSS/register.css">'
-        });
+        if(loggedin == false && phonenum == null) {
+            res.redirect("/login");
+        } else {
+            res.render("register_moderator", {
+                title: "Register Moderator",
+                customCSS: '<link rel="stylesheet" href="CSS/register.css">'
+            });
+        }
     },
 	
 	loadMembers: function (req, res) {
