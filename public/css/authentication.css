@@ -11,11 +11,9 @@ body {
 }
 
 .login-form {
-    /* min-height: 55vh; */
     min-width: 30vw;
     height: 70vh;
     overflow: hidden;
-    /* background-color: #000000; */
     background-color: white;
     padding: 5% 3% 5% 3%;
     margin-left: 10%;
@@ -38,9 +36,9 @@ label {
 }
 
 .btn {
-    /* background-color: #88543a; */
     background-color: #3E3E32;
     width: 100%;
+    color: white;
 }
 
 .row {
@@ -60,5 +58,9 @@ label {
         min-width: 27vw;
         height: 50vh;
         margin-left: 15%;
+    }
+
+    #login {
+        padding: 5%;
     }
 }

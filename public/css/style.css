@@ -15,16 +15,8 @@ body {
     font-weight: bold;
 }
 
-.h100 {
-    height: 100vh;
-}
-
 .h100-per {
     height: 100%;
-}
-
-.w100 {
-    width: 100%;
 }
 
 .content {
@@ -42,16 +34,11 @@ nav {
 }
 
 .nav-link, .nav-link:hover {
-    /* color: #825ea7; */
     color: white!important;
 }
 
 .dropdown-item, .dropdown-item:hover {
     color: #7f62a7;
-}
-
-#navigation {
-    font-size: 20px;
 }
 
 a {
@@ -67,10 +54,6 @@ a:hover {
 .fa-button {
     border: none;
     background-color: transparent;
-}
-
-.margin-end {
-    margin-bottom: 20vh;
 }
 
 /* removing arrows from input tags with type="number" */
