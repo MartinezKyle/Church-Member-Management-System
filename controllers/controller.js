@@ -228,7 +228,9 @@ const controller = {
         else{
             dateString = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
         }
-        console.log(dateString + " " + date.getDate() < 10);
+        const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        var fullDateString = date.getFullYear() + ", " + monthNames[date.getMonth()] + " " + date.getDate(); 
+        var nav = "<p id=\"navigation\"><a href=\"/sessions\">All Sessions</a> / " + fullDateString + " - " + req.query.session + "</p>"
         if (req.query.baptism == null){
             db.findMany(Attendance, {date: date, session: req.query.session}, {_id: 0, lastname: 1, firstname:1, baptism: 1, session: 1, ymddate: { $dateToString: {date: "$date", format: "%Y-%m-%d" }}, time: {$dateToString: {date: "$logtime", format: "%H:%M:%S", timezone: "+08:00" }}, phonenum: 1}, (data) => {
                 const tempArray = [];
@@ -238,7 +240,7 @@ const controller = {
                 db.countDocuments(Attendance, {date: date, session: req.query.session}, (count) => {
                     console.log(tempArray);
                     console.log(count);
-                    res.render("session", { ymddate: dateString, session: req.query.session, data: tempArray, count });
+                    res.render("session", { navigation: nav, ymddate: dateString, session: req.query.session, data: tempArray, count });
                 });
             });
         }
@@ -251,7 +253,7 @@ const controller = {
                 db.countDocuments(Attendance, {date: date, session: req.query.session}, (count) => {
                     console.log(tempArray);
                     console.log(count);
-                    res.render("session", { ymddate: dateString, session: req.query.session, data: tempArray, count });
+                    res.render("session", { navigation: nav, ymddate: dateString, session: req.query.session, data: tempArray, count });
                 });
             });
         }
