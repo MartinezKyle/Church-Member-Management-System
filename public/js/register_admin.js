@@ -123,6 +123,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
 				alert("Please choose a valid csv file");
 			}
 		}
+	});
+	
+	$("#download_template").click(function () {
+		window.open('/csv_templates/admins.csv');
 	});  
 });
 
