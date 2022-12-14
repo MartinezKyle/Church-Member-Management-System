@@ -13,8 +13,10 @@ const session = require('express-session');
 const MongoDBSession = require('connect-mongodb-session')(session);
 
 //-------- Webpages ----------//
+//app.get('/', controller.getIndex);
+//app.get('/getIndex', controller.getIndex);
+//app.get('/login', controller.loadLogin);
 app.get('/', controller.getIndex);
-app.get('/getIndex', controller.getIndex);
 app.get('/login', controller.loadLogin);
 app.get('/register-churchgoer', controller.loadRegisterChurchgoer);
 app.get('/register-moderator', controller.loadRegisterModerator);
