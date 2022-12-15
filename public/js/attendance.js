@@ -1,6 +1,18 @@
 document.addEventListener("DOMContentLoaded", function (event) {
 	selectVal()
+	time();
 
+	function time() {
+		var date = new Date();
+		var s = date.getSeconds();
+		var m = date.getMinutes();
+		var h = date.getHours();
+		const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        document.getElementById('currentdt').innerHTML =  date.getFullYear() + ", " + monthNames[date.getMonth()] + " " + date.getDate() + " " + ("0" + h).substr(-2) + ":" + ("0" + m).substr(-2) + ":" + ("0" + s).substr(-2);
+	};
+	
+	setInterval(time, 1000);
+	
 	function selectVal(){
 		var selectVal = window.location.search.substring(1).split("=")[1];
 		console.log(selectVal);
