@@ -145,6 +145,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
 										value = null;
 									}
 									if(key){
+										if( key == "birthdate" || (key == "baptismdate" && value != null)){
+											var dateArray = value.split("/");
+											value = new Date(dateArray[2], dateArray[0], dateArray[1], +8, 0, 0)
+										}
 										rowData[key] = value;
 									}
 								}
