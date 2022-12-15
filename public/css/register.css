@@ -7,6 +7,15 @@
     color: rgb(89, 89, 89);
 }
 
+.baptism {
+    /* width: fit-content; */
+    padding: 1px 10px 1px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    background-color: rgba(227, 226, 224, 0.5);
+    color: rgb(50, 48, 44);
+}
+
 /* below sm */
 @media (max-width: 767.98px) {
     .border-end {

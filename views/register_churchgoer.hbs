@@ -33,6 +33,8 @@
     </head>
     <body>
         <div class="container-fluid">
+            {{> helpModalChurchgoer}}
+
             <div>
                 {{!-- Navigation Bar --}}
                 {{> navbar}}
@@ -162,7 +164,14 @@
                         </div>
                         {{!-- Help button --}}
                         <div>
-                            <button type="button" id="download_template" class="fa-button">
+                            <button
+                                type="button"
+                                id="trigger-help-modal"
+                                class="fa-button"
+                                type="button"
+                                aria-label="trigger-help-modal"
+                                data-bs-toggle="modal"
+			                    data-bs-target="#help-modal">
                                 <i class="fa-regular fa-circle-question"></i>
                             </button>
                         </div>

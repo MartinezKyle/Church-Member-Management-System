@@ -32,6 +32,8 @@
         <title>UCCA</title>
     </head>
     <body>
+        {{> helpModalModerator}}
+
         <div class="container-fluid">
             <div>
                 {{!-- Navigation Bar --}}
@@ -111,7 +113,17 @@
                             </div>
                             
                             <div>
-                                <button type="button" id="download_template" class="fa-button">
+                                {{!-- <button type="button" id="download_template" class="fa-button">
+                                    <i class="fa-regular fa-circle-question"></i>
+                                </button> --}}
+                                <button
+                                    type="button"
+                                    id="trigger-help-modal"
+                                    class="fa-button"
+                                    type="button"
+                                    aria-label="trigger-help-modal"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#help-modal">
                                     <i class="fa-regular fa-circle-question"></i>
                                 </button>
                             </div>

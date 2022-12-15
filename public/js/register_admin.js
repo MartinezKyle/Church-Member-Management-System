@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 		}
 	});
 	
-	$("#download_template").click(function () {
+	$(".download-template").click(function () {
 		window.open('/csv_templates/admins.csv');
 	});  
 });

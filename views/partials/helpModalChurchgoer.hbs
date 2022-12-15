@@ -1,0 +1,71 @@
+<div class="modal fade" id="help-modal" tabindex="-1" aria-labelledby="edit-churchgoer-modal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">How to Bulk Register Using a CSV File</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body">
+        <div class="mb-5">
+          <h6>Step 1: Downloading the Template</h6>
+          <p>Registering multiple users requires a CSV file with a specific format like so:</p>
+          <table class="table table-sm">
+            <thead>
+                <tr>
+                <th scope="col">phonenum</th>
+                <th scope="col">lastname</th>
+                <th scope="col">firstname</th>
+                <th scope="col">birthdate</th>
+                <th scope="col">...</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>09879879887</td>
+                <td>Dela Cruz</td>
+                <td>Juan</td>
+                <td>12/31/2000</td>
+                <td>...</td>
+              </tr>
+              <tr>
+                <td>09914567890</td>
+                <td>Higashino</td>
+                <td>Keigo</td>
+                <td>12/31/2000</td>
+                <td>...</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>You can download a CSV template by clicking the
+            <button type="button" class="btn btn-primary btn-sm download-template">
+              Download
+            </button>
+            button below
+          </p>
+        </div>
+        <div class="mb-5">
+          <h6>Step 2: Filling up the rows</h6>
+          <p>The template already has examples on to fill each column, but these are to note:</p>
+          <ul>
+            <li>Dates must be in a format of dd/mm/yyyy</li>
+            <li>If the person is <span class="baptism m-0">Unbaptized</span>, there is no need to fill up the baptismdate and baptismlocation fields</li>
+          </ul>
+        </div>
+        <div class="mb-5">
+          <h6>Step 3. Uploading the File</h6>
+          <p>Save your changes to the CSV file and upload it. After, only then you can click the <button type="button" class="btn btn-dark btn-sm">Bulk Registration</button> button</p>
+        </div>
+        <div>
+          <h6>Step 4. You're Done! :D</h6>
+          <p>You can go to the <a href="/loadMembers">Churchgoers page</a> to see if it worked right after!</p>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary download-template">Download CSV Template</a>
+      </div>
+    </div>
+  </div>
+</div>
