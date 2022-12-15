@@ -71,11 +71,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
             $.get('updateModerator', {origphonenum: origphonenum, phonenum: phonenum, lastname:lastname, firstname:firstname, password:password1}, function (result) {
 				console.log(result);
 				if (result){
-					alert(lastname + ", " + firstname + "'s Data is successfuly updated");
+					// alert(lastname + ", " + firstname + "'s Data is successfuly updated");
 					window.location.href ="/load_moderators";
 				}
 				else{
-					alert("There is an error in updating " + lastname + ", " + firstname + "'s data");
+					// alert("There is an error in updating " + lastname + ", " + firstname + "'s data");
 				}
 			});
         }

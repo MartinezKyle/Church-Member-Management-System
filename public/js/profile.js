@@ -109,11 +109,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
 			$.get('updateCG', {origphonenum: origphonenum, phonenum: phonenum, lastname:lastname, firstname:firstname, birthdate: birthdate, address:address, gender:gender, baptism: baptism, baptismlocation: baptismlocation, baptismdate: baptismdate}, function (result) {
 				console.log(result);
 				if (result){
-					alert(lastname + ", " + firstname + "'s Data is successfuly updated");
+					// alert(lastname + ", " + firstname + "'s Data is successfuly updated");
 					window.location.href ="/profile?phonenum=" + phonenum;
 				}
 				else{
-					alert("There is an error in updating " + lastname + ", " + firstname + "'s data");
+					// alert("There is an error in updating " + lastname + ", " + firstname + "'s data");
 				}
 			});
         };
