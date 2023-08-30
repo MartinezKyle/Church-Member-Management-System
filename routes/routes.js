@@ -1,70 +1,28 @@
 const express = require('express');
 const controller = require('../controllers/controller.js');
-const login_controller = require('../controllers/login_controller.js');
-const memberlist_controller = require('../controllers/memberlist_controller.js');
-const moderatorlist_controller = require('../controllers/moderatorlist_controller.js');
-const attendance_controller = require('../controllers/attendance_controller.js');
-const register_churchgoer_controller = require('../controllers/register_churchgoer_controller.js');
-const sessions_controller = require('../controllers/sessions_controller.js');
-const register_admin_controller = require('../controllers/register_admin_controller.js')
+const formController = require('../controllers/formController.js');
+const loginController = require('../controllers/loginController.js');
 const app = express.Router();
 
-const session = require('express-session');
-const MongoDBSession = require('connect-mongodb-session')(session);
-
-//-------- Webpages ----------//
-//app.get('/', controller.getIndex);
-//app.get('/getIndex', controller.getIndex);
-//app.get('/login', controller.loadLogin);
 app.get('/', controller.getIndex);
-app.get('/login', controller.loadLogin);
-app.get('/register-churchgoer', controller.loadRegisterChurchgoer);
-app.get('/register-moderator', controller.loadRegisterModerator);
+//app.get('/login', controller.getLogin);
 
-app.get('/loadMembers', controller.loadMembers);
-
-app.get('/load_moderators', controller.loadModerators);
-app.get('/profile', controller.loadProfile);
-app.get('/admin_homepage', controller.loadAdminHP);
-app.get('/attendance', controller.loadAttendance);
-
-app.get('/sessions', controller.loadSessions);
-
-app.get('/deleteMember', memberlist_controller.deleteMember);
-app.get('/deleteModerator', moderatorlist_controller.deleteModerator);
-app.get('/addSession', sessions_controller.addSession);
-app.get('/deleteSession', sessions_controller.deleteSession);
-app.get('/sessionAttendance', controller.loadSessionAttendance);
-app.get('/deleteAttendance', attendance_controller.deleteAttendance);
-
-//-------- Members Info ---------//
-app.get('/addMembers', register_churchgoer_controller.addMembers);
-app.get('/addAttendance', attendance_controller.addAttendance);
-
-//-------- Register Actions ---------//
-app.get('/addUser', register_churchgoer_controller.getAdd);
-app.post('/addMultipleCG', register_churchgoer_controller.addMultiple);
-app.get('/getCheckPhone', register_churchgoer_controller.getCheckPhone);
-app.get('/updateCG', register_churchgoer_controller.updateOne);
-app.get('/addMod', register_admin_controller.getAdd);
-app.post('/addMultipleMod', register_admin_controller.addMultiple);
-app.get('/getCheckPhoneMod', register_admin_controller.getCheckPhone);
-app.get('/updateModerator', moderatorlist_controller.updateOne);
-
-//-------- Login Checking ----------//
-app.post('/CheckLogin', login_controller.CheckLogin);
-app.get('/AllowLogin', controller.AllowLogin);
-app.get('/Logout', controller.Logout);
-
-//-------- Attendance Checking ----------//
-app.get('/getCheckAttendance', attendance_controller.getCheckAttendance);
-
-//--------- Report Generation ----------//
-app.get('/generateReport', sessions_controller.generateReport);
-app.get('/generateAttendence', attendance_controller.generateAttendence);
-
-//--------- Search ---------//
-app.post('/searchInfo', sessions_controller.searchInfo);
-app.post('/searchPhone', controller.searchPhone);
-
+app.get('/form', formController.getForm);
+app.post('/submit_form', formController.submitForm);
+app.get('/getDepartments', formController.getDepartments);
+app.get('/getSubcategory', formController.getSubCategory);
+app.get('/login', controller.getLogin);
+app.post('/checkLogin', loginController.checkLogin);
+app.post('/createSession', controller.createSession);
+app.get('/getDetails', loginController.getDetails);
+app.get('/home', controller.getHome);
+app.get('/ticket', controller.getTicket);
+app.post('/updateTicket', controller.updateTicket);
+app.get('/endSession', controller.destroySession);
+app.get('/report', controller.getReport);
+app.get('/statusReport', controller.getStatusReport);
+app.get('/categoryReport', controller.getCategoryReport);
+app.get('/errorReport', controller.getErrorReport);
+app.get('/top5Report', controller.getTop5Report);
+app.get('/table_filter',controller.getHomeFilter);
 module.exports = app;

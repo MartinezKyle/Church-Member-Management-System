@@ -1,0 +1,9 @@
+.rounded{
+    border-radius:0.75rem !important;
+}
+#tickets_filter{
+    margin-right: 0;
+}
+#dataTables_length{
+    margin-left: 0;
+}

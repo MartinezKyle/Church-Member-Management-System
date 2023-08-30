@@ -1,27 +1,27 @@
 {
-  "name": "CSSWENG",
+  "name": "ticketing-system",
   "version": "1.0.0",
-  "description": "Major Course Output ver 1",
-  "main": "app.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "CSSWENG",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^5.1.0",
-    "body-parser": "^1.20.1",
-    "connect-mongodb-session": "^3.1.1",
-    "csvtojson": "^2.0.10",
-    "dotenv": "^16.0.1",
-    "express": "^4.18.1",
-    "express-favicon": "^2.0.1",
-    "express-formidable": "^1.2.0",
-    "express-handlebars": "^6.0.6",
-    "express-router": "^0.0.1",
+    "body-parser": "^1.20.2",
+    "cookie-parser": "^1.4.6",
+    "express": "^4.18.2",
     "express-session": "^1.17.3",
-    "mongodb": "^4.7.0",
-    "mongoose": "^6.3.8"
+    "fs": "^0.0.1-security",
+    "hbs": "^4.2.0",
+    "koekje": "^0.2.0",
+    "mysql": "^2.18.1",
+    "node-sessionstorage": "^1.0.0",
+    "path": "^0.12.7",
+    "querystringify": "^2.2.0",
+    "session-file-store": "^1.5.0",
+    "sessionstorage": "^0.1.0"
   }
 }

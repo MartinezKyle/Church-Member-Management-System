@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <title>Ticket {{controlNumber}}</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="text/javascript" src="/js/ticket.js"></script>
+    </head>
+    <body>
+        {{#each info}}
+            <p><b>Control Number:</b></p>
+            <p id="controlnumber" data-controlnumber="{{control_number}}">{{control_number}}</p>
+            <!--<input type="text" id="controlNumber" name="controlNumber" value="{{controlNumber}}" readonly="true"><br>-->
+            <p></p>
+            <p><b>Date Posted:</b></p>
+            <p>{{timestamp}}</p>
+            <p><b>Requestor:</b></p>
+            <p>{{name}}</p>
+            <p><b>Date:</b></p>
+            <p>{{date}}</p>
+            <p><b>Email Address:</b></p>
+            <p>{{email_address}}</p>
+            <p><b>Division:</b></p>
+            <p>{{division}}</p>
+            <p {{hideDept}}><b>Department:</b></p>
+            <p {{hideDept}}>{{department}}</p>
+            <p><b>Property:</b></p>
+            <p>{{property}}</p>
+            <p><b>iFAE Concern:</b></p>
+            <p>{{category}}</p>
+            <p><b>{{category}} Concern:</b></p>
+            <p>{{subcategory}}<span {{hideOther}}> {{other}}</span></p>
+            <p><b>Concern:</b></p>
+            <p>{{concern}}</p>
+        {{/each}}
+            <label for="error">Error Type:</label><br>
+            <select name="error" id="error" data-olderror="{{errorCodeCurrent}}" {{authorized}}>
+                <option value="{{errorCodeCurrent}}" selected hidden>{{errorCurrent}}</option>
+                {{#each errorItem}}
+                <option value="{{id}}">{{error}}</option>
+                {{/each}}
+            </select><br>    
+            <label for="resolution">Resolution: </label><br>
+            <input type="text" id="resolution" name="resolution" value="{{resolution}}" data-oldresolution="{{resolution}}" {{authorized}}><br>
+            
+            <p><b>Assigned Personnel: </b></p>
+            <p id="qaqc" data-qaqc="{{qaqcCode}}">{{qaqc}}</p>
+            
+            <label for="priority">Priority:</label><br>
+            <select name="priority" id="priority" data-oldpriority="{{priorityCodeCurrent}}" {{authorized}}>
+                <option value="{{priorityCodeCurrent}}" selected hidden>{{priorityCurrent}}</option>
+                {{#each priorityItem}}
+                <option value="{{id}}">{{priority}}</option>
+                {{/each}}
+            </select><br>
+            
+            <label for="status">Status:</label><br>
+            <select name="status" id="status" data-oldstatus="{{statusCodeCurrent}}" {{authorized}}>
+                <option value="{{statusCodeCurrent}}" selected hidden>{{statusCurrent}}</option>
+                {{#each statusItem}}
+                <option value="{{id}}">{{status}}</option>
+                {{/each}}
+            </select><br>
+            
+            <p><b>Date Completed: </b></p>
+            <p id="datecompleted" data-datecompleted="{{dateCompleted}}">{{dateCompleted}}</p>
+            
+            <label for="transfer">Transfer to:</label><br>
+            <select name="transfer" id="transfer" data-oldqaqc="{{qaqcCode}}" {{authorized}}>
+                <option value="{{qaqcCode}}" selected hidden>{{qaqc}}</option>
+                {{#each qaqc_user}}
+                <option value="{{id}}">{{name}}</option>
+                {{/each}}
+            </select><br>
+            
+            <button id="updateticket" disabled>Update Ticket</button>
+    </body>
+</html>

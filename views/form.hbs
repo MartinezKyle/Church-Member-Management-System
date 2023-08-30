@@ -1,0 +1,170 @@
+<html>
+    <head>
+        <title>IT Request Form - iFAE Concerns</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="/js/form.js"></script>
+    </head>
+    <body>
+        <div style="padding: 6.25% 12.5% 6.25% 12.5%;align-items: center;">
+            <div class="card" style="display: flex !important; border: 2px solid rgba(0, 0, 0, 0.375); margin: auto;" >
+                <div class="card-header py-3 bg-success text-light">
+                    <h3 id="header" class="mb-0">IT Request Form - iFAE Concerns</h3>
+                </div>
+                <div class="card-body">
+                    <div class="mb-4">
+                        <b><label for="name" class="form-label">Name</label></b>
+                        <input class="form-control" type="text" id="name" name="name">
+                        <p class="my-0 text-danger" id="name_error_message"></p>
+                    </div>
+                    <div class="mb-4">
+                        <b><label for="date" class="form-label">Date</label></b>
+                        <input class="form-control" type="date" id="date" name="date">
+                        <p class="my-0 text-danger" id="date_error_message"></p>
+                    </div>
+                    <div class="mb-4">
+                        <b><label for="email_address" class="form-label">Email Address</label></b>
+                        <input class="form-control" type="text" id="email_address" name="email_address">
+                        <p class="my-0 text-danger" id="email_error_message"></p>
+                    </div>
+                    <div class= "row mb-4">
+                        <div class="col">
+                            <b><label for="division" class="form-label">Division:</label></b>
+                            <select class="form-select" name="division" id="division">
+                                <option value="" selected>Choose Division:</option>
+                            {{#each division}}
+                                <option value="{{id}}">{{division}}</option>
+                            {{/each}}
+                            </select>
+                            <p class="my-0 text-danger" id="division_error_message"></p>
+                        </div>
+                        <div class="col-md-12 col-lg-6 department_column d-none">
+                            <b><label for="department" class="form-label">Department:</label></b>
+                            <select class="form-select"name="department" id="department" disabled>
+                            </select>
+                            <p class="my-0 text-danger" id="department_error_message"></p>
+                        </div>                           
+                    </div>
+                    <div class="mb-4 property_container d-none">
+                        <b><label for="property" class="form-label">Property:</label></b>
+                        <select class="form-select" name="property" id="property" disabled>
+                            <option value="" selected>Choose Property:</option>
+                        {{#each property}}
+                            <option value="{{id}}">{{property}}</option>
+                        {{/each}}
+                        </select>
+                        <p class="my-0 text-danger" id="property_error_message"></p>
+                    </div>
+                    <div class="mb-4 part2 ifae_category_container d-none">
+                        <b><label for="ifaecategory" class="form-label">iFAE Concern Category</label></b>
+                        <select class="form-select" name="ifaecategory" id="ifaecategory" disabled>
+                            <option value="" selected>Choose:</option>
+                        {{#each category}}
+                            <option value="{{id}}">{{category}}</option>
+                        {{/each}}
+                        </select>
+                        <p class="my-0 text-danger" id="category_error_message"></p>
+                    </div>
+                    <div class="row mb-4 subcategory_container d-none">
+                        <b><label for="subcategory" class="form-label">Select Concern:</label></b>
+                        <div class="col">
+                            <select class="form-select"name="subcategory" id="subcategory" disabled>
+                            </select>
+                            <p class="my-0 text-danger" id="subcategory_error_message"></p>
+                        </div>
+                        <div class="col col-md-8 col-sm-12 other_container d-none" style="flex-grow: 1">
+                            <textarea class="form-control" id="other" name="other" disabled></textarea>
+                            <p class="my-0 text-danger" id="other_error_message"></p>
+                        </div>
+                    </div>
+                    <div class="mb-4 concern_container d-none">
+                        <b><label for="concern" class="form-label">Concern: </label></b>
+                        <textarea class="form-control" id="concern" name="concern" disabled></textarea>
+                        <p class="my-0 text-danger" id="concern_error_message"></p>
+                    </div>
+                    <div class="mb-4 submit_container d-none">
+                        <button type="button" class="btn btn-secondary btn-lg btn-block" data-bs-toggle="modal" data-bs-target="#reviewModal" id="submit" disabled>Submit Concern</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="reviewModal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal_title">Review Entry</h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row p-1">
+                            <p class="mb-0"><b>Name:</b></p>
+                            <p class="ps-4 border border-light mb-0 " id="modal_name"></p>
+                        </div>
+                        <div class="row p-1">
+                            <p class="mb-0"><b>Date:</b></p>
+                            <p class="ps-4 border border-light mb-0 " id="modal_date"></p>
+                        </div>
+                        <div class="row p-1">
+                            <p class="mb-0"><b>Email Address:</b></p>
+                            <p class="ps-4 border border-light mb-0 " id="modal_email_address"></p>
+                        </div>
+                        <div class="row p-1">
+                            <p class="mb-0"><b>Division:</b></p>
+                            <p class="ps-4 border border-light mb-0 " id="modal_division"></p>
+                        </div>
+                        <div class="row p-1 d-none" id="modal_department_container">
+                            <p class="mb-0"><b>Department:</b></p>
+                            <p class="ps-4 border border-light mb-0 " id="modal_department"></p>
+                        </div>
+                        <div class="row p-1">
+                            <p class="mb-0"><b>Property:</b></p>
+                            <p class="ps-4 border border-light mb-0 " id="modal_property"></p>
+                        </div>
+                        <div class="row p-1">
+                            <p class="mb-0"><b>iFAE Concern catgeory:</b></p>
+                            <p class="ps-4 border border-light mb-0 " id="modal_category"></p>
+                        </div>
+                        <div class="row p-1">
+                            <p class="mb-0"><b id="modal_subcategory_container"></b></p>
+                            <p class="ps-4 border border-light mb-0 "><span id="modal_subcategory"></span> <span class="d-none" id="modal_other"></span></p>
+                        </div>
+                        <div class="row p-1">
+                            <p class="mb-0"><b>Concern:</b></p>
+                            <p class="ps-4 border border-light mb-0 " id="modal_concern"></p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary close" data-bs-dismiss="modal">Return to Form</button>
+                        <button type="button" class="btn btn-primary" id="submit_modal" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#successModal">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title" id="modal_title">Request successfully submitted</h2>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="success_modal_body">
+                        <h5>Thank you! Your request has been submitted</h5>
+                        <h4>Control Number: <b id="modal_control_number"></b></h4>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary close new_form" data-bs-dismiss="modal" id="new_form">Submit Another Request</button>
+                        <button type="button" class="btn btn-primary close go_home" data-bs-dismiss="modal" id="go_home">Return to Home</button>
+                        <button type="button" class="btn btn-secondary close d-none" data-bs-dismiss="modal" id="return_form">Return to Form</button>
+                        <button type="button" class="btn btn-primary d-none" id="submit_modal" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#successModal" id="re-open">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
